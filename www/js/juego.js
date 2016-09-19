@@ -144,6 +144,12 @@ function desordenar(){
 				'left' : posicionCeldaImagen[i][j].x
             });
             
+            var celdaImagen = $('#celda-imagen-' + swap_i + '-' + swap_j);
+            celdaImagen.css({
+				'top' : posicionCeldaImagen[swap_i][swap_j].y,
+				'left' : posicionCeldaImagen[swap_i][swap_j].x
+            });
+            
             
         }
     }
