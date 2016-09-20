@@ -2,6 +2,8 @@ var tabla = [];
 var esCeldaActualizable = [];
 var permutacion = [1,2,3,4,5,6,7,8];
 var posicionCeldaImagen = [];
+var posicionCelda = [];
+var celdaPosicion = [];
 
 var startX = 0;
 var startY = 0;
@@ -58,14 +60,18 @@ function inicializarTablero(){
         tabla[i] = [];
         esCeldaActualizable[i] = [];
         posicionCeldaImagen[i] = [];
+        posicionCelda[i] = [];
+        celdaPosicion[i] = []
         for(var j = 0; j < 3; j++){
             tabla[i][j] = i*dimTablero + j;
             esCeldaActualizable[i][j] = false;
-            posicionCeldaImagen[i][j] = { x: getPosLeft(i,j), y: getPosTop(i,j) }
+            posicionCeldaImagen[i][j] = { x: getPosLeft(i,j), y: getPosTop(i,j) };
+            posicionCelda[i][j] = {i_elem:i,j_elem:j};
+            celdaPosicion[i][j] = {i:i,j:j};
         }
     }
     
-    
+    $('.celda-imagen').remove();
 	for(var i = 0; i < 3; i++){
 		for(var j = 0; j < 3; j++){
 			$('#tablero').append('<div class="celda-imagen" id="celda-imagen-' + i + '-' + j + '"></div>');
@@ -138,6 +144,12 @@ function desordenar(){
             posicionCeldaImagen[i][j] = posicionCeldaImagen[swap_i][swap_j];
             posicionCeldaImagen[swap_i][swap_j] = swapVar;
             
+            posicionCelda[i][j] = {i_elem:swap_i,j_elem:swap_j};
+            posicionCelda[swap_i][swap_j] = {i_elem:i,j_elem:j};
+            
+            celdaPosicion[i][j] = {i_elem:swap_i,j_elem:swap_j};
+            celdaPosicion[swap_i][swap_j] = {i_elem:i,j_elem:j};
+            
             var celdaImagen = $('#celda-imagen-' + i + '-' + j);
             celdaImagen.css({
 				'top' : posicionCeldaImagen[i][j].y,
@@ -188,7 +200,7 @@ document.addEventListener('touchend', function(event){
 			}
 		}else{
 			
-			if(moverIzquierda()){
+			if(moverIzquierda(event)){
 				setTimeout(function(){
 					 haTerminadoLaPartida();
 				},250);
@@ -247,30 +259,55 @@ function moverDerecha(event){
 		'top' : posicionCeldaImagen[i][j+1].y,
 		'left' : posicionCeldaImagen[i][j+1].x
     });
-    
+    return true;
 }
 
 
 function moverIzquierda(event){
     
-    var elementoTocado = event.target;
-    var esquinaSupIzq_X = parseInt(elementoTocado.css('left'), 10);
     
-    if (esquinaSupIzq_X - 1 <= 0){
+    var elementoTocado = event.target;
+    var nombreElemTocado = elementoTocado.getAttribute('id');
+    var elemTocadoJQuery = $('#'+nombreElemTocado)
+    var esquinaSupIzq_X = parseInt(elemTocadoJQuery.css('left'), 10);
+    
+    if (esquinaSupIzq_X - espacioDeCelda -1 <= 0){
         return false;
     }
     
-    var nombreElemTocado = elementoTocado.getAttribute('id');
     var nombreParseado = nombreElemTocado.split("-");
-    var nombre_i = nombreParseado[1];
-    var nombre_j = nombreParseado[2];
+    var nombre_i = nombreParseado[2];
+    var nombre_j = nombreParseado[3];
     
     var i = parseInt(nombre_i, 10);
     var j = parseInt(nombre_j, 10);
     
-    var swapPos = posicionCeldaImagen[i][j-1]
-    posicionCeldaImagen[i][j-1] = posicionCeldaImagen[i][j];
-    posicionCeldaImageb[i][j] = swapPos;
+    
+    var x = posicionCelda[i][j].i_elem;
+    var y = posicionCelda[i][j].j_elem;
+    
+    //var i_izq = Math.floor(tabla[x][y-1]/dimTablero);
+    //var j_izq = tabla[x][y-1] % dimTablero;
+    
+    var i_izq = celdaPosicion[x][y-1].i;
+    var j_izq = celdaPosicion[x][y-1].j;
+    
+    var swap_num = tabla[x][y];
+    tabla[x][y] = tabla[x][y -1];
+    tabla[x][y -1] = swap_num;
+    
+    var swapPos = posicionCeldaImagen[i_izq][j_izq];
+    posicionCeldaImagen[i_izq][j_izq] = posicionCeldaImagen[i][j];
+    posicionCeldaImagen[i][j] = swapPos;
+    
+    var new_i = posicionCelda[i_izq][j_izq].elem_i;
+    var new_j = posicionCelda[i_izq][j_izq].elem_j;
+    posicionCelda[i_izq][j_izq]={elem_i:x,elem_j:y};
+    posicionCelda[i][j]={elem_i:(x-1),elem_j:y};
+    
+    var swap_me = celdaPosicion[x][y];
+    celdaPosicion[x][y] = celdaPosicion[x][y-1];
+    celdaPosicion[x][y-1] = swap_me;
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
@@ -278,12 +315,12 @@ function moverIzquierda(event){
 		'left' : posicionCeldaImagen[i][j].x
     });
     
-    var celdaImagenVacia = $('#celda-imagen-' + i + '-' + (j-1));
+    var celdaImagenVacia = $('#celda-imagen-' + i_izq.toString(10)+ '-' + j_izq.toString(10));
     celdaImagenVacia.css({
-		'top' : posicionCeldaImagen[i][j-1].y,
-		'left' : posicionCeldaImagen[i][j-1].x
+		'top' : posicionCeldaImagen[i_izq][j_izq].y,
+		'left' : posicionCeldaImagen[i_izq][j_izq].x
     });
-    
+    return true;
 }
 function moverAbajo(){return false;}
 function moverArriba(){return false;}
