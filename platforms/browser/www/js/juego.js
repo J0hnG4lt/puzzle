@@ -1,9 +1,7 @@
 var tabla = [];
-var esCeldaActualizable = [];
 var permutacion = [1,2,3,4,5,6,7,8];
 var posicionCeldaImagen = [];
-var posicionCelda = [];
-var celdaPosicion = [];
+
 
 var startX = 0;
 var startY = 0;
@@ -33,11 +31,6 @@ function prepararResponsive(){
         'height': anchoDePantalla - 2*espacioDeCelda,
         'padding': espacioDeCelda
     });
-    
-    $('.tablero-celda').css({
-        'width': anchoDeCelda,
-        'height': anchoDeCelda
-    });
 }
 
 function comenzarPartida(){
@@ -48,90 +41,57 @@ function comenzarPartida(){
 }
 
 function inicializarTablero(){
-    for(var i = 0; i < 3; i++){
-        for(var j = 0; j < 3; j++){
-            var tableroCelda = $('#tablero-celda-' + i + '-' + j);
-            tableroCelda.css('top', getPosTop(i, j));
-            tableroCelda.css('left', getPosLeft(i, j));
-        }
-    }
 
     for(var i = 0; i < 3; i++){
+        
         tabla[i] = [];
-        esCeldaActualizable[i] = [];
         posicionCeldaImagen[i] = [];
-        posicionCelda[i] = [];
-        celdaPosicion[i] = []
+
         for(var j = 0; j < 3; j++){
+            
             tabla[i][j] = i*dimTablero + j;
-            esCeldaActualizable[i][j] = false;
             posicionCeldaImagen[i][j] = { x: getPosLeft(i,j), y: getPosTop(i,j) };
-            posicionCelda[i][j] = {i_elem:i,j_elem:j};
-            celdaPosicion[i][j] = {i:i,j:j};
+
         }
     }
     
     $('.celda-imagen').remove();
-	for(var i = 0; i < 3; i++){
-		for(var j = 0; j < 3; j++){
-			$('#tablero').append('<div class="celda-imagen" data-xpos='+i+' data-ypos='+j+' id="celda-imagen-' + i + '-' + j + '"></div>');
-			var celdaImagen = $('#celda-imagen-' + i + '-' + j);
-            
-			celdaImagen.css({
-				'width' : anchoDeCelda,
-				'height' : anchoDeCelda,
-				'top' : getPosTop(i, j),
-				'left' : getPosLeft(i, j),
-				'background-repeat': 'no-repeat',
-        		'background-image': "url('../img/cueva.jpg')",
-        		'background-position-x': -getPosLeft(i,j), 
-        		'background-position-y': -getPosTop(i,j)
-			});
-			
-			if ((i==0)&&(j==0)){celdaImagen.css({"background-image": "none"});}
-			
-		}
-		
-	}
-	
     
-    //actualizarVistaTablero();
+    for(var i = 0; i < 3; i++){
+        
+        for(var j = 0; j < 3; j++){
+            
+            $('#tablero').append('<div class="celda-imagen" data-xpos='+i+' data-ypos='+j+' id="celda-imagen-' + i + '-' + j + '"></div>');
+            var celdaImagen = $('#celda-imagen-' + i + '-' + j);
+            
+            celdaImagen.css({
+                'width' : anchoDeCelda,
+                'height' : anchoDeCelda,
+                'top' : getPosTop(i, j),
+                'left' : getPosLeft(i, j),
+                'background-repeat': 'no-repeat',
+                'background-image': "url('../img/cueva.jpg')",
+                'background-position-x': -getPosLeft(i,j), 
+                'background-position-y': -getPosTop(i,j)
+            });
+            
+            if ((i==0)&&(j==0)){celdaImagen.css({"background-image": "none"});}
+            
+        }
+        
+    }
+    
     
 }
 
-/*
-function actualizarVistaTablero(){
-    
-    $('.celda-imagen').remove();
-    
-	for(var i = 0; i < 3; i++){
-		for(var j = 0; j < 3; j++){
-			
-			$('#tablero').append('<div class="celda-imagen" id="celda-imagen-' + i + '-' + j + '"></div>');
-			var celdaImagen = $('#celda-imagen-' + i + '-' + j);
-			celdaImagen.css({
-				'width' : cellSideLength,
-				'height' : cellSideLength,
-				'top' : getPosTop(i, j),
-				'left' : getPosLeft(i, j),
-				'background-repeat': 'no-repeat',
-        		'background-image': "url('../img/cueva.jpg')",
-        		'background-position-x': -getPosLeft(i,j), 
-        		'background-position-y': -getPosTop(i,j)
-			});
-			
-			
-			esCeldaActualizable[i][j] = false;
-		}
-	}
-}
-*/
+
 
 function desordenar(){
     
     var nuevaPermutacion = _.shuffle(permutacion);
     
     for(var i = 0; i < 3; i++){
+        
         for(var j = 0; j < 3; j++){
             
             if ((i==0) && (j==0)) {continue;}
@@ -141,16 +101,11 @@ function desordenar(){
             var swapVar = posicionCeldaImagen[i][j];
             var swap_i = Math.floor(tabla[i][j]/dimTablero);
             var swap_j = tabla[i][j] % dimTablero;
+            
             posicionCeldaImagen[i][j] = posicionCeldaImagen[swap_i][swap_j];
             posicionCeldaImagen[swap_i][swap_j] = swapVar;
             
-            posicionCelda[i][j] = {i_elem:swap_i,j_elem:swap_j};
-            posicionCelda[swap_i][swap_j] = {i_elem:i,j_elem:j};
-            
-            celdaPosicion[i][j] = {i_elem:swap_i,j_elem:swap_j};
-            celdaPosicion[swap_i][swap_j] = {i_elem:i,j_elem:j};
-            
-            //
+
             var nombreImagenSwap = "celda-imagen-"+swap_i.toString(10)+'-'+swap_j.toString(10);
             var pos_x_swap = $('#'+nombreImagenSwap).attr("data-xpos");
             var pos_y_swap = $('#'+nombreImagenSwap).attr("data-ypos");
@@ -167,14 +122,14 @@ function desordenar(){
             
             var celdaImagen = $('#celda-imagen-' + i + '-' + j);
             celdaImagen.css({
-				'top' : posicionCeldaImagen[i][j].y,
-				'left' : posicionCeldaImagen[i][j].x
+                'top' : posicionCeldaImagen[i][j].y,
+                'left' : posicionCeldaImagen[i][j].x
             });
             
             var celdaImagen = $('#celda-imagen-' + swap_i + '-' + swap_j);
             celdaImagen.css({
-				'top' : posicionCeldaImagen[swap_i][swap_j].y,
-				'left' : posicionCeldaImagen[swap_i][swap_j].x
+                'top' : posicionCeldaImagen[swap_i][swap_j].y,
+                'left' : posicionCeldaImagen[swap_i][swap_j].x
             });
             
             
@@ -184,60 +139,60 @@ function desordenar(){
 }
 
 document.addEventListener('touchstart', function(event){
-	startX = event.touches[0].pageX;
-	startY = event.touches[0].pageY;
+    startX = event.touches[0].pageX;
+    startY = event.touches[0].pageY;
 });
 
 document.addEventListener('touchmove', function(event){
-	event.preventDefault();
+    event.preventDefault();
 });
 
 
 document.addEventListener('touchend', function(event){
-	
-	endX = event.changedTouches[0].pageX;
-	endY = event.changedTouches[0].pageY;
-	
-	var deltaX = endX - startX;
-	var deltaY = endY - startY;
-	
-	if(Math.abs(deltaX) < 0.08 * anchoDePantalla && Math.abs(deltaY) < 0.08 * anchoDePantalla){
-		return;
-	}
+    
+    endX = event.changedTouches[0].pageX;
+    endY = event.changedTouches[0].pageY;
+    
+    var deltaX = endX - startX;
+    var deltaY = endY - startY;
+    
+    if(Math.abs(deltaX) < 0.08 * anchoDePantalla && Math.abs(deltaY) < 0.08 * anchoDePantalla){
+        return;
+    }
 
-	if(Math.abs(deltaX) >= Math.abs(deltaY)){
-		if(deltaX > 0){
-			
-			if(moverDerecha(event)){
-				setTimeout(function(){
-					 haTerminadoLaPartida();
-				},250);
-			}
-		}else{
-			
-			if(moverIzquierda(event)){
-				setTimeout(function(){
-					 haTerminadoLaPartida();
-				},250);
-			}
-		}
-	}else{
-		if(deltaY > 0){
-			
-			if(moverAbajo(event)){
-				setTimeout(function(){
-					 haTerminadoLaPartida();
-				},250);
-			}
-		}else{
-			
-			if(moverArriba(event)){
-				setTimeout(function(){
-					 haTerminadoLaPartida();
-				},250);
-			}
-		}
-	}
+    if(Math.abs(deltaX) >= Math.abs(deltaY)){
+        if(deltaX > 0){
+            
+            if(moverDerecha(event)){
+                setTimeout(function(){
+                     haTerminadoLaPartida();
+                },250);
+            }
+        }else{
+            
+            if(moverIzquierda(event)){
+                setTimeout(function(){
+                     haTerminadoLaPartida();
+                },250);
+            }
+        }
+    }else{
+        if(deltaY > 0){
+            
+            if(moverAbajo(event)){
+                setTimeout(function(){
+                     haTerminadoLaPartida();
+                },250);
+            }
+        }else{
+            
+            if(moverArriba(event)){
+                setTimeout(function(){
+                     haTerminadoLaPartida();
+                },250);
+            }
+        }
+    }
 
 });
 
@@ -290,14 +245,14 @@ function moverDerecha(event){
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
-		'top' : posicionCeldaImagen[i][j].y,
-		'left' : posicionCeldaImagen[i][j].x
+        'top' : posicionCeldaImagen[i][j].y,
+        'left' : posicionCeldaImagen[i][j].x
     });
     
     var celdaImagenVacia = $('#celda-imagen-' + i_der.toString(10)+ '-' + j_der.toString(10));
     celdaImagenVacia.css({
-		'top' : posicionCeldaImagen[i_der][j_der].y,
-		'left' : posicionCeldaImagen[i_der][j_der].x
+        'top' : posicionCeldaImagen[i_der][j_der].y,
+        'left' : posicionCeldaImagen[i_der][j_der].x
     });
     return true;
 }
@@ -352,14 +307,14 @@ function moverIzquierda(event){
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
-		'top' : posicionCeldaImagen[i][j].y,
-		'left' : posicionCeldaImagen[i][j].x
+        'top' : posicionCeldaImagen[i][j].y,
+        'left' : posicionCeldaImagen[i][j].x
     });
     
     var celdaImagenVacia = $('#celda-imagen-' + i_izq.toString(10)+ '-' + j_izq.toString(10));
     celdaImagenVacia.css({
-		'top' : posicionCeldaImagen[i_izq][j_izq].y,
-		'left' : posicionCeldaImagen[i_izq][j_izq].x
+        'top' : posicionCeldaImagen[i_izq][j_izq].y,
+        'left' : posicionCeldaImagen[i_izq][j_izq].x
     });
     return true;
 }
@@ -414,14 +369,14 @@ function moverAbajo(event){
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
-		'top' : posicionCeldaImagen[i][j].y,
-		'left' : posicionCeldaImagen[i][j].x
+        'top' : posicionCeldaImagen[i][j].y,
+        'left' : posicionCeldaImagen[i][j].x
     });
     
     var celdaImagenVacia = $('#celda-imagen-' + i_abj.toString(10)+ '-' + j_abj.toString(10));
     celdaImagenVacia.css({
-		'top' : posicionCeldaImagen[i_abj][j_abj].y,
-		'left' : posicionCeldaImagen[i_abj][j_abj].x
+        'top' : posicionCeldaImagen[i_abj][j_abj].y,
+        'left' : posicionCeldaImagen[i_abj][j_abj].x
     });
     return true;
     
@@ -475,14 +430,14 @@ function moverArriba(event){
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
-		'top' : posicionCeldaImagen[i][j].y,
-		'left' : posicionCeldaImagen[i][j].x
+        'top' : posicionCeldaImagen[i][j].y,
+        'left' : posicionCeldaImagen[i][j].x
     });
     
     var celdaImagenVacia = $('#celda-imagen-' + i_arrb.toString(10)+ '-' + j_arrb.toString(10));
     celdaImagenVacia.css({
-		'top' : posicionCeldaImagen[i_arrb][j_arrb].y,
-		'left' : posicionCeldaImagen[i_arrb][j_arrb].x
+        'top' : posicionCeldaImagen[i_arrb][j_arrb].y,
+        'left' : posicionCeldaImagen[i_arrb][j_arrb].x
     });
     return true;
     
