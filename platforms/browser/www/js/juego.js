@@ -224,14 +224,14 @@ document.addEventListener('touchend', function(event){
 	}else{
 		if(deltaY > 0){
 			
-			if(moverAbajo()){
+			if(moverAbajo(event)){
 				setTimeout(function(){
 					 haTerminadoLaPartida();
 				},250);
 			}
 		}else{
 			
-			if(moverArriba()){
+			if(moverArriba(event)){
 				setTimeout(function(){
 					 haTerminadoLaPartida();
 				},250);
@@ -245,23 +245,48 @@ document.addEventListener('touchend', function(event){
 function moverDerecha(event){
     
     var elementoTocado = event.target;
-    var esquinaSupIzq_X = parseInt(elementoTocado.css('left'), 10);
+    var nombreElemTocado = elementoTocado.getAttribute('id');
+    var elemTocadoJQuery = $('#'+nombreElemTocado);
+    var esquinaSupIzq_X = parseInt(elemTocadoJQuery.css('left'), 10);
     
-    if (esquinaSupIzq_X + anchoDeCelda + 1 >= anchoDeTablero){
+    if (esquinaSupIzq_X + espacioDeCelda + anchoDeCelda + 1 >= anchoDeTablero){
         return false;
     }
     
-    var nombreElemTocado = elementoTocado.getAttribute('id');
+    
     var nombreParseado = nombreElemTocado.split("-");
-    var nombre_i = nombreParseado[1];
-    var nombre_j = nombreParseado[2];
+    var nombre_i = nombreParseado[2];
+    var nombre_j = nombreParseado[3];
     
     var i = parseInt(nombre_i, 10);
     var j = parseInt(nombre_j, 10);
     
-    var swapPos = posicionCeldaImagen[i][j+1]
-    posicionCeldaImagen[i][j+1] = posicionCeldaImagen[i][j];
-    posicionCeldaImageb[i][j] = swapPos;
+    
+    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
+    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
+    
+    var ypos_der = (parseInt(ypos_tocado,10) + 1).toString(10);
+    var xpos_der = xpos_tocado;
+    
+    var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_der+"][data-ypos="+ypos_der+"]");
+    
+    var i_der = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
+    var j_der = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
+    
+    if (i_der + j_der > 0){
+        
+        return false;}
+    
+    elemIzqJQuery.attr("data-xpos", xpos_tocado);
+    elemIzqJQuery.attr("data-ypos", ypos_tocado);
+    
+    elemTocadoJQuery.attr("data-xpos", xpos_der);
+    elemTocadoJQuery.attr("data-ypos", ypos_der);
+    
+    
+    var swap_pos = posicionCeldaImagen[i][j];
+    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_der][j_der];
+    posicionCeldaImagen[i_der][j_der] = swap_pos;
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
@@ -269,10 +294,10 @@ function moverDerecha(event){
 		'left' : posicionCeldaImagen[i][j].x
     });
     
-    var celdaImagenVacia = $('#celda-imagen-' + i + '-' + (j+1));
+    var celdaImagenVacia = $('#celda-imagen-' + i_der.toString(10)+ '-' + j_der.toString(10));
     celdaImagenVacia.css({
-		'top' : posicionCeldaImagen[i][j+1].y,
-		'left' : posicionCeldaImagen[i][j+1].x
+		'top' : posicionCeldaImagen[i_der][j_der].y,
+		'left' : posicionCeldaImagen[i_der][j_der].x
     });
     return true;
 }
@@ -283,7 +308,7 @@ function moverIzquierda(event){
     
     var elementoTocado = event.target;
     var nombreElemTocado = elementoTocado.getAttribute('id');
-    var elemTocadoJQuery = $('#'+nombreElemTocado)
+    var elemTocadoJQuery = $('#'+nombreElemTocado);
     var esquinaSupIzq_X = parseInt(elemTocadoJQuery.css('left'), 10);
     
     if (esquinaSupIzq_X - espacioDeCelda -1 <= 0){
@@ -298,34 +323,6 @@ function moverIzquierda(event){
     var i = parseInt(nombre_i, 10);
     var j = parseInt(nombre_j, 10);
     
-    /*
-    var x = posicionCelda[i][j].i_elem;
-    var y = posicionCelda[i][j].j_elem;
-    
-    //var i_izq = Math.floor(tabla[x][y-1]/dimTablero);
-    //var j_izq = tabla[x][y-1] % dimTablero;
-    
-    var i_izq = celdaPosicion[x][y-1].i;
-    var j_izq = celdaPosicion[x][y-1].j;
-    
-    var swap_num = tabla[x][y];
-    tabla[x][y] = tabla[x][y -1];
-    tabla[x][y -1] = swap_num;
-    
-    var swapPos = posicionCeldaImagen[i_izq][j_izq];
-    posicionCeldaImagen[i_izq][j_izq] = posicionCeldaImagen[i][j];
-    posicionCeldaImagen[i][j] = swapPos;
-    
-    var new_i = posicionCelda[i_izq][j_izq].elem_i;
-    var new_j = posicionCelda[i_izq][j_izq].elem_j;
-    posicionCelda[i_izq][j_izq]={elem_i:x,elem_j:y};
-    posicionCelda[i][j]={elem_i:(x-1),elem_j:y};
-    
-    var swap_me = celdaPosicion[x][y];
-    celdaPosicion[x][y] = celdaPosicion[x][y-1];
-    celdaPosicion[x][y-1] = swap_me;
-    */
-    
     
     var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
     var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
@@ -338,7 +335,9 @@ function moverIzquierda(event){
     var i_izq = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
     var j_izq = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
     
-    if ((i_izq != 0) || (j_izq != 0)){return false;}
+    if (i_izq + j_izq > 0){
+        
+        return false;}
     
     elemIzqJQuery.attr("data-xpos", xpos_tocado);
     elemIzqJQuery.attr("data-ypos", ypos_tocado);
@@ -349,7 +348,7 @@ function moverIzquierda(event){
     
     var swap_pos = posicionCeldaImagen[i][j];
     posicionCeldaImagen[i][j] = posicionCeldaImagen[i_izq][j_izq];
-    posicionCeldaImagen[i_izq][j_izq] = swap_pos
+    posicionCeldaImagen[i_izq][j_izq] = swap_pos;
     
     var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
     celdaImagenTocada.css({
@@ -364,6 +363,128 @@ function moverIzquierda(event){
     });
     return true;
 }
-function moverAbajo(){return false;}
-function moverArriba(){return false;}
+
+
+function moverAbajo(event){
+    
+    
+    var elementoTocado = event.target;
+    var nombreElemTocado = elementoTocado.getAttribute('id');
+    var elemTocadoJQuery = $('#'+nombreElemTocado);
+    var esquinaSupIzq_Y = parseInt(elemTocadoJQuery.css('top'), 10);
+    
+    if (esquinaSupIzq_Y + espacioDeCelda + anchoDeCelda +1 >= anchoDeTablero){
+        return false;
+    }
+    
+    
+    var nombreParseado = nombreElemTocado.split("-");
+    var nombre_i = nombreParseado[2];
+    var nombre_j = nombreParseado[3];
+    
+    var i = parseInt(nombre_i, 10);
+    var j = parseInt(nombre_j, 10);
+    
+    
+    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
+    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
+    
+    var xpos_abj = (parseInt(xpos_tocado,10) + 1).toString(10);
+    var ypos_abj = ypos_tocado;
+    
+    var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_abj+"][data-ypos="+ypos_abj+"]");
+    
+    var i_abj = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
+    var j_abj = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
+    
+    if (i_abj + j_abj > 0){
+        
+        return false;}
+    
+    elemIzqJQuery.attr("data-xpos", xpos_tocado);
+    elemIzqJQuery.attr("data-ypos", ypos_tocado);
+    
+    elemTocadoJQuery.attr("data-xpos", xpos_abj);
+    elemTocadoJQuery.attr("data-ypos", ypos_abj);
+    
+    
+    var swap_pos = posicionCeldaImagen[i][j];
+    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_abj][j_abj];
+    posicionCeldaImagen[i_abj][j_abj] = swap_pos;
+    
+    var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
+    celdaImagenTocada.css({
+		'top' : posicionCeldaImagen[i][j].y,
+		'left' : posicionCeldaImagen[i][j].x
+    });
+    
+    var celdaImagenVacia = $('#celda-imagen-' + i_abj.toString(10)+ '-' + j_abj.toString(10));
+    celdaImagenVacia.css({
+		'top' : posicionCeldaImagen[i_abj][j_abj].y,
+		'left' : posicionCeldaImagen[i_abj][j_abj].x
+    });
+    return true;
+    
+}
+
+
+function moverArriba(event){
+    
+    var elementoTocado = event.target;
+    var nombreElemTocado = elementoTocado.getAttribute('id');
+    var elemTocadoJQuery = $('#'+nombreElemTocado);
+    var esquinaSupIzq_Y = parseInt(elemTocadoJQuery.css('top'), 10);
+    
+    if (esquinaSupIzq_Y - espacioDeCelda -1 <= 0){
+        return false;
+    }
+    
+    var nombreParseado = nombreElemTocado.split("-");
+    var nombre_i = nombreParseado[2];
+    var nombre_j = nombreParseado[3];
+    
+    var i = parseInt(nombre_i, 10);
+    var j = parseInt(nombre_j, 10);
+    
+    
+    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
+    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
+    
+    var xpos_arrb = (parseInt(xpos_tocado,10) - 1).toString(10);
+    var ypos_arrb = ypos_tocado;
+    
+    var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_arrb+"][data-ypos="+ypos_arrb+"]");
+    
+    var i_arrb = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
+    var j_arrb = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
+    
+    if (i_arrb + j_arrb > 0){
+        
+        return false;}
+    
+    elemIzqJQuery.attr("data-xpos", xpos_tocado);
+    elemIzqJQuery.attr("data-ypos", ypos_tocado);
+    
+    elemTocadoJQuery.attr("data-xpos", xpos_arrb);
+    elemTocadoJQuery.attr("data-ypos", ypos_arrb);
+    
+    
+    var swap_pos = posicionCeldaImagen[i][j];
+    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_arrb][j_arrb];
+    posicionCeldaImagen[i_arrb][j_arrb] = swap_pos;
+    
+    var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
+    celdaImagenTocada.css({
+		'top' : posicionCeldaImagen[i][j].y,
+		'left' : posicionCeldaImagen[i][j].x
+    });
+    
+    var celdaImagenVacia = $('#celda-imagen-' + i_arrb.toString(10)+ '-' + j_arrb.toString(10));
+    celdaImagenVacia.css({
+		'top' : posicionCeldaImagen[i_arrb][j_arrb].y,
+		'left' : posicionCeldaImagen[i_arrb][j_arrb].x
+    });
+    return true;
+    
+}
 function haTerminadoLaPartida(){return true;}
