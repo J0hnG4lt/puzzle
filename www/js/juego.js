@@ -334,14 +334,18 @@ function moverIzquierda(event){
     var xpos_izq = xpos_tocado;
     
     var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_izq+"][data-ypos="+ypos_izq+"]");
+    
+    var i_izq = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
+    var j_izq = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
+    
+    if ((i_izq != 0) || (j_izq != 0)){return false;}
+    
     elemIzqJQuery.attr("data-xpos", xpos_tocado);
     elemIzqJQuery.attr("data-ypos", ypos_tocado);
     
     elemTocadoJQuery.attr("data-xpos", xpos_izq);
     elemTocadoJQuery.attr("data-ypos", ypos_izq);
     
-    var i_izq = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
-    var j_izq = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
     
     var swap_pos = posicionCeldaImagen[i][j];
     posicionCeldaImagen[i][j] = posicionCeldaImagen[i_izq][j_izq];
@@ -362,4 +366,4 @@ function moverIzquierda(event){
 }
 function moverAbajo(){return false;}
 function moverArriba(){return false;}
-function haTerminadoLaPartida(){}
+function haTerminadoLaPartida(){return true;}
