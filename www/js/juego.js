@@ -1,7 +1,25 @@
 
-//Para comenzar este prototipo se usó como base una implementación del juego 2048
+//El juego que se está implementando es una versión de éste:
+//     en.wikipedia.org/wiki/15_puzzle
+//Se van a usar imágenes de arte rupestre y se va a añadir contenido educativo
+//adicional.
+
+//Para comenzar este PROTOTIPO se usó como base una implementación del juego 2048
 // que se puede conseguir aquí: https://github.com/coolfishstudio/game-2048
 
+/*
+    Secuencia de Actividades del Juego
+    
+    1- Se carga el DOM.
+    2- Se cambia el estilo de acuerdo a las dimensiones del dispositivo.
+    3- Se inicializa el tablero añadiendo las celdas con los fragmentos
+        de la imagen seleccionada.
+    4- Se desordenan las celdas.
+    5- Se registran los manejadores de eventos.
+    6- El usuario juega. Los manejadores de eventos se activan.
+    7- Se detecta que la imagen ha sido reconstruida.
+    8- Termina el juego.
+*/
 
 var permutacion = [1,2,3,4,5,6,7,8]; //Se permutará para desordenar el tablero
 
