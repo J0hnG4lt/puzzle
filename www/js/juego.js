@@ -1,6 +1,32 @@
+// /* El juego que se está implementando es una versión de éste:
+// *    en.wikipedia.org/wiki/15_puzzle
+// *  
+// *  Se van a usar imágenes de arte rupestre y se va a añadir contenido educativo
+// *  adicional.
+// *
+// *  Para comenzar este PROTOTIPO se usó como base una implementación del juego 2048
+// *  que se puede conseguir aquí: https://github.com/coolfishstudio/game-2048
+// * 
+// *
+// *   Secuencia de Actividades del Juego
+// *   
+// *   1- Se carga el DOM.
+// *   2- Se agregan las celdas al #tablero
+// *   3- Se cambia el estilo de acuerdo a las dimensiones del dispositivo.
+// *   4- Se inicializan las celdas con la imagen
+// *   5- Se desordenan las celdas.
+// *   6- Se registran los manejadores de eventos.
+// *   7- El usuario juega, pide ayuda o resetea. 
+// *      Los manejadores de eventos se activan.
+// *   8- Se detecta que la imagen ha sido reconstruida.
+// *   9- Termina el juego.
+// */
 
 
-//Aquí inicia el juego
+
+// /*
+// * Se espera a que la página se cargue para inicializar el juego
+// */
 $(document).ready(function(){
     
     generarCeldas();
@@ -9,7 +35,11 @@ $(document).ready(function(){
     
 });
 
-
+// /*
+// * 
+// * Se desordenan las celdas
+// *
+// */
 function resetear(){
     
     for(var i = 0; i < dimX; i++){
@@ -22,10 +52,18 @@ function resetear(){
         }
     }
     
+    //Notar que esta función asume que la blanca está arriba a la izquierda
     desordenar();
 }
 
-
+// /*
+// * 
+// * Muestra por un breve intervalo de tiempo el número de las celdas.
+// * Se empieza a contar desde la celda superior izquierda hacia la derecha y
+// * abajo. El objetivo es tener una cuadrícula ordenada: 
+// * 0 -> 1 -> 2 -> ... -> (dimX * dimY - 1)
+// *
+// */
 function ayudar(){
     
     var anchoDeCelda = parseInt($("#celda-0-0").css("width"),10);
@@ -41,6 +79,13 @@ function ayudar(){
                 },250);
 }
 
+// /*
+// * 
+// * Se insertan elementos div al elemento identificado como #tablero.
+// * Estos elementos div representan a las celdas que se podrán mover
+// * durante el juego
+// *
+// */
 function generarCeldas(){
     
     var tablero = $("#tablero");
@@ -55,7 +100,12 @@ function generarCeldas(){
     }
 }
 
-//Debe adaptar la vista a las características del dispositivo
+// /*
+// * 
+// * Prepara el juego para adaptarse al tamaño de la pantalla.
+// * También inicializa las propiedades asociadas a flexbox de css.
+// *
+// */
 function prepararResponsive(){
     
     
@@ -82,7 +132,11 @@ function prepararResponsive(){
 }
 
 
-//Añade las celdas con la imagen y las desordena
+// /*
+// * 
+// * Añade las celdas con imágenes y las desordena.
+// *
+// */
 function comenzarPartida(){
     
     inicializarTablero();
@@ -90,10 +144,17 @@ function comenzarPartida(){
     
 }
 
+// /*
+// * 
+// * Desordena las celdas del tablero. Asume que la blanca está en la
+// * esquina superior izquierda y se deja en su lugar.
+// * 
+// */
 function desordenar(){
     
     var permutacion = [];
     
+    //Se colocan los demás valores de order de las celdas distintas a blanca
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
@@ -105,9 +166,10 @@ function desordenar(){
         }
     }
     
-    permutacion = _.shuffle(permutacion);
-    permutacion.unshift(0);
+    permutacion = _.shuffle(permutacion); // Se desordenan
+    permutacion.unshift(0); //Se coloca la blanca en su sitio
     
+    //Se ejecuta el cambio de posiciones
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
@@ -124,6 +186,13 @@ function desordenar(){
 }
 
 
+// /*
+// * 
+// * Dados los valores únicos de los atributos 'order' de css pertenecientes
+// * a dos celdas, se intercambian sus posiciones en el tablero usando
+// * dichos valores.
+// *
+// */
 function intercambiarElementos(order1, order2){
     
         var elemento1 = $(".celda[data-order="+order1+"]");
@@ -136,19 +205,22 @@ function intercambiarElementos(order1, order2){
         elemento2.attr("data-order", order1.toString(10));
 }
 
-//Se añaden las celdas con las imágenes y se registran sus coordenadas
+
+// /*
+// * 
+// * Ya creadas las celdas y asignados los valores de 'order', se colocan
+// * las partes correspondientes de la imagen de fondo.
+// *
+// */
 function inicializarTablero(){
     
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
             
-            //Se guarda la posición actual de la celda en data-xpos y data-ypos
-            // j e i representan los índices del tablero
-            
             var celdaImagen = $("#celda-"+i+"-"+j);
             
-            //Se posiciona correctamente cada celda
+            //Se posiciona correctamente la parte correspondiente de la imagen
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
                 'background-image': "url('../img/cueva.jpg')",
@@ -243,8 +315,13 @@ document.addEventListener('touchend', function(event){
 
 
 
+// /*
+// * 
+// * Mueve hacia arriba el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
 function moverArriba(){
-    
     
     //Encuentro el orden del elemento con el que se intercambia
     var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
@@ -269,6 +346,13 @@ function moverArriba(){
 
 }
 
+
+// /*
+// * 
+// * Mueve hacia abajo el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
 function moverAbajo(){
     
     //Encuentro el orden del elemento con el que se intercambia
@@ -294,6 +378,13 @@ function moverAbajo(){
 
 }
 
+
+// /*
+// * 
+// * Mueve hacia la derecha el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
 function moverDerecha(){
 
     //Encuentro el orden del elemento con el que se intercambia
@@ -319,6 +410,13 @@ function moverDerecha(){
 
 }
 
+
+// /*
+// * 
+// * Mueve hacia la izquierda el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
 function moverIzquierda(){
     
     //Encuentro el orden del elemento con el que se intercambia
@@ -345,7 +443,12 @@ function moverIzquierda(){
 
 }
 
-
+// /*
+// * 
+// * Determina si las celdas están ordenadas. Si lo están, se emite un mensaje
+// * y se devuelve true. De lo contrario, se devuelve false.
+// *
+// */
 function haTerminadoLaPartida(){
     
     for(var i = 0; i < dimX; i++){
@@ -356,6 +459,8 @@ function haTerminadoLaPartida(){
             if ((i*dimY + j) !== order) { return false; }
         }
     }
+    
+    alert("¡Ha ganado!");
     
     return true;
 }
