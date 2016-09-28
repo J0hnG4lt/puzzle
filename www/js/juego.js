@@ -94,10 +94,55 @@ function prepararResponsive(){
 function comenzarPartida(){
     
     inicializarTablero();
-    //desordenar();
+    desordenar();
     
 }
 
+function desordenar(){
+    
+    var permutacion = [];
+    
+    for(var i = 0; i < dimX; i++){
+        
+        for(var j = 0; j < dimY; j++){
+            
+            if (i + j === 0) {continue;}
+            
+            var indice = i*dimY + j;
+            permutacion[indice -1] = indice;
+        }
+    }
+    
+    permutacion = _.shuffle(permutacion);
+    permutacion.unshift(0);
+    
+    for(var i = 0; i < dimX; i++){
+        
+        for(var j = 0; j < dimY; j++){
+            
+            if (i + j === 0) {continue;}
+            
+            var order1 = i*dimY + j;
+            var order2 = permutacion[order1];
+            
+            intercambiarElementos(order1,order2);
+        }
+    }
+    
+}
+
+
+function intercambiarElementos(order1, order2){
+    
+        var elemento1 = $(".celda[data-order="+order1+"]");
+        var elemento2 = $(".celda[data-order="+order2+"]");
+        
+        elemento1.css("order", order2.toString(10));
+        elemento2.css("order", order1.toString(10));
+        
+        elemento1.attr("data-order", order2.toString(10));
+        elemento2.attr("data-order", order1.toString(10));
+}
 
 //Se añaden las celdas con las imágenes y se registran sus coordenadas
 function inicializarTablero(){
@@ -233,13 +278,7 @@ function moverArriba(){
         return false;
     }
     
-    //Intercambio las posiciones
-    vecino.css("order", orderCeldaTocada.toString(10));
-    elemTocado.css("order", orderVecino.toString(10));
-    
-    //Intercambio las posiciones
-    vecino.attr("data-order", orderCeldaTocada.toString(10));
-    elemTocado.attr("data-order", orderVecino.toString(10));
+    intercambiarElementos(orderCeldaTocada,orderVecino);
     
     return true;
 
@@ -264,13 +303,7 @@ function moverAbajo(){
         return false;
     }
     
-    //Intercambio las posiciones
-    vecino.css("order", orderCeldaTocada.toString(10));
-    elemTocado.css("order", orderVecino.toString(10));
-    
-    //Intercambio las posiciones
-    vecino.attr("data-order", orderCeldaTocada.toString(10));
-    elemTocado.attr("data-order", orderVecino.toString(10));
+    intercambiarElementos(orderCeldaTocada,orderVecino);
     
     return true;
 
@@ -295,13 +328,7 @@ function moverDerecha(event){
         return false;
     }
     
-    //Intercambio las posiciones
-    vecino.css("order", orderCeldaTocada.toString(10));
-    elemTocado.css("order", orderVecino.toString(10));
-    
-    //Intercambio las posiciones
-    vecino.attr("data-order", orderCeldaTocada.toString(10));
-    elemTocado.attr("data-order", orderVecino.toString(10));
+    intercambiarElementos(orderCeldaTocada,orderVecino);
     
     return true;
 
@@ -326,13 +353,8 @@ function moverIzquierda(event){
         return false;
     }
     
-    //Intercambio las posiciones
-    vecino.css("order", orderCeldaTocada.toString(10));
-    elemTocado.css("order", orderVecino.toString(10));
     
-    //Intercambio las posiciones
-    vecino.attr("data-order", orderCeldaTocada.toString(10));
-    elemTocado.attr("data-order", orderVecino.toString(10));
+    intercambiarElementos(orderCeldaTocada,orderVecino);
     
     return true;
 
