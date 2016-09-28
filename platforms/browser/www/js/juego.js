@@ -1,10 +1,15 @@
-var dimX = 3; //Dimensiones del tablero
-var dimY = 4;
 
-var anchoDePantalla = window.screen.availWidth;
-var anchoDeTablero = 0.92 * anchoDePantalla;
-var anchoDeCelda = 0.32 * anchoDePantalla;
-var espacioDeCelda = 0.01 * anchoDePantalla;
+
+//Aquí inicia el juego
+$(document).ready(function(){
+    
+    generarCeldas();
+    prepararResponsive();
+    
+    comenzarPartida();
+    
+});
+
 
 function ayudar(){
     
@@ -20,34 +25,6 @@ function ayudar(){
                     });
                 },250);
 }
-
-var startX;
-var startY;
-var endX;
-var endY;
-
-var elemTocado;
-
-function getPosTop(i, j){
-    return Math.floor((anchoDeTablero/dimX))*i;
-}
-function getPosLeft(i, j){
-    return Math.floor((anchoDeTablero/dimY))*j;
-}
-
-var posicionCeldaImagen = []
-
-//Aquí inicia el juego
-$(document).ready(function(){
-    
-    generarCeldas();
-    prepararResponsive();
-    
-    comenzarPartida();
-    
-});
-
-//document.addEventListener("resize", prepararResponsive);
 
 function generarCeldas(){
     
@@ -223,14 +200,14 @@ document.addEventListener('touchend', function(event){
     if(Math.abs(deltaX) >= Math.abs(deltaY)){
         if(deltaX > 0){
             
-            if(moverDerecha(event)){
+            if(moverDerecha()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
             }
         }else{
             
-            if(moverIzquierda(event)){
+            if(moverIzquierda()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
@@ -239,14 +216,14 @@ document.addEventListener('touchend', function(event){
     }else{
         if(deltaY > 0){
             
-            if(moverAbajo(event)){
+            if(moverAbajo()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
             }
         }else{
             
-            if(moverArriba(event)){
+            if(moverArriba()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
@@ -309,7 +286,7 @@ function moverAbajo(){
 
 }
 
-function moverDerecha(event){
+function moverDerecha(){
 
     //Encuentro el orden del elemento con el que se intercambia
     var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
@@ -334,7 +311,7 @@ function moverDerecha(event){
 
 }
 
-function moverIzquierda(event){
+function moverIzquierda(){
     
     //Encuentro el orden del elemento con el que se intercambia
     var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
@@ -360,6 +337,17 @@ function moverIzquierda(event){
 
 }
 
+
 function haTerminadoLaPartida(){
+    
+    for(var i = 0; i < dimX; i++){
+        for(var j = 0; j < dimY; j++){
+            
+            var order = $("#celda-"+i+"-"+j).attr("data-order");
+            
+            if ((i*dimY + j) !== order) { return false; }
+        }
+    }
+    
     return true;
 }
