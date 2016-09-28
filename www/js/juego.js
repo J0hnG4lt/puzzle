@@ -1,72 +1,142 @@
-
-//El juego que se está implementando es una versión de éste:
-//     en.wikipedia.org/wiki/15_puzzle
-//Se van a usar imágenes de arte rupestre y se va a añadir contenido educativo
-//adicional.
-
-//Para comenzar este PROTOTIPO se usó como base una implementación del juego 2048
-// que se puede conseguir aquí: https://github.com/coolfishstudio/game-2048
-
-/*
-    Secuencia de Actividades del Juego
-    
-    1- Se carga el DOM.
-    2- Se cambia el estilo de acuerdo a las dimensiones del dispositivo.
-    3- Se inicializa el tablero añadiendo las celdas con los fragmentos
-        de la imagen seleccionada.
-    4- Se desordenan las celdas.
-    5- Se registran los manejadores de eventos.
-    6- El usuario juega. Los manejadores de eventos se activan.
-    7- Se detecta que la imagen ha sido reconstruida.
-    8- Termina el juego.
-*/
-
-var permutacion = [1,2,3,4,5,6,7,8]; //Se permutará para desordenar el tablero
-
-
-//Los índices de estas tablas representan el id de los elementos #celda-imagen-i-j
-var tabla = [];
-var posicionCeldaImagen = []; //Arreglo de objetos con coordenadas absolutas x,y
+// /* El juego que se está implementando es una versión de éste:
+// *    en.wikipedia.org/wiki/15_puzzle
+// *  
+// *  Se van a usar imágenes de arte rupestre y se va a añadir contenido educativo
+// *  adicional.
+// *
+// *  Para comenzar este PROTOTIPO se usó como base una implementación del juego 2048
+// *  que se puede conseguir aquí: https://github.com/coolfishstudio/game-2048
+// * 
+// *
+// *   Secuencia de Actividades del Juego
+// *   
+// *   1- Se carga el DOM.
+// *   2- Se agregan las celdas al #tablero
+// *   3- Se cambia el estilo de acuerdo a las dimensiones del dispositivo.
+// *   4- Se inicializan las celdas con la imagen
+// *   5- Se desordenan las celdas.
+// *   6- Se registran los manejadores de eventos.
+// *   7- El usuario juega, pide ayuda o resetea. 
+// *      Los manejadores de eventos se activan.
+// *   8- Se detecta que la imagen ha sido reconstruida.
+// *   9- Termina el juego.
+// */
 
 
-var startX = 0; //Inicio del touch event
-var startY = 0;
-var endX = 0; //Fin del touch event
-var endY = 0;
 
-var dimTablero = 3; //Dimensión del tablero
-
-
-//Aquí inicia el juego
+// /*
+// * Se espera a que la página se cargue para inicializar el juego
+// */
 $(document).ready(function(){
     
+    generarCeldas();
     prepararResponsive();
-    
     comenzarPartida();
     
 });
 
-
-//Debe adaptar la vista a las características del dispositivo
-function prepararResponsive(){
+// /*
+// * 
+// * Se desordenan las celdas
+// *
+// */
+function resetear(){
     
-    //Si el dispositivo es grande
-    if(anchoDePantalla > 500){
-        anchoDeTablero = 500;
-        anchoDeCelda = 100;
-        espacioDeCelda = 20;
+    for(var i = 0; i < dimX; i++){
+        for(var j = 0; j < dimY; j++){
+            
+            var elemento = $("#celda-"+i+"-"+j)
+            var order = (i*dimY+j).toString(10);
+            elemento.css("order", order);
+            elemento.attr("data-order", order);
+        }
     }
     
-    //El tablero casi llena la pantalla de un dispositivo pequeño
+    //Notar que esta función asume que la blanca está arriba a la izquierda
+    desordenar();
+}
+
+// /*
+// * 
+// * Muestra por un breve intervalo de tiempo el número de las celdas.
+// * Se empieza a contar desde la celda superior izquierda hacia la derecha y
+// * abajo. El objetivo es tener una cuadrícula ordenada: 
+// * 0 -> 1 -> 2 -> ... -> (dimX * dimY - 1)
+// *
+// */
+function ayudar(){
+    
+    var anchoDeCelda = parseInt($("#celda-0-0").css("width"),10);
+    
+    $(".celda").css({
+        "font-size":""+Math.floor(0.2*anchoDeCelda)+"px"
+    });
+    
+    setTimeout(function(){
+                    $(".celda").css({
+                        "font-size":"0px"
+                    });
+                },250);
+}
+
+// /*
+// * 
+// * Se insertan elementos div al elemento identificado como #tablero.
+// * Estos elementos div representan a las celdas que se podrán mover
+// * durante el juego
+// *
+// */
+function generarCeldas(){
+    
+    var tablero = $("#tablero");
+    
+    for(var i = 0 ; i < dimX ; i++){
+        for(var j = 0 ; j < dimY ; j++){
+            
+            var orden = (i*dimY+j);
+            var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' >"+orden+"</div>";
+            tablero.append(contenido);
+        }
+    }
+}
+
+// /*
+// * 
+// * Prepara el juego para adaptarse al tamaño de la pantalla.
+// * También inicializa las propiedades asociadas a flexbox de css.
+// *
+// */
+function prepararResponsive(){
+    
+    
+    var tablero = $("#tablero");
+    
     $('#tablero').css({
-        'width': anchoDePantalla - 2*espacioDeCelda,
-        'height': anchoDePantalla - 2*espacioDeCelda,
+        'width': anchoDeTablero - 2*espacioDeCelda,
+        'height': anchoDeTablero - 2*espacioDeCelda,
         'padding': espacioDeCelda
     });
+    
+    tablero.css({
+        "display": "flex",
+        "flex-direction": "row",
+        "flex-wrap":"wrap"
+    });
+    
+    
+    $(".celda").css({
+        "flex-basis":(""+Math.floor((100/dimY))+"%")
+    });
+    
+
 }
 
 
-//Añade las celdas con la imagen y las desordena
+// /*
+// * 
+// * Añade las celdas con imágenes y las desordena.
+// *
+// */
 function comenzarPartida(){
     
     inicializarTablero();
@@ -74,49 +144,89 @@ function comenzarPartida(){
     
 }
 
-
-//Se añaden las celdas con las imágenes y se registran sus coordenadas
-function inicializarTablero(){
-
-    for(var i = 0; i < dimTablero; i++){
+// /*
+// * 
+// * Desordena las celdas del tablero. Asume que la blanca está en la
+// * esquina superior izquierda y se deja en su lugar.
+// * 
+// */
+function desordenar(){
+    
+    var permutacion = [];
+    
+    //Se colocan los demás valores de order de las celdas distintas a blanca
+    for(var i = 0; i < dimX; i++){
         
-        tabla[i] = [];
-        posicionCeldaImagen[i] = [];
-
-        for(var j = 0; j < dimTablero; j++){
+        for(var j = 0; j < dimY; j++){
             
-            //Se le asigna un único número a cada celda desde 0 hasta dimTablero
-            tabla[i][j] = i*dimTablero + j;
+            if (i + j === 0) {continue;}
             
-            //Coordenadas de la esquina superior izquierda de cada celda
-            posicionCeldaImagen[i][j] = { x: getPosLeft(i,j), y: getPosTop(i,j) };
-
+            var indice = i*dimY + j;
+            permutacion[indice -1] = indice;
         }
     }
     
-    //Se resetea si el usuario ya había jugado
-    $('.celda-imagen').remove();
+    permutacion = _.shuffle(permutacion); // Se desordenan
+    permutacion.unshift(0); //Se coloca la blanca en su sitio
     
-    //Se añaden las celdas
-    for(var i = 0; i < dimTablero; i++){
+    //Se ejecuta el cambio de posiciones
+    for(var i = 0; i < dimX; i++){
         
-        for(var j = 0; j < dimTablero; j++){
+        for(var j = 0; j < dimY; j++){
             
-            //Se guarda la posición actual de la celda en data-xpos y data-ypos
-            // j e i representan los índices del tablero
-            $('#tablero').append('<div class="celda-imagen" data-xpos='+i+' data-ypos='+j+' id="celda-imagen-' + i + '-' + j + '"></div>');
-            var celdaImagen = $('#celda-imagen-' + i + '-' + j);
+            if (i + j === 0) {continue;}
             
-            //Se posiciona correctamente cada celda
+            var order1 = i*dimY + j;
+            var order2 = permutacion[order1];
+            
+            intercambiarElementos(order1,order2);
+        }
+    }
+    
+}
+
+
+// /*
+// * 
+// * Dados los valores únicos de los atributos 'order' de css pertenecientes
+// * a dos celdas, se intercambian sus posiciones en el tablero usando
+// * dichos valores.
+// *
+// */
+function intercambiarElementos(order1, order2){
+    
+        var elemento1 = $(".celda[data-order="+order1+"]");
+        var elemento2 = $(".celda[data-order="+order2+"]");
+        
+        elemento1.css("order", order2.toString(10));
+        elemento2.css("order", order1.toString(10));
+        
+        elemento1.attr("data-order", order2.toString(10));
+        elemento2.attr("data-order", order1.toString(10));
+}
+
+
+// /*
+// * 
+// * Ya creadas las celdas y asignados los valores de 'order', se colocan
+// * las partes correspondientes de la imagen de fondo.
+// *
+// */
+function inicializarTablero(){
+    
+    for(var i = 0; i < dimX; i++){
+        
+        for(var j = 0; j < dimY; j++){
+            
+            var celdaImagen = $("#celda-"+i+"-"+j);
+            
+            //Se posiciona correctamente la parte correspondiente de la imagen
             celdaImagen.css({
-                'width' : anchoDeCelda,
-                'height' : anchoDeCelda,
-                'top' : getPosTop(i, j),
-                'left' : getPosLeft(i, j),
                 'background-repeat': 'no-repeat',
                 'background-image': "url('../img/cueva.jpg')",
                 'background-position-x': -getPosLeft(i,j), 
-                'background-position-y': -getPosTop(i,j)
+                'background-position-y': -getPosTop(i,j),
+                'order': ""+(i*dimY+j)+""
             });
             
             //No se muestra la celda de la esquina superior izquierda
@@ -129,88 +239,18 @@ function inicializarTablero(){
 }
 
 
-//Se permutan las celdas
-function desordenar(){
-    
-    //Se usa la librería externa underscore.js para permutar
-    var nuevaPermutacion = _.shuffle(permutacion);
-    
-    for(var i = 0; i < dimTablero; i++){
-        
-        for(var j = 0; j < dimTablero; j++){
-            
-            if ((i==0) && (j==0)) {continue;}
-            
-            //Se guarda la permutacion en tabla preservando la correspondencia
-            tabla[i][j] = nuevaPermutacion[j + i*dimTablero - 1];
-            
-            
-            //Se intercambian los objetos de posicion de las celdas permutadas
-            //para mantener la correspondencia
-            
-            var swapVar = posicionCeldaImagen[i][j];
-            var swap_i = Math.floor(tabla[i][j]/dimTablero);
-            var swap_j = tabla[i][j] % dimTablero;
-            
-            //Se intercambian las posiciones absolutas de los elementos
-            posicionCeldaImagen[i][j] = posicionCeldaImagen[swap_i][swap_j];
-            posicionCeldaImagen[swap_i][swap_j] = swapVar;
-            
-            //Se obtiene el elemento a ser intercambiado distinto al actual
-            var nombreImagenSwap = "celda-imagen-"+swap_i.toString(10)+'-'+swap_j.toString(10);
-            
-            //Posición actual en el tablero del elemento a ser intercambiado
-            var pos_x_swap = $('#'+nombreImagenSwap).attr("data-xpos");
-            var pos_y_swap = $('#'+nombreImagenSwap).attr("data-ypos");
-            
-            //Posición en el tablero del elemento actual
-            var pos_x = $('#celda-imagen-'+i+'-'+j).attr("data-xpos");
-            var pos_y = $('#celda-imagen-'+i+'-'+j).attr("data-ypos");
-            
-            
-            //Se intercambian
-            
-            $('#'+nombreImagenSwap).attr("data-xpos", pos_x);
-            $('#'+nombreImagenSwap).attr("data-ypos", pos_y);
-            
-            $('#celda-imagen-'+i+'-'+j).attr("data-xpos", pos_x_swap);
-            $('#celda-imagen-'+i+'-'+j).attr("data-ypos", pos_y_swap);
-            //
-            
-            //Se ejecuta el intercambio
-            
-            var celdaImagen = $('#celda-imagen-' + i + '-' + j);
-            celdaImagen.css({
-                'top' : posicionCeldaImagen[i][j].y,
-                'left' : posicionCeldaImagen[i][j].x
-            });
-            
-            var celdaImagen = $('#celda-imagen-' + swap_i + '-' + swap_j);
-            celdaImagen.css({
-                'top' : posicionCeldaImagen[swap_i][swap_j].y,
-                'left' : posicionCeldaImagen[swap_i][swap_j].x
-            });
-            
-            
-        }
-    }
-    
-}
-
-/******************************************************************************
- ******************************************************************************
- ******************************  EVENTOS  *************************************
- ******************************************************************************
- ******************************************************************************
- */
-
-
 //Cuando el usuario comienza a tocar la pantalla 
 document.addEventListener('touchstart', function(event){
     
     //Se guardan las coordenadas de la posición tocada
     startX = event.touches[0].pageX;
     startY = event.touches[0].pageY;
+
+    //Se obtiene el elemento tocado
+    var nombreElemTocado = event.target.getAttribute('id');
+    elemTocado = $('#'+nombreElemTocado);
+    
+
 });
 
 //Cuando mueve el dedo por la pantalla
@@ -240,14 +280,14 @@ document.addEventListener('touchend', function(event){
     if(Math.abs(deltaX) >= Math.abs(deltaY)){
         if(deltaX > 0){
             
-            if(moverDerecha(event)){
+            if(moverDerecha()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
             }
         }else{
             
-            if(moverIzquierda(event)){
+            if(moverIzquierda()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
@@ -256,14 +296,14 @@ document.addEventListener('touchend', function(event){
     }else{
         if(deltaY > 0){
             
-            if(moverAbajo(event)){
+            if(moverAbajo()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
             }
         }else{
             
-            if(moverArriba(event)){
+            if(moverArriba()){
                 setTimeout(function(){
                      haTerminadoLaPartida();
                 },250);
@@ -274,287 +314,153 @@ document.addEventListener('touchend', function(event){
 });
 
 
-//1- Determina si el movimiento es posible
-//2- Intercambia las celdas si es posible
-function moverDerecha(event){
+
+// /*
+// * 
+// * Mueve hacia arriba el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
+function moverArriba(){
     
-    //Se obtiene el elemento tocado
-    var elementoTocado = event.target;
-    var nombreElemTocado = elementoTocado.getAttribute('id');
-    var elemTocadoJQuery = $('#'+nombreElemTocado);
-    var esquinaSupIzq_X = parseInt(elemTocadoJQuery.css('left'), 10);
+    //Encuentro el orden del elemento con el que se intercambia
+    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderVecino = orderCeldaTocada - dimY;
     
-    //Si la celda está en la última columna de la derecha -> no se puede mover
-    if (esquinaSupIzq_X + espacioDeCelda + anchoDeCelda + 1 >= anchoDeTablero){
+    //Determino si puedo moverlo hacia arriba
+    if (orderVecino < 0){
         return false;
     }
     
-    //Se obtiene la identidad de la celda tocada
-    var nombreParseado = nombreElemTocado.split("-");
-    var nombre_i = nombreParseado[2];
-    var nombre_j = nombreParseado[3];
+    //Encuentro el elemento a intercambiar
+    var vecino = $(".celda[data-order="+orderVecino+"]");
     
-    var i = parseInt(nombre_i, 10);
-    var j = parseInt(nombre_j, 10);
-    
-    //Se obtiene la posición actual del elemento tocado
-    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
-    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
-    
-    //Se obtiene la posición del elemento con el que será intercambiado (blanco)
-    var ypos_der = (parseInt(ypos_tocado,10) + 1).toString(10);
-    var xpos_der = xpos_tocado;
-    
-    //Se obtiene el elemento de la derecha (blanco)
-    var elemDerJQuery = $(".celda-imagen[data-xpos="+xpos_der+"][data-ypos="+ypos_der+"]");
-    
-    //Se obtiene la identidad de la celda de la derecha
-    var i_der = parseInt(elemDerJQuery.attr("id").split("-")[2],10);
-    var j_der = parseInt(elemDerJQuery.attr("id").split("-")[3],10);
-    
-    //Se continua si realmente el elemento de la derecha es blanco
-    // blanco es celda-imagen-0-0
-    if (i_der + j_der > 0){
-        
-        return false;}
-    
-    //Se intercambian las posiciones actuales en el tablero lógico
-    
-    elemDerJQuery.attr("data-xpos", xpos_tocado);
-    elemDerJQuery.attr("data-ypos", ypos_tocado);
-    
-    elemTocadoJQuery.attr("data-xpos", xpos_der);
-    elemTocadoJQuery.attr("data-ypos", ypos_der);
-    
-    //Se intercambian las posiciones absolutas de las celdas
-    
-    var swap_pos = posicionCeldaImagen[i][j];
-    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_der][j_der];
-    posicionCeldaImagen[i_der][j_der] = swap_pos;
-    
-    
-    //Se ejecutan los cambios
-    
-    var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
-    celdaImagenTocada.css({
-        'top' : posicionCeldaImagen[i][j].y,
-        'left' : posicionCeldaImagen[i][j].x
-    });
-    
-    var celdaImagenVacia = $('#celda-imagen-' + i_der.toString(10)+ '-' + j_der.toString(10));
-    celdaImagenVacia.css({
-        'top' : posicionCeldaImagen[i_der][j_der].y,
-        'left' : posicionCeldaImagen[i_der][j_der].x
-    });
-    return true;
-}
-
-
-function moverIzquierda(event){
-    
-    
-    var elementoTocado = event.target;
-    var nombreElemTocado = elementoTocado.getAttribute('id');
-    var elemTocadoJQuery = $('#'+nombreElemTocado);
-    var esquinaSupIzq_X = parseInt(elemTocadoJQuery.css('left'), 10);
-    
-    if (esquinaSupIzq_X - espacioDeCelda -1 <= 0){
+    //Determino si es el vacío
+    if (vecino.attr("id") !== "celda-0-0"){
         return false;
     }
     
+    intercambiarElementos(orderCeldaTocada,orderVecino);
     
-    var nombreParseado = nombreElemTocado.split("-");
-    var nombre_i = nombreParseado[2];
-    var nombre_j = nombreParseado[3];
-    
-    var i = parseInt(nombre_i, 10);
-    var j = parseInt(nombre_j, 10);
-    
-    
-    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
-    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
-    
-    var ypos_izq = (parseInt(ypos_tocado,10) - 1).toString(10);
-    var xpos_izq = xpos_tocado;
-    
-    var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_izq+"][data-ypos="+ypos_izq+"]");
-    
-    var i_izq = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
-    var j_izq = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
-    
-    if (i_izq + j_izq > 0){
-        
-        return false;}
-    
-    elemIzqJQuery.attr("data-xpos", xpos_tocado);
-    elemIzqJQuery.attr("data-ypos", ypos_tocado);
-    
-    elemTocadoJQuery.attr("data-xpos", xpos_izq);
-    elemTocadoJQuery.attr("data-ypos", ypos_izq);
-    
-    
-    var swap_pos = posicionCeldaImagen[i][j];
-    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_izq][j_izq];
-    posicionCeldaImagen[i_izq][j_izq] = swap_pos;
-    
-    var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
-    celdaImagenTocada.css({
-        'top' : posicionCeldaImagen[i][j].y,
-        'left' : posicionCeldaImagen[i][j].x
-    });
-    
-    var celdaImagenVacia = $('#celda-imagen-' + i_izq.toString(10)+ '-' + j_izq.toString(10));
-    celdaImagenVacia.css({
-        'top' : posicionCeldaImagen[i_izq][j_izq].y,
-        'left' : posicionCeldaImagen[i_izq][j_izq].x
-    });
     return true;
+
 }
 
 
-function moverAbajo(event){
+// /*
+// * 
+// * Mueve hacia abajo el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
+function moverAbajo(){
     
+    //Encuentro el orden del elemento con el que se intercambia
+    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderVecino = orderCeldaTocada + dimY;
     
-    var elementoTocado = event.target;
-    var nombreElemTocado = elementoTocado.getAttribute('id');
-    var elemTocadoJQuery = $('#'+nombreElemTocado);
-    var esquinaSupIzq_Y = parseInt(elemTocadoJQuery.css('top'), 10);
+    //Determino si puedo moverlo hacia aabajo
+    if (orderVecino > dimX*dimY){
+        return false;
+    }
     
-    if (esquinaSupIzq_Y + espacioDeCelda + anchoDeCelda +1 >= anchoDeTablero){
+    //Encuentro el elemento a intercambiar
+    var vecino = $(".celda[data-order="+orderVecino+"]");
+    
+    //Determino si es el vacío
+    if (vecino.attr("id") !== "celda-0-0"){
+        return false;
+    }
+    
+    intercambiarElementos(orderCeldaTocada,orderVecino);
+    
+    return true;
+
+}
+
+
+// /*
+// * 
+// * Mueve hacia la derecha el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
+function moverDerecha(){
+
+    //Encuentro el orden del elemento con el que se intercambia
+    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderVecino = orderCeldaTocada + 1;
+    
+    //Determino si puedo moverlo hacia la derecha
+    if (((orderCeldaTocada+1) % dimY) === 0){
+        return false;
+    }
+    
+    //Encuentro el elemento a intercambiar
+    var vecino = $(".celda[data-order="+orderVecino+"]");
+    
+    //Determino si es el vacío
+    if (vecino.attr("id") !== "celda-0-0"){
+        return false;
+    }
+    
+    intercambiarElementos(orderCeldaTocada,orderVecino);
+    
+    return true;
+
+}
+
+
+// /*
+// * 
+// * Mueve hacia la izquierda el elemento tocado. Asume que el elemento tocado
+// * está en 'elemTocado.'
+// *
+// */
+function moverIzquierda(){
+    
+    //Encuentro el orden del elemento con el que se intercambia
+    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderVecino = orderCeldaTocada - 1;
+    
+    //Determino si puedo moverlo hacia la izquierda
+    if ((orderCeldaTocada % dimY) === 0){
+        return false;
+    }
+    
+    //Encuentro el elemento a intercambiar
+    var vecino = $(".celda[data-order="+orderVecino+"]");
+    
+    //Determino si es el vacío
+    if (vecino.attr("id") !== "celda-0-0"){
         return false;
     }
     
     
-    var nombreParseado = nombreElemTocado.split("-");
-    var nombre_i = nombreParseado[2];
-    var nombre_j = nombreParseado[3];
+    intercambiarElementos(orderCeldaTocada,orderVecino);
     
-    var i = parseInt(nombre_i, 10);
-    var j = parseInt(nombre_j, 10);
-    
-    
-    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
-    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
-    
-    var xpos_abj = (parseInt(xpos_tocado,10) + 1).toString(10);
-    var ypos_abj = ypos_tocado;
-    
-    var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_abj+"][data-ypos="+ypos_abj+"]");
-    
-    var i_abj = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
-    var j_abj = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
-    
-    if (i_abj + j_abj > 0){
-        
-        return false;}
-    
-    elemIzqJQuery.attr("data-xpos", xpos_tocado);
-    elemIzqJQuery.attr("data-ypos", ypos_tocado);
-    
-    elemTocadoJQuery.attr("data-xpos", xpos_abj);
-    elemTocadoJQuery.attr("data-ypos", ypos_abj);
-    
-    
-    var swap_pos = posicionCeldaImagen[i][j];
-    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_abj][j_abj];
-    posicionCeldaImagen[i_abj][j_abj] = swap_pos;
-    
-    var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
-    celdaImagenTocada.css({
-        'top' : posicionCeldaImagen[i][j].y,
-        'left' : posicionCeldaImagen[i][j].x
-    });
-    
-    var celdaImagenVacia = $('#celda-imagen-' + i_abj.toString(10)+ '-' + j_abj.toString(10));
-    celdaImagenVacia.css({
-        'top' : posicionCeldaImagen[i_abj][j_abj].y,
-        'left' : posicionCeldaImagen[i_abj][j_abj].x
-    });
     return true;
-    
+
 }
 
-
-function moverArriba(event){
-    
-    var elementoTocado = event.target;
-    var nombreElemTocado = elementoTocado.getAttribute('id');
-    var elemTocadoJQuery = $('#'+nombreElemTocado);
-    var esquinaSupIzq_Y = parseInt(elemTocadoJQuery.css('top'), 10);
-    
-    if (esquinaSupIzq_Y - espacioDeCelda -1 <= 0){
-        return false;
-    }
-    
-    var nombreParseado = nombreElemTocado.split("-");
-    var nombre_i = nombreParseado[2];
-    var nombre_j = nombreParseado[3];
-    
-    var i = parseInt(nombre_i, 10);
-    var j = parseInt(nombre_j, 10);
-    
-    
-    var xpos_tocado = elemTocadoJQuery.attr("data-xpos");
-    var ypos_tocado = elemTocadoJQuery.attr("data-ypos");
-    
-    var xpos_arrb = (parseInt(xpos_tocado,10) - 1).toString(10);
-    var ypos_arrb = ypos_tocado;
-    
-    var elemIzqJQuery = $(".celda-imagen[data-xpos="+xpos_arrb+"][data-ypos="+ypos_arrb+"]");
-    
-    var i_arrb = parseInt(elemIzqJQuery.attr("id").split("-")[2],10);
-    var j_arrb = parseInt(elemIzqJQuery.attr("id").split("-")[3],10);
-    
-    if (i_arrb + j_arrb > 0){
-        
-        return false;}
-    
-    elemIzqJQuery.attr("data-xpos", xpos_tocado);
-    elemIzqJQuery.attr("data-ypos", ypos_tocado);
-    
-    elemTocadoJQuery.attr("data-xpos", xpos_arrb);
-    elemTocadoJQuery.attr("data-ypos", ypos_arrb);
-    
-    
-    var swap_pos = posicionCeldaImagen[i][j];
-    posicionCeldaImagen[i][j] = posicionCeldaImagen[i_arrb][j_arrb];
-    posicionCeldaImagen[i_arrb][j_arrb] = swap_pos;
-    
-    var celdaImagenTocada = $('#celda-imagen-' + i + '-' + j);
-    celdaImagenTocada.css({
-        'top' : posicionCeldaImagen[i][j].y,
-        'left' : posicionCeldaImagen[i][j].x
-    });
-    
-    var celdaImagenVacia = $('#celda-imagen-' + i_arrb.toString(10)+ '-' + j_arrb.toString(10));
-    celdaImagenVacia.css({
-        'top' : posicionCeldaImagen[i_arrb][j_arrb].y,
-        'left' : posicionCeldaImagen[i_arrb][j_arrb].x
-    });
-    return true;
-    
-}
-
-
-//La partida ha terminado si las celdas están ordenadas
-// ej: celda-imagen-0-0 < celda-imagen-0-1 < ... < celda-imagen-2-2 (dimTablero = 3)
+// /*
+// * 
+// * Determina si las celdas están ordenadas. Si lo están, se emite un mensaje
+// * y se devuelve true. De lo contrario, se devuelve false.
+// *
+// */
 function haTerminadoLaPartida(){
     
-    for(var i = 0; i<dimTablero; i++){
-        
-        for(var j = 0; j<dimTablero; j++){
+    for(var i = 0; i < dimX; i++){
+        for(var j = 0; j < dimY; j++){
             
-            var celda_imagen = $("celda-imagen-"+i+"-"+j);
-            var xpos = celda_imagen.attr("data-xpos");
-            var ypos = celda_imagen.attr("data-ypos");
+            var order = $("#celda-"+i+"-"+j).attr("data-order");
             
-            if ((Math.abs(xpos - i) + Math.abs(ypos - j)) == 0){
-                alert('¡Ha Ganado!');
-                
-                return true;
-            }
+            if ((i*dimY + j) !== order) { return false; }
         }
-        
     }
-    return false;
+    
+    alert("¡Ha ganado!");
+    
+    return true;
 }

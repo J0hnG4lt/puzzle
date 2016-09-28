@@ -24,15 +24,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable =no">
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -46,12 +37,17 @@
     
     <header>
         <h1>Puzzle</h1>
-        <a href="javascript:comenzarPartida();" id="botonComenzarPartida">Comenzar Partida</a>
+        <div id="header-botones">
+        <a href="javascript:resetear();" class="boton-header" id="botonComenzarPartida">Desordenar</a>
+        <a href="javascript:ayudar();" class="boton-header" id="botonAyudar">Ayuda</a>
+        </div>
     </header>
     
     <div id="tablero">
 
     </div>
+    
+    
     
 </body>
 
