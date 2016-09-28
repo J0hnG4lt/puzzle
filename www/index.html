@@ -37,7 +37,6 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
-    <script type="text/javascript" src="js/aux.js"></script>
     <script type="text/javascript" src="js/juego.js"></script>
     <title>Puzzle</title>
 </head>
@@ -46,12 +45,17 @@
     
     <header>
         <h1>Puzzle</h1>
-        <a href="javascript:comenzarPartida();" id="botonComenzarPartida">Comenzar Partida</a>
+        <div id="header-botones">
+        <a href="javascript:comenzarPartida();" class="boton-header" id="botonComenzarPartida">Desordenar</a>
+        <a href="javascript:ayudar();" class="boton-header" id="botonAyudar">Ayuda</a>
+        </div>
     </header>
     
     <div id="tablero">
 
     </div>
+    
+    
     
 </body>
 
