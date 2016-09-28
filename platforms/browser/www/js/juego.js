@@ -5,10 +5,25 @@ $(document).ready(function(){
     
     generarCeldas();
     prepararResponsive();
-    
     comenzarPartida();
     
 });
+
+
+function resetear(){
+    
+    for(var i = 0; i < dimX; i++){
+        for(var j = 0; j < dimY; j++){
+            
+            var elemento = $("#celda-"+i+"-"+j)
+            var order = (i*dimY+j).toString(10);
+            elemento.css("order", order);
+            elemento.attr("data-order", order);
+        }
+    }
+    
+    desordenar();
+}
 
 
 function ayudar(){
@@ -123,13 +138,6 @@ function intercambiarElementos(order1, order2){
 
 //Se añaden las celdas con las imágenes y se registran sus coordenadas
 function inicializarTablero(){
-
-        
-    //Se resetea si el usuario ya había jugado
-    //$('.celda').remove();
-    
-    //Se añaden las celdas
-    //generarCeldas();
     
     for(var i = 0; i < dimX; i++){
         
