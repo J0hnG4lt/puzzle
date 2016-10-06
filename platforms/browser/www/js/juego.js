@@ -213,7 +213,7 @@ function intercambiarElementos(order1, order2){
 // *
 // */
 function inicializarTablero(){
-    alert("url("+url_imagen+")");
+    
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
@@ -456,7 +456,7 @@ function haTerminadoLaPartida(){
             
             var order = $("#celda-"+i+"-"+j).attr("data-order");
             
-            if ((i*dimY + j) !== order) { return false; }
+            if ((i*dimY + j) !== parseInt(order,10)) { return false; }
         }
     }
     

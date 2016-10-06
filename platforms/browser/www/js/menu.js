@@ -17,7 +17,6 @@ function mostrarMenu(){
 }
 
 function mostrarJuego(){
-    alert("ENTRE");
     ocultarVistas();
     $("#vista-juego").css("display","block");
 }
@@ -26,7 +25,7 @@ function mostrarJuego(){
 function jugarYa(){
     
     $("#tablero").remove();
-    $("#fila").append('<div id="tablero"></div>');
+    $("#fila").prepend('<div id="tablero"></div>');
     
     var url_imagen_elegida = $("#select-imagen").val();
     var dimension_x = parseInt($("#select-dimension-x").val(),10);
