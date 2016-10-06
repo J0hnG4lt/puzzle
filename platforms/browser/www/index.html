@@ -28,9 +28,10 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
-    <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/aux.js"></script>
-    <script type="text/javascript" src="js/juego.js"></script>
+    <script type="text/javascript" src="js/juego.js"></script
+    <script type="text/javascript" src="js/menu.js"></script>
+    >
     <title>Puzzle</title>
 </head>
 
@@ -64,7 +65,7 @@
         </header>
         
         
-        <form id="formulario-parametrosJuego">
+        <div id="formulario-parametrosJuego">
             
             <div id="contenedor-raiz-form">
             
@@ -81,8 +82,8 @@
             <select id="select-dimension-x" name="dimension-x_ru" tabindex="2">
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="2">3</option>
-                <option value="2">4</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
             </div>
             
@@ -91,19 +92,22 @@
             <select id="select-dimension-y" name="dimension-y_ru" tabindex="2">
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="2">3</option>
-                <option value="2">4</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
             </div>
             
             <div id="contenedor-enviar" class="contenedor-form">
+                <!--
                 <input type="submit" value="Jugar" data-inline="true" class="barra-botones"
                         onclick="jugar();"/>
+                -->
+                <a href="javascript:jugar();" class="barra-botones" id="botonJugar">Jugar</a>
             </div>
             
             </div>
             
-        </form>
+        </div>
         
         <!--
         <div id="barra-botones-vistaMenu" class="barra">

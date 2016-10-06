@@ -6,6 +6,8 @@ var startY;
 var endX; //Punto donde se deja la pantalla
 var endY;
 
+var url_imagen;
+
 //El tamaño de la pantalla del dispositivo determina los demás tamaños
 var anchoDePantalla = window.screen.availWidth;
 var anchoDeTablero = 0.92 * anchoDePantalla;

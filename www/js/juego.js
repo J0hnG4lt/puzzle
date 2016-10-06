@@ -223,7 +223,7 @@ function inicializarTablero(){
             //Se posiciona correctamente la parte correspondiente de la imagen
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
-                'background-image': "url('../img/cueva.jpg')",
+                'background-image': "url("+url_imagen+")",
                 'background-position-x': -getPosLeft(i,j), 
                 'background-position-y': -getPosTop(i,j),
                 'order': ""+(i*dimY+j)+""
