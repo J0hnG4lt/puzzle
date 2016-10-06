@@ -23,15 +23,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable =no">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/aux.js"></script>
-    <script type="text/javascript" src="js/juego.js"></script
+    <script type="text/javascript" src="js/juego.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
-    >
     <title>Puzzle</title>
 </head>
 
@@ -51,7 +50,7 @@
         <div id="barra-botones-vistaJuego" class="barra">
             <a href="javascript:resetear();" class="barra-botones" id="botonComenzarPartida">Desordenar</a>
             <a href="javascript:ayudar();" class="barra-botones" id="botonAyudar">Ayuda</a>
-            <a href="#" class="barra-botones" id="botonRegresar">Regresar</a>
+            <a href="javascript:mostrarMenu();" class="barra-botones" id="botonRegresar">Regresar</a>
         </div>
         
     </div>
@@ -102,7 +101,7 @@
                 <input type="submit" value="Jugar" data-inline="true" class="barra-botones"
                         onclick="jugar();"/>
                 -->
-                <a href="javascript:jugar();" class="barra-botones" id="botonJugar">Jugar</a>
+                <a href="javascript:jugarYa();" class="barra-botones" id="botonJugar">Jugar</a>
             </div>
             
             </div>

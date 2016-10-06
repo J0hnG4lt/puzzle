@@ -29,9 +29,9 @@
 // */
 $(document).ready(function(){
     
-    generarCeldas();
-    prepararResponsive();
-    comenzarPartida();
+    //generarCeldas();
+    //prepararResponsive();
+    //comenzarPartida();
     
 });
 
@@ -213,7 +213,7 @@ function intercambiarElementos(order1, order2){
 // *
 // */
 function inicializarTablero(){
-    
+    alert("url("+url_imagen+")");
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
@@ -223,7 +223,7 @@ function inicializarTablero(){
             //Se posiciona correctamente la parte correspondiente de la imagen
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
-                'background-image': "url("+url_imagen+")",
+                'background-image': "url('"+url_imagen+"')",
                 'background-position-x': -getPosLeft(i,j), 
                 'background-position-y': -getPosTop(i,j),
                 'order': ""+(i*dimY+j)+""

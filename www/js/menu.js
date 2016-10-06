@@ -23,8 +23,10 @@ function mostrarJuego(){
 }
 
 
-function jugar(){
+function jugarYa(){
     
+    $("#tablero").remove();
+    $("#fila").append('<div id="tablero"></div>');
     
     var url_imagen_elegida = $("#select-imagen").val();
     var dimension_x = parseInt($("#select-dimension-x").val(),10);
@@ -34,16 +36,9 @@ function jugar(){
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;
     
-    alert("ENTRE 2");
-    
     generarCeldas();
-    
-    alert("ENTRE 3");
-    
     prepararResponsive();
     comenzarPartida();
-    
-    alert("ENTRE 6");
     
     mostrarJuego();
 }
