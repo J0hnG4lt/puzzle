@@ -1,13 +1,14 @@
 *{margin: 0;padding: 0}
 
 html, body {
-    background: #222222;
-    color: #cc6733;
+    background: #FFB38C;
+    color: #961907;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;}
+
 
 header {
     display: block;
@@ -20,37 +21,31 @@ header h1 {
     font-size: 40px;
     font-weight: bold;}
     
-header #botonComenzarPartida{
+.barra-botones {
     padding: 15px;
     background-color: #961907;
     font-family: Arial;
+    text-align: center;
     color: #fff;
     border-radius: 10px;
-    text-decoration: none;}
-
-header #botonAyudar{
-    padding: 15px;
-    background-color: #961907;
+    text-decoration: none;
     font-family: Arial;
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;}
+    font-size: 30px;
+    font-weight: bold;
+}
 
-#header-botones {
+#barra-botones-vistaJuego {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: center;
 }
 
-.boton-header {
-    flex-basis : 30%;
+.barra-botones {
+    flex-basis : 25%;
 }
 
-header #botonComenzarPartida:hover{
-    background-color: #cc6733;}
-
-header #botonAyudar:hover{
+.barra-botones:active{
     background-color: #cc6733;}
 
 header p{
@@ -64,7 +59,7 @@ header p{
     height: 800px;
     padding: 20px;
     margin: 20px auto;
-    background-color: #3a3a3a;
+    background-color: #cc6733;
     border-radius: 10px;
     position: relative;
 }
@@ -80,3 +75,38 @@ header p{
     color:#fff;
 }
 
+#fila {
+    display : flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+#barra-botones-VistaJuego {
+    flex-basis : 100%;
+}
+
+#tablero {
+    flex-basis : 100%;
+}
+
+#formulario-parametrosJuego{
+    display : relative;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 100%;
+    text-align: center;
+}
+
+
+label {
+    width : 50%;
+    padding: 2%;
+    margin-left:-1px;
+    display:block;
+}
+select{
+    width : 50%;
+    align:right;
+    padding: 2%;
+}

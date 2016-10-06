@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/aux.js"></script>
     <script type="text/javascript" src="js/juego.js"></script>
     <title>Puzzle</title>
@@ -35,19 +36,81 @@
 
 <body>
     
+    <div id="vista-juego" class="vista">
+    
     <header>
         <h1>Puzzle</h1>
-        <div id="header-botones">
-        <a href="javascript:resetear();" class="boton-header" id="botonComenzarPartida">Desordenar</a>
-        <a href="javascript:ayudar();" class="boton-header" id="botonAyudar">Ayuda</a>
-        </div>
     </header>
     
-    <div id="tablero">
-
+    
+    <div id="fila">
+        
+        <div id="tablero"></div>
+        
+        <div id="barra-botones-vistaJuego" class="barra">
+            <a href="javascript:resetear();" class="barra-botones" id="botonComenzarPartida">Desordenar</a>
+            <a href="javascript:ayudar();" class="barra-botones" id="botonAyudar">Ayuda</a>
+            <a href="#" class="barra-botones" id="botonRegresar">Regresar</a>
+        </div>
+        
     </div>
     
+    </div>
     
+    <div id="vista-menu" class="vista">
+        
+        <header>
+            <h1>Menú Principal</h1>
+        </header>
+        
+        
+        <form id="formulario-parametrosJuego">
+            
+            <div id="contenedor-raiz-form">
+            
+            <div id="imagen-contenedor" class="contenedor-form">
+            <label id="etiqueta-imagen" for="imagen">Imagen</label>
+            <select id="select-imagen" name="imagen_ru" tabindex="2">
+                <option value="../img/cueva.jpg">Cueva del Carmen</option>
+                <option value="../img/petroglifo.png">Petroglifo del Distrito Mara</option>
+            </select>
+            </div>
+            
+            <div id="dimension-x-contenedor" class="contenedor-form">
+            <label id="etiqueta-x-dimension" for="dimension-x">Dimensión Y</label>
+            <select id="select-dimension-x" name="dimension-x_ru" tabindex="2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">3</option>
+                <option value="2">4</option>
+            </select>
+            </div>
+            
+            <div id="dimension-y-contenedor" class="contenedor-form">
+            <label id="etiqueta-y-dimension" for="dimension-y">Dimensión X</label>
+            <select id="select-dimension-y" name="dimension-y_ru" tabindex="2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="2">3</option>
+                <option value="2">4</option>
+            </select>
+            </div>
+            
+            <div id="contenedor-enviar" class="contenedor-form">
+                <input type="submit" value="Jugar" data-inline="true" class="barra-botones"
+                        onclick="jugar();"/>
+            </div>
+            
+            </div>
+            
+        </form>
+        
+        <!--
+        <div id="barra-botones-vistaMenu" class="barra">
+            <a href="#" class="barra-botones" id="botonVistaJugar">Jugar</a>
+        </div>
+        -->
+    </div>
     
 </body>
 
