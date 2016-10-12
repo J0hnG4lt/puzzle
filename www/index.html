@@ -32,6 +32,7 @@
     <script type="text/javascript" src="js/juego.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
     <title>Puzzle</title>
+    
 </head>
 
 <body>
@@ -57,52 +58,85 @@
     
     </div>
     
-    <div id="vista-menu" class="vista">
-        
-        <header>
-            <h1>Menú Principal</h1>
-        </header>
+    <div id="vista-menu" class="vista" style="width:100%;height:100%;">
         
         
-        <div id="formulario-parametrosJuego">
-            
-            <div id="contenedor-raiz-form">
-            
-            <div id="imagen-contenedor" class="contenedor-form">
-            <label id="etiqueta-imagen" for="imagen">Imagen</label>
-            <select id="select-imagen" name="imagen_ru" tabindex="2">
-                <option value="../img/cueva.jpg">Cueva del Carmen</option>
-                <option value="../img/petroglifo.png">Petroglifo del Distrito Mara</option>
-            </select>
-            </div>
-            
-            <div id="dimension-x-contenedor" class="contenedor-form">
-            <label id="etiqueta-x-dimension" for="dimension-x">Dimensión Y</label>
-            <select id="select-dimension-x" name="dimension-x_ru" tabindex="2">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            </div>
-            
-            <div id="dimension-y-contenedor" class="contenedor-form">
-            <label id="etiqueta-y-dimension" for="dimension-y">Dimensión X</label>
-            <select id="select-dimension-y" name="dimension-y_ru" tabindex="2">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            </div>
-            
-            <div id="contenedor-enviar" class="contenedor-form">
-                <a href="javascript:jugarYa();" class="barra-botones" id="botonJugar">Jugar</a>
-            </div>
-            
-            </div>
-            
+        <div id="puzzles-deslizantes-educativos-header"
+             style="width:100%; height:10%; overflow:hidden; position:relative">
+            <!-- set width/height proportionally, to scale the sprite image -->
+            <img src="../img/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
+                 width="100%" height="1000%"
+                 style="position:absolute; top: 0; left: 0;" />
+                 
         </div>
+        <div id="puzzles-deslizantes-educativos-tabla"
+             style="width:100%; height:60%; overflow:hidden; position:relative">
+            <!-- set width/height proportionally, to scale the sprite image -->
+            <img src="../img/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
+                 width="100%" height="170%"
+                 style="position:absolute; top: -20%; left: 0;" />
+                 
+        </div>
+        <div id="puzzles-deslizantes-educativos-mensaje"
+             style="width:100%; height:20%; overflow:hidden; position:relative">
+            <!-- set width/height proportionally, to scale the sprite image -->
+            <img src="../img/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
+                 width="100%" height="800%"
+                 style="position:absolute; top: -625%; left: 0;" />
+                 
+        </div>
+        <div id="puzzles-deslizantes-educativos-footer"
+             style="width:100%; height:10%; overflow:hidden; position:relative">
+            <!-- set width/height proportionally, to scale the sprite image -->
+            <img src="../img/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
+                 width="100%" height="1000%"
+                 style="position:absolute; top: -900%; left: 0;" />
+                 
+        </div>
+        
+        
+    </div>
+        
+        
+        <!--<div id="formulario-parametrosJuego">-->
+            
+        <!--    <div id="contenedor-raiz-form">-->
+            
+        <!--    <div id="imagen-contenedor" class="contenedor-form">-->
+        <!--    <label id="etiqueta-imagen" for="imagen">Imagen</label>-->
+        <!--    <select id="select-imagen" name="imagen_ru" tabindex="2">-->
+        <!--        <option value="../img/cueva.jpg">Cueva del Carmen</option>-->
+        <!--        <option value="../img/petroglifo.png">Petroglifo del Distrito Mara</option>-->
+        <!--    </select>-->
+        <!--    </div>-->
+            
+        <!--    <div id="dimension-x-contenedor" class="contenedor-form">-->
+        <!--    <label id="etiqueta-x-dimension" for="dimension-x">Dimensión Y</label>-->
+        <!--    <select id="select-dimension-x" name="dimension-x_ru" tabindex="2">-->
+        <!--        <option value="1">1</option>-->
+        <!--        <option value="2">2</option>-->
+        <!--        <option value="3">3</option>-->
+        <!--        <option value="4">4</option>-->
+        <!--    </select>-->
+        <!--    </div>-->
+            
+        <!--    <div id="dimension-y-contenedor" class="contenedor-form">-->
+        <!--    <label id="etiqueta-y-dimension" for="dimension-y">Dimensión X</label>-->
+        <!--    <select id="select-dimension-y" name="dimension-y_ru" tabindex="2">-->
+        <!--        <option value="1">1</option>-->
+        <!--        <option value="2">2</option>-->
+        <!--        <option value="3">3</option>-->
+        <!--        <option value="4">4</option>-->
+        <!--    </select>-->
+        <!--    </div>-->
+            
+        <!--    <div id="contenedor-enviar" class="contenedor-form">-->
+        <!--        <a href="javascript:jugarYa();" class="barra-botones" id="botonJugar">Jugar</a>-->
+        <!--    </div>-->
+            
+        <!--    </div>-->
+            
+        <!--</div>-->
         
     </div>
     

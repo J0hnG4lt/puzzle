@@ -2,12 +2,18 @@
 
 html, body {
     background: #FFB38C;
+    background-image:url("../img/Fondo---Textura.png");
     color: #961907;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-    user-select: none;}
+    user-select: none;
+    position:relative;
+    overflow: hidden;
+    width: 100%;
+    height:100%;
+}
 
 
 header {
