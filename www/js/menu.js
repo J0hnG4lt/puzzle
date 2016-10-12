@@ -13,7 +13,7 @@ function ocultarVistas(){
 
 function mostrarMenu(){
     ocultarVistas();
-    $("#vista-menu").css("display","block");
+    $("#vista-dimensiones").css("display","block");
 }
 
 function mostrarJuego(){
