@@ -37,14 +37,14 @@
 
 <body>
     
-    <div id="vista-juego" class="vista">
+    <div id="vista-juego" class="vista" style="width:100%;height:100%;">
     
     <header>
         <h1>Puzzle</h1>
     </header>
     
     
-    <div id="fila">
+    <div id="fila" style="width:100%;height:100%;">
         
         <div id="tablero"></div>
         
@@ -80,10 +80,14 @@
             <img src="../img/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
                  width="100%" height="170%"
                  style="position:absolute; top: -20%; left: 0;" />
-            <a href="1" style="display:block; width:50%; height:50%; position:absolute; left: 0; top: 10%;"></a>
-            <a href="2" style="display:block; width:50%; height:50%; position:absolute; left: 0; top: 60%;"></a>
-            <a href="3" style="display:block; width:50%; height:50%; position:absolute; left: 50%; top: 10%;"></a>
-            <a href="4" style="display:block; width:50%; height:50%; position:absolute; left: 50%; top: 60%;"></a>
+            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 0; top: 10%;"
+                        onclick="seleccionarImagen(4)"></a>
+            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 0; top: 60%;"
+                        onclick="seleccionarImagen(1)"></a>
+            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 50%; top: 10%;"
+                        onclick="seleccionarImagen(3)"></a>
+            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 50%; top: 60%;"
+                        onclick="seleccionarImagen(2)"></a>
         </div>
         <div id="puzzles-deslizantes-educativos-mensaje-seleccionar"
              class="seleccionar-imagen-sprite"
@@ -102,7 +106,8 @@
                  width="100%" height="1000%"
                  style="position:absolute; top: -900%; left: 0;"
                  />
-            <a href="#" style="display:block; width:30%; height:100%; position:absolute; left: 70%; top: 0;"></a>
+            <a style="display:block; width:30%; height:100%; position:absolute; left: 70%; top: 0;"
+               onclick="mostrarDimensiones();"></a>
                  
         </div>
         
@@ -128,12 +133,15 @@
                  width="100%" height="170%"
                  style="position:absolute; top: -20%; left: 0;" />
             
-            <a href="1" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 34%;"></a>
-            <a href="2" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 41%;"></a>
-            <a href="3" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 50%;"></a>
-            <a href="4" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 60%;"></a>
-            <a href="5" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 72%;"></a>
-            <a href="6" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 84%;"></a>
+            <a class="opcion-sprite dim" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 34%;"
+               onclick="seleccionarDimension(3,3);"></a>
+            <a class="opcion-sprite dim" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 41%;"
+               onclick="seleccionarDimension(4,4);"></a>
+            <a class="opcion-sprite dim" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 50%;"
+               onclick="seleccionarDimension(6,6);"></a>
+            <a class="opcion-sprite" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 60%;"></a>
+            <a class="opcion-sprite" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 72%;"></a>
+            <a class="opcion-sprite" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 84%;"></a>
         </div>
         <div id="puzzles-deslizantes-educativos-mensaje-dimension"
              style="width:100%; height:20%; overflow:hidden; position:relative">
@@ -150,8 +158,10 @@
                  width="100%" height="1000%"
                  style="position:absolute; top: -900%; left: 0;"
                  />
-            <a href="#" style="display:block; width:30%; height:100%; position:absolute; left: 70%; top: 0;"></a>
-            <a href="#" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>     
+            <a style="display:block; width:30%; height:100%; position:absolute; left: 70%; top: 0;"
+               onclick="jugarYa();"></a>
+            <a style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"
+               onclick="mostrarMenu();"></a>     
         </div>
         
     </div>
