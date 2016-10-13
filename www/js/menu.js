@@ -11,7 +11,7 @@ $(document).ready(function(){
 diccionario_imagenes = { 1:"../img/petroglifo.png"
                         ,2:"../img/amazonas.jpg"
                         ,3:"../img/cueva.jpg"
-                        ,4:"../img/zulia.jpg"
+                        ,4:"../img/falcon.jpg"
                         };
 
 var url_imagen_elegida = "";
@@ -41,7 +41,7 @@ function mostrarJuego(){
 function jugarYa(){
     
     $("#tablero").remove();
-    $("#fila").prepend('<div id="tablero"></div>');
+    $("#fila").prepend('<div id="tablero" style="width:100%;height:60%;"></div>');
     dimX = dimension_x;
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;

@@ -224,6 +224,7 @@ function inicializarTablero(){
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
                 'background-image': "url('"+url_imagen+"')",
+                'background-size':"350% 350%",
                 'background-position-x': -getPosLeft(i,j), 
                 'background-position-y': -getPosTop(i,j),
                 'order': ""+(i*dimY+j)+""
