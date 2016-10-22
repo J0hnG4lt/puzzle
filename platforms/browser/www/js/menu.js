@@ -39,9 +39,18 @@ function mostrarJuego(){
 
 
 function jugarYa(){
-    /*
+    
     $("#tablero").remove();
-    $("#puzzles-deslizantes-educativos-tabla-juego").prepend('<div id="tablero" style="width:100%;height:60%;"></div>');
+    $("#puzzles-deslizantes-educativos-tabla-juego").prepend(
+        '<div id="tablero"\
+              style="width:100%;\
+                     height:100%;\
+                     position:relative;\
+                     left:0%;\
+                     top:0%;\
+                     margin: 2.5%;\
+                     overflow:hidden;">\
+         </div>');
     dimX = dimension_x;
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;
@@ -49,7 +58,7 @@ function jugarYa(){
     generarCeldas();
     prepararResponsive();
     comenzarPartida();
-    */
+    
     mostrarJuego();
 }
 

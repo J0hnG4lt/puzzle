@@ -29,9 +29,9 @@
 // */
 $(document).ready(function(){
     
-    //generarCeldas();
-    //prepararResponsive();
-    //comenzarPartida();
+    generarCeldas();
+    prepararResponsive();
+    comenzarPartida();
     
 });
 
@@ -112,9 +112,10 @@ function prepararResponsive(){
     var tablero = $("#tablero");
     
     $('#tablero').css({
-        'width': anchoDeTablero - 2*espacioDeCelda,
-        'height': anchoDeTablero - 2*espacioDeCelda,
-        'padding': espacioDeCelda
+        'width': "95%",
+        'height': "95%",
+        'padding': "0",
+        'margin': "2.5%"
     });
     
     tablero.css({
@@ -467,5 +468,10 @@ function haTerminadoLaPartida(){
 }
 
 function pausar(){
+    return false;
+}
+
+
+function tomarElTiempo(){
     return false;
 }
