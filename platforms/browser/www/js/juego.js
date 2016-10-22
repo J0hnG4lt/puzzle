@@ -42,7 +42,8 @@ $(document).ready(function(){
 // */
 function resetear(){
     
-    tomarElTiempoResetear()
+    tomarElTiempoResetear();
+    resetearContadorDeMovidas();
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
@@ -145,6 +146,7 @@ function comenzarPartida(){
     inicializarTablero();
     desordenar();
     tomarElTiempoEmpezar();
+    resetearContadorDeMovidas();
 }
 
 // /*
@@ -206,6 +208,8 @@ function intercambiarElementos(order1, order2){
         
         elemento1.attr("data-order", order2.toString(10));
         elemento2.attr("data-order", order1.toString(10));
+        
+        aumentarCantidadMovidas();
 }
 
 
@@ -536,6 +540,14 @@ function tomarElTiempoSiguienteValor(){
     $("#juego-minutos").text(minString);
 }
 
+
+function resetearContadorDeMovidas(){
+    $("#juego-contador-movidas").text("0");
+}
+
 function aumentarCantidadMovidas(){
-    return false;
+    var movidas = parseInt($("#juego-contador-movidas").text(),10);
+    movidas++;
+    $("#juego-contador-movidas").text(movidas.toString(10));
+    
 }
