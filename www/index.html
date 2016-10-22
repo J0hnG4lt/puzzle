@@ -156,7 +156,11 @@
                       position:absolute; 
                       left: 65%; 
                       top: 50%;
-                      margin-top:1%">00:00</a>
+                      margin-top:1%">
+                        <span id="juego-minutos">00</span>
+                          :
+                        <span id="juego-segundos">00</span>
+            </a>
             <a class="tablero-sprite" id="juego-contador-movidas"
                style="display:block; 
                       width:20%; 
@@ -193,7 +197,7 @@
                       position:absolute; 
                       left: 25%; 
                       top: 25%;"
-               href="javascript:pausar();">
+               href="javascript:pausarToggle();">
                 
                 <img src="../img/icono-pausa.png" alt="icon"
                  width="100%" height="100%"

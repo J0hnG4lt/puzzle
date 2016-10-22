@@ -42,6 +42,7 @@ $(document).ready(function(){
 // */
 function resetear(){
     
+    tomarElTiempoResetear()
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
@@ -54,6 +55,7 @@ function resetear(){
     
     //Notar que esta función asume que la blanca está arriba a la izquierda
     desordenar();
+    tomarElTiempoEmpezar()
 }
 
 // /*
@@ -142,7 +144,7 @@ function comenzarPartida(){
     
     inicializarTablero();
     desordenar();
-    
+    tomarElTiempoEmpezar();
 }
 
 // /*
@@ -467,11 +469,73 @@ function haTerminadoLaPartida(){
     return true;
 }
 
-function pausar(){
-    return false;
+
+
+function pausarToggle(){
+    
+    if($(".celda").css("pointer-events")!=="none"){
+        $(".celda").css({
+            'pointer-events' : 'none'
+        });
+        intervaloDeTiempoDetener();
+    }
+    else{
+        $(".celda").css({
+            'pointer-events' : 'auto'
+        });
+        tomarElTiempoEmpezar();
+    }
+    
 }
 
 
-function tomarElTiempo(){
+
+function tomarElTiempoEmpezar(){
+    intervaloDeTiempoDetener();
+    intervaloDeTiempoID = window.setInterval(
+        tomarElTiempoSiguienteValor,1000);
+}
+
+function tomarElTiempoResetear(){
+    $("#juego-segundos").text("00");
+    $("#juego-minutos").text("00");
+}
+
+
+function intervaloDeTiempoDetener(){
+    if (intervaloDeTiempoID) {
+        window.clearInterval(intervaloDeTiempoID);
+        intervaloDeTiempo=null;
+    }
+}
+
+function tomarElTiempoSiguienteValor(){
+    var segundos = parseInt($("#juego-segundos").text(),10);
+    var minutos = parseInt($("#juego-minutos").text(),10);
+    if (segundos < 60) {
+        segundos++;
+    }
+    else {
+        minutos++;
+        segundos = 0;
+        if (minutos === 60){
+            minutos = 0;
+        }
+        
+    }
+    var segString = segundos.toString(10);
+    var minString = minutos.toString(10);
+    if (segString.length < 2){
+        segString = '0'+segString; 
+    }
+    if (minString.length < 2){
+        minString = '0'+minString;
+    }
+    
+    $("#juego-segundos").text(segString);
+    $("#juego-minutos").text(minString);
+}
+
+function aumentarCantidadMovidas(){
     return false;
 }

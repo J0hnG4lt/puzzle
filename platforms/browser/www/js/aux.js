@@ -16,6 +16,7 @@ var espacioDeCelda = 0.01 * anchoDePantalla;
 
 var elemTocado; //Elemento que recibe el touch event
 
+var intervaloDeTiempoID = null;
 
 //Estas funciones calculan la posicion relativo al padre para colocar la parte
 //de la imagen que le corresponde a la celda (i,j)
