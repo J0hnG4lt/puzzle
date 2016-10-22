@@ -465,3 +465,7 @@ function haTerminadoLaPartida(){
     
     return true;
 }
+
+function pausar(){
+    return false;
+}
