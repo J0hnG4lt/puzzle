@@ -18,6 +18,34 @@ var elemTocado; //Elemento que recibe el touch event
 
 var intervaloDeTiempoID = null;
 
+
+
+var imagenSeleccionadaIndex = 0;
+diccionario_imagenes = { 1:"../img/petroglifo.png"
+                        ,2:"../img/amazonas.jpg"
+                        ,3:"../img/cueva.jpg"
+                        ,4:"../img/falcon.jpg"
+                        };
+
+/*
+Posiciones sugeridas para la blanca
+0 1 2
+3   5
+6 7 8
+
+diccionario_posicion_blanca
+    Su índice hace referencia a la identidad de la imagen
+    en diccionario_imagenes
+    Su valor hace referencia a la posición sugerida.
+*/
+diccionario_posicion_blanca = {0:0 //Opción por default
+                              ,1:7
+                              ,2:2
+                              ,3:8
+                              ,4:6
+                               };
+
+
 //Estas funciones calculan la posicion relativo al padre para colocar la parte
 //de la imagen que le corresponde a la celda (i,j)
 

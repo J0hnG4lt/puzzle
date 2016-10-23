@@ -8,11 +8,6 @@ $(document).ready(function(){
 });
 
 
-diccionario_imagenes = { 1:"../img/petroglifo.png"
-                        ,2:"../img/amazonas.jpg"
-                        ,3:"../img/cueva.jpg"
-                        ,4:"../img/falcon.jpg"
-                        };
 
 var url_imagen_elegida = "";
 var dimension_x=3;
@@ -64,6 +59,7 @@ function jugarYa(){
 
 function seleccionarImagen(numeroImagen){
     
+    imagenSeleccionadaIndex = numeroImagen;
     url_imagen_elegida = diccionario_imagenes[numeroImagen];
 }
 

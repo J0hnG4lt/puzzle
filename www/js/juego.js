@@ -27,13 +27,7 @@
 // /*
 // * Se espera a que la página se cargue para inicializar el juego
 // */
-$(document).ready(function(){
-    
-    generarCeldas();
-    prepararResponsive();
-    comenzarPartida();
-    
-});
+
 
 // /*
 // * 
@@ -114,14 +108,14 @@ function prepararResponsive(){
     
     
     var tablero = $("#tablero");
-    
+    /*
     $('#tablero').css({
         'width': "95%",
         'height': "95%",
         'padding': "0",
         'margin': "2.5%"
     });
-    
+    */
     tablero.css({
         "display": "flex",
         "flex-direction": "row",
@@ -136,6 +130,9 @@ function prepararResponsive(){
 
 }
 
+$(document).ready(function(){
+    generarCeldas();
+});
 
 // /*
 // * 
@@ -144,10 +141,15 @@ function prepararResponsive(){
 // */
 function comenzarPartida(){
     
-    inicializarTablero();
-    desordenar();
-    tomarElTiempoEmpezar();
-    resetearContadorDeMovidas();
+    //$(document).ready(function(){
+        
+        //generarCeldas();
+        prepararResponsive();
+        inicializarTablero();
+        desordenar();
+        tomarElTiempoEmpezar();
+        resetearContadorDeMovidas();
+    //});
 }
 
 // /*
@@ -159,28 +161,36 @@ function comenzarPartida(){
 function desordenar(){
     
     var permutacion = [];
-    
+    var posicion_blanca = diccionario_posicion_blanca[imagenSeleccionadaIndex];
     //Se colocan los demás valores de order de las celdas distintas a blanca
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
             
-            if (i + j === 0) {continue;}
+            //if (i*dimY + j === posicion_blanca) {continue;}
             
             var indice = i*dimY + j;
-            permutacion[indice -1] = indice;
+            permutacion[indice] = indice;
         }
     }
     
     permutacion = _.shuffle(permutacion); // Se desordenan
-    permutacion.unshift(0); //Se coloca la blanca en su sitio
+    //permutacion.unshift(0); //Se coloca la blanca en su sitio
+    
+    for(var i=0; i < dimX*dimY; i++){
+        if (permutacion[i] == posicion_blanca){
+            var aux = permutacion[i];
+            permutacion[i] = permutacion[posicion_blanca];
+            permutacion[posicion_blanca] = aux;
+        }
+    }
     
     //Se ejecuta el cambio de posiciones
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
             
-            if (i + j === 0) {continue;}
+            //if (i*dimY + j === posicion_blanca) {continue;}
             
             var order1 = i*dimY + j;
             var order2 = permutacion[order1];
@@ -238,8 +248,16 @@ function inicializarTablero(){
                 'order': ""+(i*dimY+j)+""
             });
             
-            //No se muestra la celda de la esquina superior izquierda
-            if ((i==0)&&(j==0)){celdaImagen.css({"background-image": "none"});}
+            var tuplaPosicionBlanca = posicionBlanca();
+            
+            //No se muestra la celda de la blanca
+            if ((i==tuplaPosicionBlanca.x_pos)
+                &&
+                (j==tuplaPosicionBlanca.y_pos)){
+                    
+                    celdaImagen.css({"background-image": "none"});
+                    alert("celda-"+tuplaPosicionBlanca.x_pos+"-"+tuplaPosicionBlanca.y_pos);
+                }
             
         }
         
@@ -247,6 +265,13 @@ function inicializarTablero(){
     
 }
 
+function posicionBlanca(){
+    
+    var posBlanca = diccionario_posicion_blanca[imagenSeleccionadaIndex];
+    var x_pos = Math.floor(posBlanca/dimY);
+    var y_pos = Math.floor(posBlanca%dimY);
+    return {x_pos : x_pos, y_pos : y_pos}
+}
 
 //Cuando el usuario comienza a tocar la pantalla 
 document.addEventListener('touchstart', function(event){
@@ -344,8 +369,13 @@ function moverArriba(){
     //Encuentro el elemento a intercambiar
     var vecino = $(".celda[data-order="+orderVecino+"]");
     
+    var tuplaPosicionBlanca = posicionBlanca();
+    var nombre_celda_blanca = "celda-"
+                                +tuplaPosicionBlanca.x_pos
+                                +"-"
+                                +tuplaPosicionBlanca.y_pos;
     //Determino si es el vacío
-    if (vecino.attr("id") !== "celda-0-0"){
+    if (vecino.attr("id") !== nombre_celda_blanca){
         return false;
     }
     
@@ -376,8 +406,13 @@ function moverAbajo(){
     //Encuentro el elemento a intercambiar
     var vecino = $(".celda[data-order="+orderVecino+"]");
     
+    var tuplaPosicionBlanca = posicionBlanca();
+    var nombre_celda_blanca = "celda-"
+                                +tuplaPosicionBlanca.x_pos
+                                +"-"
+                                +tuplaPosicionBlanca.y_pos;
     //Determino si es el vacío
-    if (vecino.attr("id") !== "celda-0-0"){
+    if (vecino.attr("id") !== nombre_celda_blanca){
         return false;
     }
     
@@ -408,8 +443,13 @@ function moverDerecha(){
     //Encuentro el elemento a intercambiar
     var vecino = $(".celda[data-order="+orderVecino+"]");
     
+    var tuplaPosicionBlanca = posicionBlanca();
+    var nombre_celda_blanca = "celda-"
+                                +tuplaPosicionBlanca.x_pos
+                                +"-"
+                                +tuplaPosicionBlanca.y_pos;
     //Determino si es el vacío
-    if (vecino.attr("id") !== "celda-0-0"){
+    if (vecino.attr("id") !== nombre_celda_blanca){
         return false;
     }
     
@@ -440,8 +480,13 @@ function moverIzquierda(){
     //Encuentro el elemento a intercambiar
     var vecino = $(".celda[data-order="+orderVecino+"]");
     
+    var tuplaPosicionBlanca = posicionBlanca();
+    var nombre_celda_blanca = "celda-"
+                                +tuplaPosicionBlanca.x_pos
+                                +"-"
+                                +tuplaPosicionBlanca.y_pos;
     //Determino si es el vacío
-    if (vecino.attr("id") !== "celda-0-0"){
+    if (vecino.attr("id") !== nombre_celda_blanca){
         return false;
     }
     
