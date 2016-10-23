@@ -57,6 +57,7 @@ function resetear(){
     //Notar que esta función asume que la blanca está arriba a la izquierda
     desordenar();
     tomarElTiempoEmpezar()
+    desbloquearCeldas();
 }
 
 // /*
@@ -484,15 +485,17 @@ function pausarToggle(){
         intervaloDeTiempoDetener();
     }
     else{
-        $(".celda").css({
-            'pointer-events' : 'auto'
-        });
+        desbloquearCeldas();
         tomarElTiempoEmpezar();
     }
     
 }
 
-
+function desbloquearCeldas(){
+    $(".celda").css({
+        'pointer-events' : 'auto'
+    });
+}
 
 function tomarElTiempoEmpezar(){
     intervaloDeTiempoDetener();
@@ -542,7 +545,7 @@ function tomarElTiempoSiguienteValor(){
 
 
 function resetearContadorDeMovidas(){
-    $("#juego-contador-movidas").text("0");
+    $("#juego-contador-movidas").text('0');
 }
 
 function aumentarCantidadMovidas(){
