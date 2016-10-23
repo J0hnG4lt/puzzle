@@ -21,30 +21,48 @@ var intervaloDeTiempoID = null;
 
 
 var imagenSeleccionadaIndex = 0;
-diccionario_imagenes = { 1:"../img/petroglifo.png"
+var diccionario_imagenes = { 1:"../img/petroglifo.png"
                         ,2:"../img/amazonas.jpg"
                         ,3:"../img/cueva.jpg"
                         ,4:"../img/falcon.jpg"
                         };
-
+var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
+                           2 : {x:"167px",y:"167px"},
+                           3 : {x:"558px",y:"552px"},
+                           4 : {x:"167px",y:"167px"}
+                           }
 /*
 Posiciones sugeridas para la blanca
 0 1 2
 3   5
 6 7 8
 
-diccionario_posicion_blanca
+diccionario_posicion_blanca para el nivel 3x3
     Su índice hace referencia a la identidad de la imagen
     en diccionario_imagenes
     Su valor hace referencia a la posición sugerida.
 */
-diccionario_posicion_blanca = {0:0 //Opción por default
+var diccionario_posicion_blanca_3x3 = {0:0 //Opción por default
                               ,1:7
                               ,2:2
                               ,3:8
                               ,4:6
                                };
 
+/*
+0  1  2  3
+4        7
+8        11
+12 13 14 15
+*/
+var diccionario_posicion_blanca_4x4 = {0:0 //Opción por default
+                              ,1:13
+                              ,2:3
+                              ,3:15
+                              ,4:12
+                               };
+
+var diccionario_posicion_blanca = {};
 
 //Estas funciones calculan la posicion relativo al padre para colocar la parte
 //de la imagen que le corresponde a la celda (i,j)
@@ -52,6 +70,7 @@ diccionario_posicion_blanca = {0:0 //Opción por default
 function getPosTop(i, j){
     return Math.floor((anchoDeTablero/dimX))*i;
 }
+
 function getPosLeft(i, j){
     return Math.floor((anchoDeTablero/dimY))*j;
 }

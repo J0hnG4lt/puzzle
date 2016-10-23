@@ -124,7 +124,8 @@ function prepararResponsive(){
     
     
     $(".celda").css({
-        "flex-basis":(""+Math.floor((100/dimY))+"%")
+        "flex-basis":(""+Math.floor((100/dimY))+"%"),
+        "height" : (""+Math.floor((100/dimY))+"%")
     });
     
 

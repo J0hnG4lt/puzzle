@@ -66,6 +66,12 @@ function seleccionarImagen(numeroImagen){
 function seleccionarDimension(x,y){
     dimension_x = parseInt(x,10);
     dimension_y = parseInt(y,10);
+    if ((dimension_x === 3) && (dimension_y === 3)){
+        diccionario_posicion_blanca = diccionario_posicion_blanca_3x3;
+    }
+    else if ((dimension_x === 3) && (dimension_y === 3)){
+        diccionario_posicion_blanca = diccionario_posicion_blanca_4x4;
+    }
 }
 
 function resaltarAreasSprite(event){
