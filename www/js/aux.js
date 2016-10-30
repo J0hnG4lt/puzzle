@@ -21,6 +21,8 @@ var intervaloDeTiempoID = null;
 
 var numMovidas = 0;
 
+var tipoRepresentacion = 0;
+
 var imagenSeleccionadaIndex = 0;
 var diccionario_imagenes = { 1:"../img/petroglifo.png"
                         ,2:"../img/amazonas.jpg"

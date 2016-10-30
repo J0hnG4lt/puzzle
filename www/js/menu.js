@@ -3,7 +3,7 @@ $(document).ready(function(){
     
     $(".area-sprite").on("click", resaltarAreasSprite);
     $(".opcion-sprite").on("click", resaltarOpcionSprite);
-    mostrarMenu();
+    mostrarTipoRepresentacion();
     
 });
 
@@ -20,6 +20,11 @@ function ocultarVistas(){
 function mostrarMenu(){
     ocultarVistas();
     $("#vista-menu").css("display","block");
+}
+
+function mostrarTipoRepresentacion(){
+    ocultarVistas();
+    $("#vista-seleccionar-tipo-manifestacion").css("display","block");
 }
 
 function mostrarDimensiones(){
@@ -124,4 +129,14 @@ function mostrarImagenInfo(){
     
     ocultarVistas();
     $("#vista-imagen-seleccionada-info").css("display","block");
+}
+
+
+function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
+    
+    tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
+}
+
+function verMapaDeTipoRepresentacion(){
+    
 }
