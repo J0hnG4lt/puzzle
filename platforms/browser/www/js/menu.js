@@ -72,9 +72,13 @@ function seleccionarDimension(x,y){
     if ((dimension_x === 3) && (dimension_y === 3)){
         diccionario_posicion_blanca = diccionario_posicion_blanca_3x3;
     }
-    else if ((dimension_x === 3) && (dimension_y === 3)){
+    else if ((dimension_x === 4) && (dimension_y === 4)){
         diccionario_posicion_blanca = diccionario_posicion_blanca_4x4;
     }
+    else if ((dimension_x === 6) && (dimension_y === 6)){
+        diccionario_posicion_blanca = diccionario_posicion_blanca_6x6;
+    }
+    
 }
 
 function resaltarAreasSprite(event){

@@ -63,6 +63,22 @@ var diccionario_posicion_blanca_4x4 = {0:0 //Opción por default
                               ,4:12
                                };
 
+/*
+0  1  2  3  4  5
+6              11
+12             17
+18             23
+24             29
+30 31 32 33 34 35
+*/
+var diccionario_posicion_blanca_6x6 = {0:0 //Opción por default
+                              ,1:31
+                              ,2:5
+                              ,3:35
+                              ,4:30
+                               };
+
+
 var diccionario_posicion_blanca = {};
 
 //Estas funciones calculan la posicion relativo al padre para colocar la parte
