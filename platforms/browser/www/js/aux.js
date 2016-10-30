@@ -32,6 +32,14 @@ var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
                            3 : {x:"558px",y:"552px"},
                            4 : {x:"167px",y:"167px"}
                            }
+
+var diccionario_imagen_info = {
+                        1 : "../img/petroglifo_zulia_info.jpg",
+                        2 : "../img/pintaito_amazonas_info.jpg",
+                        3 : "../img/cueva_bolivar_info.jpg",
+                        4 : "../img/chipaque_falcon_info.jpg"
+                        }
+
 /*
 Posiciones sugeridas para la blanca
 0 1 2

@@ -112,3 +112,16 @@ function resaltarOpcionSprite(event){
     });
 }
 
+
+
+function mostrarImagenInfo(){
+    var url_imagen_info = diccionario_imagen_info[imagenSeleccionadaIndex];
+    $("#vista-imagen-seleccionada-info").css({
+        'background-repeat': 'no-repeat',
+        "background-image": "url("+url_imagen_info+")",
+        'background-size':"100% 100%"
+    });
+    
+    ocultarVistas();
+    $("#vista-imagen-seleccionada-info").css("display","block");
+}

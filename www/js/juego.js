@@ -262,7 +262,7 @@ function inicializarTablero(){
                 (j==tuplaPosicionBlanca.y_pos)){
                     
                     celdaImagen.css({"background-image": "none"});
-                    alert("celda-"+tuplaPosicionBlanca.x_pos+"-"+tuplaPosicionBlanca.y_pos);
+                    
                 }
             
         }
