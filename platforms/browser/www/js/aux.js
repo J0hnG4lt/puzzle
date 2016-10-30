@@ -10,7 +10,8 @@ var url_imagen;
 
 //El tamaño de la pantalla del dispositivo determina los demás tamaños
 var anchoDePantalla = window.screen.availWidth;
-var anchoDeTablero = 0.92 * anchoDePantalla;
+//var anchoDeTablero = 0.92 * anchoDePantalla;
+var anchoDeTablero = parseInt($("#imagen_seleccionada_tablero").css("background-size-x"),10);
 var anchoDeCelda = 0.32 * anchoDePantalla;
 var espacioDeCelda = 0.01 * anchoDePantalla;
 
@@ -18,7 +19,7 @@ var elemTocado; //Elemento que recibe el touch event
 
 var intervaloDeTiempoID = null;
 
-
+var numMovidas = 0;
 
 var imagenSeleccionadaIndex = 0;
 var diccionario_imagenes = { 1:"../img/petroglifo.png"

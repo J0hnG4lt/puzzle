@@ -233,6 +233,11 @@ function intercambiarElementos(order1, order2){
 // */
 function inicializarTablero(){
     
+    $("#imagen_seleccionada_tablero").attr("src", url_imagen);
+    $("#imagen_seleccionada_tablero").css("display", "none");
+    
+    var porcentaje = ""+(100*dimY)+"%";
+    var alturaCeldas = parseInt($("#celda-0-0").css("height"),10);
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
@@ -243,9 +248,9 @@ function inicializarTablero(){
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
                 'background-image': "url('"+url_imagen+"')",
-                'background-size':"350% 350%",
-                'background-position-x': -getPosLeft(i,j), 
-                'background-position-y': -getPosTop(i,j),
+                'background-size': porcentaje+" "+porcentaje,
+                'background-position-x': ""+(alturaCeldas*i)+"%", 
+                'background-position-y': ""+(alturaCeldas*j)+"%",
                 'order': ""+(i*dimY+j)+""
             });
             
@@ -591,7 +596,9 @@ function tomarElTiempoSiguienteValor(){
 
 
 function resetearContadorDeMovidas(){
-    $("#juego-contador-movidas").text('0');
+    
+    //$("#juego-contador-movidas").text('-9');
+    document.getElementById("juego-contador-movidas").innerHTML = "0";
 }
 
 function aumentarCantidadMovidas(){

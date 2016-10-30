@@ -45,6 +45,9 @@ function jugarYa(){
                      top:0%;\
                      margin: 2.5%;\
                      overflow:hidden;">\
+                <img src="#" alt="icon" id="imagen_seleccionada_tablero"\
+                 width="100%" height="100%"\
+                 style="position:absolute; top: 0; left: 0;" />\
          </div>');
     dimX = dimension_x;
     dimY = dimension_y;
