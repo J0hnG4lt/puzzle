@@ -24,23 +24,29 @@ var numMovidas = 0;
 var tipoRepresentacion = 0;
 
 var imagenSeleccionadaIndex = 0;
-var diccionario_imagenes = { 1:"../img/petroglifo.png"
-                        ,2:"../img/amazonas.jpg"
-                        ,3:"../img/cueva.jpg"
-                        ,4:"../img/falcon.jpg"
+var diccionario_imagenes = {};
+
+var diccionario_imagenes_petroglifos = {
+                        1 : "../img/representaciones/petroglifos/petroglifo.png",
+                        2 : "../img/representaciones/petroglifos/amazonas.jpg",
+                        3 : "../img/representaciones/petroglifos/cueva.jpg",
+                        4 : "../img/representaciones/petroglifos/falcon.jpg"
                         };
+
 var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
                            2 : {x:"167px",y:"167px"},
                            3 : {x:"558px",y:"552px"},
                            4 : {x:"167px",y:"167px"}
-                           }
+                           };
 
-var diccionario_imagen_info = {
-                        1 : "../img/petroglifo_zulia_info.jpg",
-                        2 : "../img/pintaito_amazonas_info.jpg",
-                        3 : "../img/cueva_bolivar_info.jpg",
-                        4 : "../img/chipaque_falcon_info.jpg"
-                        }
+var diccionario_imagen_info = {};
+
+var diccionario_imagen_info_petroglifos = {
+                        1 : "../img/vistas/info_representaciones/petroglifo_zulia_info.jpg",
+                        2 : "../img/vistas/info_representaciones/pintaito_amazonas_info.jpg",
+                        3 : "../img/vistas/info_representaciones/cueva_bolivar_info.jpg",
+                        4 : "../img/vistas/info_representaciones/chipaque_falcon_info.jpg"
+                        };
 
 /*
 Posiciones sugeridas para la blanca

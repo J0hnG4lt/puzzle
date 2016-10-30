@@ -135,8 +135,19 @@ function mostrarImagenInfo(){
 function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     
     tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
+    
+    switch(tipoRepresentacion) {
+        case 1:
+            
+            diccionario_imagenes = diccionario_imagenes_petroglifos;
+            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
+            break;
+        default:
+            diccionario_imagenes = diccionario_imagenes_petroglifos;
+            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
+    }
 }
 
 function verMapaDeTipoRepresentacion(){
-    
+
 }
