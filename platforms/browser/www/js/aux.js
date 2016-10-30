@@ -48,6 +48,23 @@ var diccionario_imagen_info_petroglifos = {
                         4 : "../img/vistas/info_representaciones/chipaque_falcon_info.jpg"
                         };
 
+var diccionario_tipo_representacion_mapa = {
+                        1 : "../img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS.png",
+                        2 : "../img/mapas/4-Mapa-ampliado-con-estados-PR.png",
+                        3 : "../img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas.png",
+                        4 : "../img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas.png",
+                        5 : "../img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas.png",
+                        6 : "../img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+                        7 : "../img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+                        8 : "../img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+                        9 : "../img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+                        10 : "../img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES.png",
+                        11 : "../img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES.png",
+                        12 : "../img/mapas/6-Mapa-ampliado-ESFERAS-LÍTICAS.png",
+                        13 : "../img/mapas/7-Mapa-ampliado-con-estado-GEOGLIFO.png",
+                        14 : "../img/mapas/8-Mapa-ampliado-con-estados-MICROPETROGLIFOS.png"
+                        };
+
 /*
 Posiciones sugeridas para la blanca
 0 1 2
