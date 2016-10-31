@@ -135,12 +135,75 @@ function mostrarImagenInfo(){
 function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     
     tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
-    
+    diccionario_imagen_info = diccionario_imagen_info_petroglifos;
     switch(tipoRepresentacion) {
         case 1:
             
             diccionario_imagenes = diccionario_imagenes_petroglifos;
-            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
+            break;
+        case 2:
+            
+            diccionario_imagenes = diccionario_imagenes_pinturas_rupestres;
+            break;
+            
+        case 3:
+            
+            diccionario_imagenes = diccionario_imagenes_dolmen;
+            break;
+        
+        case 4:
+            
+            diccionario_imagenes = diccionario_imagenes_menhires;
+            break;
+            
+        case 5:
+            
+            diccionario_imagenes = diccionario_imagenes_monolitos;
+            break;
+            
+        case 6:
+            
+            diccionario_imagenes = diccionario_imagenes_amolador;
+            break;
+            
+        case 7:
+            
+            diccionario_imagenes = diccionario_imagenes_cupulas;
+            break;
+            
+        case 8:
+            
+            diccionario_imagenes = diccionario_imagenes_batea;
+            break;
+            
+        case 9:
+            
+            diccionario_imagenes = diccionario_imagenes_puntos_acoplados;
+            break;
+            
+        case 10:
+            
+            diccionario_imagenes = diccionario_imagenes_piedras_miticas;
+            break;
+            
+        case 11:
+            
+            diccionario_imagenes = diccionario_imagenes_cerro_mitico;
+            break;
+            
+        case 12:
+            
+            diccionario_imagenes = diccionario_imagenes_esfera_litica;
+            break;
+            
+        case 13:
+            
+            diccionario_imagenes = diccionario_imagenes_geoglifos;
+            break;
+            
+        case 14:
+            
+            diccionario_imagenes = diccionario_imagenes_micropetroglifo;
             break;
         default:
             diccionario_imagenes = diccionario_imagenes_petroglifos;
@@ -165,8 +228,7 @@ function quitarMapa(){
     $("#imagen_mapa").remove();
 }
 
-/*
+
 function seleccionarAmolador(){
     
 }
-*/
