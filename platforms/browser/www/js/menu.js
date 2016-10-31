@@ -164,3 +164,9 @@ function verMapaDeTipoRepresentacion(){
 function quitarMapa(){
     $("#imagen_mapa").remove();
 }
+
+/*
+function seleccionarAmolador(){
+    
+}
+*/

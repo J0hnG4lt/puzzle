@@ -33,6 +33,59 @@ var diccionario_imagenes_petroglifos = {
                         4 : "../img/representaciones/petroglifos/falcon.jpg"
                         };
 
+var diccionario_imagenes_amolador = {
+                        1 : "../img/representaciones/amolador/AMOLADORES-Sto-Rosario-de-Agua-Linda.jpg"
+                        }
+
+var diccionario_imagenes_batea = {
+                        1 : "../img/representaciones/batea/BATEA-Laja-de-Tigre-Río-Ocamo-edo-Amazonas.jpg"
+                        }
+
+var diccionario_imagenes_cerro_mitico = {
+                        1 : "../img/representaciones/cerro_mitico/CERRO-MITICO-NATURAL-Cerro-AUTANA.jpg"
+                        }
+
+var diccionario_imagenes_cupula = {
+                        1 : "../img/representaciones/cupula/CUPULAS-Mariara-edo-Carabobo.jpg"
+                        }
+
+var diccionario_imagenes_dolmen = {
+                        1 : "../img/representaciones/dolmen/DOLMEN-PINTAO-Edo-Amazonas.jpg"
+                        }
+
+var diccionario_imagenes_esfera_litica = {
+                        1 : "../img/representaciones/esfera_litica/Esfera-lítica-edo-Anzoátegui.jpg"
+                        }
+
+var diccionario_imagenes_geoglifos = {
+                        1 : "../img/representaciones/geoglifos/GEOGLIFO-edo-Carabobo.jpg"
+                        }
+
+var diccionario_imagenes_menhires = {
+                        1 : "../img/representaciones/menhires/MM-MENHIRES.jpg"
+                        }
+
+var diccionario_imagenes_micropetroglifo = {
+                        1 : "../img/representaciones/micropetroglifo/MICROPETROGLIFOS-Sn-Pablo-edo-Carabobo.jpg"
+                        }
+
+var diccionario_imagenes_monolitos = {
+                        1 : "../img/representaciones/monolitos/MM-MONOLITOS-Río-Vigirima-edo-Carabobo.jpg"
+                        }
+
+var diccionario_imagenes_piedras_miticas = {
+                        1 : "../img/representaciones/piedras_miticas/PIEDRA-MÍTICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg"
+                        }
+
+var diccionario_imagenes_pinturas_rupestres = {
+                        1 : "../img/representaciones/pinturas_rupestres/PR-Cueva-del-Carmen-edo-Bolivar.jpg"
+                        }
+
+var diccionario_imagenes_puntos_acoplados = {
+                        1 : "../img/representaciones/puntos_acoplados/PUNTOS-ACOPLADOS.jpg"
+                        }
+
+
 var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
                            2 : {x:"167px",y:"167px"},
                            3 : {x:"558px",y:"552px"},
@@ -47,6 +100,7 @@ var diccionario_imagen_info_petroglifos = {
                         3 : "../img/vistas/info_representaciones/cueva_bolivar_info.jpg",
                         4 : "../img/vistas/info_representaciones/chipaque_falcon_info.jpg"
                         };
+
 
 var diccionario_tipo_representacion_mapa = {
                         1 : "../img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS.png",
