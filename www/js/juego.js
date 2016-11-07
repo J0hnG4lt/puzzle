@@ -25,11 +25,6 @@
 
 
 // /*
-// * Se espera a que la página se cargue para inicializar el juego
-// */
-
-
-// /*
 // * 
 // * Se desordenan las celdas
 // *
@@ -48,7 +43,7 @@ function resetear(){
         }
     }
     
-    //Notar que esta función asume que la blanca está arriba a la izquierda
+    
     desordenar();
     tomarElTiempoEmpezar()
     desbloquearCeldas();
@@ -108,14 +103,7 @@ function prepararResponsive(){
     
     
     var tablero = $("#tablero");
-    /*
-    $('#tablero').css({
-        'width': "95%",
-        'height': "95%",
-        'padding': "0",
-        'margin': "2.5%"
-    });
-    */
+    
     tablero.css({
         "display": "flex",
         "flex-direction": "row",
@@ -142,15 +130,12 @@ $(document).ready(function(){
 // */
 function comenzarPartida(){
     
-    //$(document).ready(function(){
-        
-        //generarCeldas();
         prepararResponsive();
         inicializarTablero();
         desordenar();
         tomarElTiempoEmpezar();
         resetearContadorDeMovidas();
-    //});
+    
 }
 
 // /*
@@ -168,15 +153,12 @@ function desordenar(){
         
         for(var j = 0; j < dimY; j++){
             
-            //if (i*dimY + j === posicion_blanca) {continue;}
-            
             var indice = i*dimY + j;
             permutacion[indice] = indice;
         }
     }
     
     permutacion = _.shuffle(permutacion); // Se desordenan
-    //permutacion.unshift(0); //Se coloca la blanca en su sitio
     
     for(var i=0; i < dimX*dimY; i++){
         if (permutacion[i] == posicion_blanca){
@@ -190,8 +172,6 @@ function desordenar(){
     for(var i = 0; i < dimX; i++){
         
         for(var j = 0; j < dimY; j++){
-            
-            //if (i*dimY + j === posicion_blanca) {continue;}
             
             var order1 = i*dimY + j;
             var order2 = permutacion[order1];
