@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 var url_imagen_elegida = "";
 var dimension_x=3;
-var dimension_y=3
+var dimension_y=3;
 
 function ocultarVistas(){
     $(".vista").css("display","none");
@@ -20,6 +20,18 @@ function ocultarVistas(){
 function mostrarMenu(){
     ocultarVistas();
     $("#vista-menu").css("display","block");
+    var url_de_representacion_seleccionada = diccionario_imagenes[1];
+    if ($("#tabla-seleccionar-representacion-imagen").length !== 0){
+        $("#tabla-seleccionar-representacion-imagen").remove();
+    }
+    $("#puzzles-deslizantes-educativos-tabla-seleccionar").prepend(
+        '<img src='+url_de_representacion_seleccionada+' \
+              id=tabla-seleccionar-representacion-imagen \
+              alt="icon" \
+              width="100%" \
+              height="170%" \
+              style="position:absolute; top: -20%; left: 0;" />'
+                                                                 );
 }
 
 function mostrarTipoRepresentacion(){
@@ -75,13 +87,13 @@ function seleccionarDimension(x,y){
     dimension_x = parseInt(x,10);
     dimension_y = parseInt(y,10);
     if ((dimension_x === 3) && (dimension_y === 3)){
-        diccionario_posicion_blanca = diccionario_posicion_blanca_3x3;
+        diccionario_posicion_blanca = diccionario_blancas_tipos_3x3[tipoRepresentacion];
     }
     else if ((dimension_x === 4) && (dimension_y === 4)){
-        diccionario_posicion_blanca = diccionario_posicion_blanca_4x4;
+        diccionario_posicion_blanca = diccionario_blancas_tipos_4x4[tipoRepresentacion];
     }
     else if ((dimension_x === 6) && (dimension_y === 6)){
-        diccionario_posicion_blanca = diccionario_posicion_blanca_6x6;
+        diccionario_posicion_blanca = diccionario_blancas_tipos_4x4[tipoRepresentacion];
     }
     
 }
@@ -120,6 +132,14 @@ function resaltarOpcionSprite(event){
 
 
 function mostrarImagenInfo(){
+    
+    
+    if ($.isEmptyObject(diccionario_imagen_info)){
+        
+        jugarYa();
+        return;
+    }
+    
     var url_imagen_info = diccionario_imagen_info[imagenSeleccionadaIndex];
     $("#vista-imagen-seleccionada-info").css({
         'background-repeat': 'no-repeat',
@@ -135,7 +155,7 @@ function mostrarImagenInfo(){
 function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     
     tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
-    diccionario_imagen_info = diccionario_imagen_info_petroglifos;
+    
     switch(tipoRepresentacion) {
         case 1:
             
