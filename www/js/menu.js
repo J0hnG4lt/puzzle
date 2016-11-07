@@ -188,7 +188,7 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
             
         case 7:
             
-            diccionario_imagenes = diccionario_imagenes_cupulas;
+            diccionario_imagenes = diccionario_imagenes_cupula;
             break;
             
         case 8:
