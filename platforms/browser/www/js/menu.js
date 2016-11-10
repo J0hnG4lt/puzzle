@@ -160,10 +160,12 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
         case 1:
             
             diccionario_imagenes = diccionario_imagenes_petroglifos;
+            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
             break;
         case 2:
             
             diccionario_imagenes = diccionario_imagenes_pinturas_rupestres;
+            diccionario_imagen_info = diccionario_imagen_info_pintura_rupestre;
             break;
             
         case 3:

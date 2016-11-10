@@ -68,11 +68,13 @@ var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
 
 var diccionario_imagen_info_petroglifos = {
                         1 : "../img/vistas/info_representaciones/petroglifo_zulia_info.jpg",
-                        2 : "../img/vistas/info_representaciones/pintaito_amazonas_info.jpg",
-                        3 : "../img/vistas/info_representaciones/cueva_bolivar_info.jpg",
-                        4 : "../img/vistas/info_representaciones/chipaque_falcon_info.jpg"
+                        2 : "../img/vistas/info_representaciones/chipaque_falcon_info.jpg"
                         };
 
+var diccionario_imagen_info_pintura_rupestre = {
+                        1 : "../img/vistas/info_representaciones/cueva_bolivar_info.jpg",
+                        2 : "../img/vistas/info_representaciones/pintaito_amazonas_info.jpg"
+                        };
 
 var diccionario_tipo_representacion_mapa = {
                         1 : "../img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS.png",
