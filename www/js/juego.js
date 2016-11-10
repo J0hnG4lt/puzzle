@@ -23,16 +23,25 @@
 // */
 
 
+$(document).ready(function(){
+    generarCeldas(); // Se insertan los elementos div que representan a las celdas
+                     // en el tablero
+});
+
 
 // /*
 // * 
-// * Se desordenan las celdas
-// *
+// * Se resetea la partida. Primero se ordenan de manera ascendente las celdas.
+// * Luego se usa una función para desordenarlas. 
 // */
 function resetear(){
     
     tomarElTiempoResetear();
     resetearContadorDeMovidas();
+    
+    // Se usa la propiedad "order" asociada a flexbox de css
+    // El orden lo determina un valor numérico de manera ascendente
+    // Antes de desordenar están ordenadas de esta manera
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
@@ -43,10 +52,10 @@ function resetear(){
         }
     }
     
-    
-    desordenar();
-    tomarElTiempoEmpezar()
-    desbloquearCeldas();
+    desordenar(); // Se desordenan las celdas
+    tomarElTiempoEmpezar() // Se resetea el reloj
+    desbloquearCeldas(); // Si el usuario había pulsado pause, se vuelve a
+                         // activar el tablero
 }
 
 // /*
@@ -65,6 +74,7 @@ function ayudar(){
         "font-size":""+Math.floor(0.2*anchoDeCelda)+"px"
     });
     
+    // Se establece el intervalo de tiempo en el que se muestra la ayuda
     setTimeout(function(){
                     $(".celda").css({
                         "font-size":"0px"
@@ -86,7 +96,10 @@ function generarCeldas(){
     for(var i = 0 ; i < dimX ; i++){
         for(var j = 0 ; j < dimY ; j++){
             
-            var orden = (i*dimY+j);
+            var orden = (i*dimY+j); // Se usa la propiedad "order" de flexbox
+                                    // En este caso se guarda en un atributo "data"
+                                    // Esto ayudará a encontrarlos más fácilmente
+                                    // al desordenar las celdas más adelante.
             var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' >"+orden+"</div>";
             tablero.append(contenido);
         }
@@ -110,7 +123,8 @@ function prepararResponsive(){
         "flex-wrap":"wrap"
     });
     
-    
+    // Esto determina cuántas celdas aparecen por fila
+    // Notar arriba la propiedad "flex-direction"
     $(".celda").css({
         "flex-basis":(""+Math.floor((100/dimY))+"%"),
         "height" : (""+Math.floor((100/dimY))+"%")
@@ -119,9 +133,6 @@ function prepararResponsive(){
 
 }
 
-$(document).ready(function(){
-    generarCeldas();
-});
 
 // /*
 // * 
@@ -130,27 +141,27 @@ $(document).ready(function(){
 // */
 function comenzarPartida(){
     
-        prepararResponsive();
-        inicializarTablero();
-        desordenar();
-        tomarElTiempoEmpezar();
-        resetearContadorDeMovidas();
+        prepararResponsive(); // Asegura responsiveness
+        inicializarTablero(); // Se colocan las imagenes en las celdas
+        desordenar();         // Se desordenan las celdas
+        tomarElTiempoEmpezar();       // Inicializa el reloj
+        resetearContadorDeMovidas();  // Inicializa el contador de movidas
     
 }
 
 // /*
 // * 
-// * Desordena las celdas del tablero. Asume que la blanca está en la
-// * esquina superior izquierda y se deja en su lugar.
-// * 
+// * Desordena las celdas del tablero. La blanca se colocar de acuerdo al 
+// * diccionario de blancas. En dicho diccionario hay posiciones recomendadas
+// * para la blanca que dependen de cada imagen.
 // */
 function desordenar(){
     
     var permutacion = [];
     var posicion_blanca = diccionario_posicion_blanca[imagenSeleccionadaIndex];
-    //Se colocan los demás valores de order de las celdas distintas a blanca
+    
+    //Se colocan los demás valores de order
     for(var i = 0; i < dimX; i++){
-        
         for(var j = 0; j < dimY; j++){
             
             var indice = i*dimY + j;
@@ -160,6 +171,7 @@ function desordenar(){
     
     permutacion = _.shuffle(permutacion); // Se desordenan
     
+    // Como se desordenó a la blanca, se coloca en su posición recomendada
     for(var i=0; i < dimX*dimY; i++){
         if (permutacion[i] == posicion_blanca){
             var aux = permutacion[i];
@@ -170,7 +182,6 @@ function desordenar(){
     
     //Se ejecuta el cambio de posiciones
     for(var i = 0; i < dimX; i++){
-        
         for(var j = 0; j < dimY; j++){
             
             var order1 = i*dimY + j;
@@ -191,13 +202,16 @@ function desordenar(){
 // *
 // */
 function intercambiarElementos(order1, order2){
-    
+        
+        // Se encuentran los elementos dados sus órdenes
         var elemento1 = $(".celda[data-order="+order1+"]");
         var elemento2 = $(".celda[data-order="+order2+"]");
         
+        // Se intercambian
         elemento1.css("order", order2.toString(10));
         elemento2.css("order", order1.toString(10));
         
+        // Se actualizan los atributos de data
         elemento1.attr("data-order", order2.toString(10));
         elemento2.attr("data-order", order1.toString(10));
         
@@ -213,13 +227,26 @@ function intercambiarElementos(order1, order2){
 // */
 function inicializarTablero(){
     
+    // Se oculta la imagen ordenada
+    // Dejarla en la vista de esta manera ayuda a calcular las dimensiones
+    // pero aquí se debe ocultar
     $("#imagen_seleccionada_tablero").attr("src", url_imagen);
     $("#imagen_seleccionada_tablero").css("display", "none");
     
-    var porcentaje = ""+(100*dimY)+"%";
-    var alturaCeldas = parseInt($("#celda-0-0").css("height"),10);
+    //Se incrementa el tamaño de la imagen para que cada celda muestre una parte
+    //distinta de la misma
+    var porcentaje1 = ""+(100*dimY)+"%";
+    var porcentaje2 = ""+(100*dimX)+"%";
+    
+    //Incrementos porcentuales de la posición de la imagen
+    //Notar que el porcentaje del "background-position" de css hace
+    //referencia a la imagen y a su contenedor.
+    // X% de la imagen queda sobre X% del contenedor.
+    // Por eso 50% centra la imagen en el contenedor
+    var alturaCeldas = Math.floor(100/(dimX-1));
+    var anchoCeldas = Math.floor(100/(dimY-1));
+    
     for(var i = 0; i < dimX; i++){
-        
         for(var j = 0; j < dimY; j++){
             
             var celdaImagen = $("#celda-"+i+"-"+j);
@@ -228,8 +255,8 @@ function inicializarTablero(){
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
                 'background-image': "url('"+url_imagen+"')",
-                'background-size': porcentaje+" "+porcentaje,
-                'background-position-x': ""+(alturaCeldas*i)+"%", 
+                'background-size': porcentaje1+" "+porcentaje2,
+                'background-position-x': ""+(anchoCeldas*i)+"%", 
                 'background-position-y': ""+(alturaCeldas*j)+"%",
                 'order': ""+(i*dimY+j)+""
             });
@@ -251,6 +278,10 @@ function inicializarTablero(){
     
 }
 
+//  /* 
+//  * Consulta el diccionario de posiciones recomendadas para la celda blanca
+//  * y devuelve un objeto con esa información
+//  */
 function posicionBlanca(){
     
     var posBlanca = diccionario_posicion_blanca[imagenSeleccionadaIndex];
@@ -339,7 +370,7 @@ document.addEventListener('touchend', function(event){
 // * 
 // * Mueve hacia arriba el elemento tocado. Asume que el elemento tocado
 // * está en 'elemTocado.'
-// *
+// * 'elemTocado' se actualiza en el manejador de "touchstart"
 // */
 function moverArriba(){
     
@@ -376,7 +407,7 @@ function moverArriba(){
 // * 
 // * Mueve hacia abajo el elemento tocado. Asume que el elemento tocado
 // * está en 'elemTocado.'
-// *
+// * 'elemTocado' se actualiza en el manejador de "touchstart"
 // */
 function moverAbajo(){
     
@@ -384,7 +415,7 @@ function moverAbajo(){
     var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
     var orderVecino = orderCeldaTocada + dimY;
     
-    //Determino si puedo moverlo hacia aabajo
+    //Determino si puedo moverlo hacia abajo
     if (orderVecino > dimX*dimY){
         return false;
     }
@@ -413,7 +444,7 @@ function moverAbajo(){
 // * 
 // * Mueve hacia la derecha el elemento tocado. Asume que el elemento tocado
 // * está en 'elemTocado.'
-// *
+// * 'elemTocado' se actualiza en el manejador de "touchstart"
 // */
 function moverDerecha(){
 
@@ -450,7 +481,7 @@ function moverDerecha(){
 // * 
 // * Mueve hacia la izquierda el elemento tocado. Asume que el elemento tocado
 // * está en 'elemTocado.'
-// *
+// * 'elemTocado' se actualiza en el manejador de "touchstart"
 // */
 function moverIzquierda(){
     
@@ -505,8 +536,10 @@ function haTerminadoLaPartida(){
     return true;
 }
 
-
-
+// /*
+// * Pausa o continua la partida. Si se pausa, entonces se desactivan el reloj,
+// * el contador y el tablero. Si se continua, todos estos elementos se activan.
+// */
 function pausarToggle(){
     
     if($(".celda").css("pointer-events")!=="none"){
@@ -522,24 +555,35 @@ function pausarToggle(){
     
 }
 
+// /*
+// * Desactiva la interacción con las celdas
+// */
 function desbloquearCeldas(){
     $(".celda").css({
         'pointer-events' : 'auto'
     });
 }
 
+// /*
+// * Inicializa el reloj de juego
+// */
 function tomarElTiempoEmpezar(){
     intervaloDeTiempoDetener();
     intervaloDeTiempoID = window.setInterval(
         tomarElTiempoSiguienteValor,1000);
 }
 
+// /*
+// * Resetea el reloj de juego
+// */
 function tomarElTiempoResetear(){
     $("#juego-segundos").text("00");
     $("#juego-minutos").text("00");
 }
 
-
+// /*
+// * Desactiva al reloj
+// */
 function intervaloDeTiempoDetener(){
     if (intervaloDeTiempoID) {
         window.clearInterval(intervaloDeTiempoID);
@@ -547,6 +591,9 @@ function intervaloDeTiempoDetener(){
     }
 }
 
+// /*
+// * Actualiza los valores del reloj en la vista
+// */
 function tomarElTiempoSiguienteValor(){
     var segundos = parseInt($("#juego-segundos").text(),10);
     var minutos = parseInt($("#juego-minutos").text(),10);
@@ -574,13 +621,17 @@ function tomarElTiempoSiguienteValor(){
     $("#juego-minutos").text(minString);
 }
 
-
+// /*
+// * Vuelve cero el número de movidas en la vista
+// */
 function resetearContadorDeMovidas(){
     
-    //$("#juego-contador-movidas").text('-9');
     document.getElementById("juego-contador-movidas").innerHTML = "0";
 }
 
+// /*
+// * Actualiza el número de movidas en la vista
+// */
 function aumentarCantidadMovidas(){
     var movidas = parseInt($("#juego-contador-movidas").text(),10);
     movidas++;

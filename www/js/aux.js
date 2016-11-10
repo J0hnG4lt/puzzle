@@ -1,5 +1,5 @@
 var dimX = 3; //Dimensiones del tablero
-var dimY = 4;
+var dimY = 3;
 
 var startX; //Punto donde se toca la pantalla
 var startY;
