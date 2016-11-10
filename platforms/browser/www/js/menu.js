@@ -155,6 +155,7 @@ function mostrarImagenInfo(){
 function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     
     tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
+    diccionario_imagen_info = {};
     
     switch(tipoRepresentacion) {
         case 1:
