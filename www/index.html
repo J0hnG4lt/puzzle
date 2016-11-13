@@ -38,6 +38,7 @@
 
 <body>
     
+    
     <!-- Vista Seleccionar Tipo de Manifestación -->
 
     <div id="vista-seleccionar-tipo-manifestacion" class="vista" 
@@ -46,6 +47,12 @@
                background-repeat: no-repeat;
                background-image:url('../img/vistas/pantalla_tipo_manifestacion.jpg');
                background-size: 100% 100%">
+            
+            
+            <a class="area-sprite" id="link-menu-emergente"
+               style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
+               onclick="abrirMenuEmergente();">
+            
             
             <a class="area-sprite" id="tipo-representacion-mapa"
                style="display:block; width:20%; height:10%; position:absolute; left: 40%; top: 20%;"
@@ -401,7 +408,11 @@
 
 
     
-
+    <div id="vista-menu-emergente" clase="vista">
+        <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
+        <a id="vista-menu-emergente-presentacion">Presentación</a>
+        <a id="vista-menu-emergente-instrucciones">Instrucciones</a>
+    </div>
         
         
         

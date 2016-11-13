@@ -264,3 +264,10 @@ function quitarMapa(){
 }
 
 
+function abrirMenuEmergente(){
+    $("#vista-menu-emergente").css("width", "80%");
+}
+
+function cerrarMenuEmergente(){
+    $("#vista-menu-emergente").css("width", "0%");
+}
