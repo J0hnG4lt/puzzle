@@ -76,6 +76,57 @@ var diccionario_imagen_info_pintura_rupestre = {
                         2 : "../img/vistas/info_representaciones/pintaito_amazonas_info.jpg"
                         };
 
+var diccionario_imagen_info_amolador = {
+    1 : "../img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas.jpg"
+};
+
+var diccionario_imagen_info_batea = {
+    1 : "../img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas.jpg"
+};
+
+var diccionario_imagen_info_cupula = {
+    1 : "../img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo.jpg"
+};
+
+var diccionario_imagen_info_puntos_acoplados = {
+    1 : "../img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas.jpg"
+};
+
+var diccionario_imagen_info_cerro_mitico = {
+    1 : "../img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas.jpg"
+};
+
+var diccionario_imagen_info_piedras_miticas = {
+    1 : "../img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg"
+};
+
+var diccionario_imagen_info_dolmen = {
+    1 : "../img/vistas/info_representaciones/3-MM-DOLMEN.jpg"
+};
+
+
+var diccionario_imagen_info_menhires = {
+    1 : "../img/vistas/info_representaciones/3-MM-MENHIRES.jpg"
+};
+
+
+var diccionario_imagen_info_monolitos = {
+    1 : "../img/vistas/info_representaciones/3-MM-MONOLITOS.jpg"
+};
+
+var diccionario_imagen_info_esfera_litica = {
+    1 : "../img/vistas/info_representaciones/6-ESFERAS-LITICAS.jpg"
+};
+
+
+var diccionario_imagen_info_geoglifos = {
+    1 : "../img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo.jpg"
+};
+
+var diccionario_imagen_info_micropetroglifo = {
+    1 : "../img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo.jpg"
+};
+
 var diccionario_tipo_representacion_mapa = {
                         1 : "../img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS.png",
                         2 : "../img/mapas/4-Mapa-ampliado-con-estados-PR.png",

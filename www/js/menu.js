@@ -172,61 +172,73 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
         case 3:
             
             diccionario_imagenes = diccionario_imagenes_dolmen;
+            diccionario_imagen_info = diccionario_imagen_info_dolmen;
             break;
         
         case 4:
             
             diccionario_imagenes = diccionario_imagenes_menhires;
+            diccionario_imagen_info = diccionario_imagen_info_menhires;
             break;
             
         case 5:
             
             diccionario_imagenes = diccionario_imagenes_monolitos;
+            diccionario_imagen_info = diccionario_imagen_info_monolitos;
             break;
             
         case 6:
             
             diccionario_imagenes = diccionario_imagenes_amolador;
+            diccionario_imagen_info = diccionario_imagen_info_amolador;
             break;
             
         case 7:
             
             diccionario_imagenes = diccionario_imagenes_cupula;
+            diccionario_imagen_info = diccionario_imagen_info_cupula;
             break;
             
         case 8:
             
             diccionario_imagenes = diccionario_imagenes_batea;
+            diccionario_imagen_info = diccionario_imagen_info_batea;
             break;
             
         case 9:
             
             diccionario_imagenes = diccionario_imagenes_puntos_acoplados;
+            diccionario_imagen_info = diccionario_imagen_info_puntos_acoplados;
             break;
             
         case 10:
             
             diccionario_imagenes = diccionario_imagenes_piedras_miticas;
+            diccionario_imagen_info = diccionario_imagen_info_piedras_miticas;
             break;
             
         case 11:
             
             diccionario_imagenes = diccionario_imagenes_cerro_mitico;
+            diccionario_imagen_info = diccionario_imagen_info_cerro_mitico;
             break;
             
         case 12:
             
             diccionario_imagenes = diccionario_imagenes_esfera_litica;
+            diccionario_imagen_info = diccionario_imagen_info_esfera_litica;
             break;
             
         case 13:
             
             diccionario_imagenes = diccionario_imagenes_geoglifos;
+            diccionario_imagen_info = diccionario_imagen_info_geoglifos;
             break;
             
         case 14:
             
             diccionario_imagenes = diccionario_imagenes_micropetroglifo;
+            diccionario_imagen_info = diccionario_imagen_info_micropetroglifo;
             break;
         default:
             diccionario_imagenes = diccionario_imagenes_petroglifos;
@@ -252,6 +264,3 @@ function quitarMapa(){
 }
 
 
-function seleccionarAmolador(){
-    
-}
