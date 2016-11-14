@@ -10,7 +10,7 @@ var diccionario_imagenes_amolador = {
                         }
 
 var diccionario_imagenes_batea = {
-                        1 : "../img/representaciones/batea/BATEA-Laja-de-Tigre-Río-Ocamo-edo-Amazonas.jpg"
+                        1 : "../img/representaciones/batea/BATEA-Laja-de-Tigre-Rio-Ocamo-edo-Amazonas.jpg"
                         }
 
 var diccionario_imagenes_cerro_mitico = {
@@ -26,7 +26,7 @@ var diccionario_imagenes_dolmen = {
                         }
 
 var diccionario_imagenes_esfera_litica = {
-                        1 : "../img/representaciones/esfera_litica/Esfera-lítica-edo-Anzoátegui.jpg"
+                        1 : "../img/representaciones/esfera_litica/Esfera-litica-edo-Anzoategui.jpg"
                         }
 
 var diccionario_imagenes_geoglifos = {
@@ -42,11 +42,11 @@ var diccionario_imagenes_micropetroglifo = {
                         }
 
 var diccionario_imagenes_monolitos = {
-                        1 : "../img/representaciones/monolitos/MM-MONOLITOS-Río-Vigirima-edo-Carabobo.jpg"
+                        1 : "../img/representaciones/monolitos/MM-MONOLITOS-Rio-Vigirima-edo-Carabobo.jpg"
                         }
 
 var diccionario_imagenes_piedras_miticas = {
-                        1 : "../img/representaciones/piedras_miticas/PIEDRA-MÍTICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg"
+                        1 : "../img/representaciones/piedras_miticas/PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg"
                         }
 
 var diccionario_imagenes_pinturas_rupestres = {
@@ -139,7 +139,7 @@ var diccionario_tipo_representacion_mapa = {
                         9 : "../img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
                         10 : "../img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES.png",
                         11 : "../img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES.png",
-                        12 : "../img/mapas/6-Mapa-ampliado-ESFERAS-LÍTICAS.png",
+                        12 : "../img/mapas/6-Mapa-ampliado-ESFERAS-LITICAS.png",
                         13 : "../img/mapas/7-Mapa-ampliado-con-estado-GEOGLIFO.png",
                         14 : "../img/mapas/8-Mapa-ampliado-con-estados-MICROPETROGLIFOS.png"
                         };
