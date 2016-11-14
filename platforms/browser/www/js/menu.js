@@ -264,3 +264,27 @@ function quitarMapa(){
 }
 
 
+function abrirMenuEmergente(){
+    $("#vista-menu-emergente").css("width", "70%");
+    
+}
+
+function cerrarMenuEmergente(){
+    $("#vista-menu-emergente").css("width", "0%");
+}
+
+function verPresentacion(){
+    $("#vista-presentacion").css("display", "block");
+}
+
+function cerrarPresentacion(){
+    $("#vista-presentacion").css("display", "none");
+}
+
+function verInstrucciones(){
+    $("#vista-instrucciones").css("display", "block");
+}
+
+function cerrarInstrucciones(){
+    $("#vista-instrucciones").css("display", "none");
+}

@@ -121,3 +121,76 @@ select{
     align:right;
     padding: 2%;
 }
+
+
+/*Inicio: Código tomado de http://www.w3schools.com/howto/howto_js_sidenav.asp*/
+
+#vista-menu-emergente {
+    height: 100%; 
+    width: 0; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #961907;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+#vista-menu-emergente a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #111111;
+    display: block;
+    transition: 0.3s
+}
+
+#vista-menu-emergente .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/*Fin: Código tomado de http://www.w3schools.com/howto/howto_js_sidenav.asp*/
+
+
+#vista-presentacion {
+    height: 100%; 
+    width: 100%; 
+    position: fixed;
+    z-index:2;
+    display:none;
+    background-image:url("../img/Fondo---Textura.png");
+    overflow-y: scroll;
+}
+
+#vista-presentacion p {
+    
+    padding : 10%;
+    text-align: center;
+    font-size: 150%;
+    
+}
+
+
+#vista-instrucciones {
+    height: 100%; 
+    width: 100%; 
+    position: fixed;
+    z-index:2;
+    display:none;
+    background-image:url("../img/Fondo---Textura.png");
+    overflow-y: scroll;
+}
+
+#vista-instrucciones p {
+    
+    padding : 10%;
+    text-align: center;
+    font-size: 150%;
+    
+}
