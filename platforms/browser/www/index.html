@@ -38,6 +38,47 @@
 
 <body>
     
+    <div id="vista-presentacion" class="vista" onclick="cerrarPresentacion()">
+        <p>FUNDABITAT y su proyecto ANAR <br>
+–Archivo Nacional de Arte Rupestre-, <br>
+tienen el placer de presentar <br>
+en el marco de su Programa de Educación <br>
+FACILITADORES en ESCUELA ACTIVA, <br>
+La aplicación para móviles <br>
+Puzzles deslizantes educativo: <br>
+Manifestaciones Rupestres venezolanas. <br>
+ <br>
+ <br>
+Las Manifestaciones Rupestres <br>
+constituyen los indicios más antiguos, <br>
+conocidos de un intento de comunicación humana, <br>
+existen en todo el Continente Americano, <br>
+y el resto del mundo. <br>
+ <br>
+ <br>
+Uno de los Objetivos del ANAR, <br>
+es el conocimiento y difusión, <br>
+del Patrimonio Rupestre venezolano <br>
+
+</p>
+    </div>
+    
+    <div id="vista-instrucciones" class="vista" onclick="cerrarInstrucciones()">
+        <p>
+Completa, arma y conoce <br>
+las Manifestaciones Rupestres venezolanas <br>
+de forma divertida.  <br>
+ <br>
+ <br>
+Arrastra y suelta los cuadros, <br>
+antes que se acabe el tiempo, <br>
+hasta conseguir las imágenes correctas. <br>
+ <br>
+ <br>
+….mientras ejercitas tu cerebro. <br>
+        </p>
+    </div>
+    
     
     <!-- Vista Seleccionar Tipo de Manifestación -->
 
@@ -49,9 +90,9 @@
                background-size: 100% 100%">
             
             
-            <a class="area-sprite" id="link-menu-emergente"
+            <a class="area-sprite"
                style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
-               onclick="abrirMenuEmergente();">
+               onclick="abrirMenuEmergente();"></a>
             
             
             <a class="area-sprite" id="tipo-representacion-mapa"
@@ -127,6 +168,7 @@
     
     <div id="vista-menu" class="vista" style="width:100%;height:100%;">
         
+
         
         <div id="puzzles-deslizantes-educativos-header-seleccionar"
              class="seleccionar-imagen-sprite"
@@ -135,35 +177,17 @@
             <img src="../img/vistas/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
                  width="100%" height="1000%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a href="#" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
+            <a onclick="abrirMenuEmergente();" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
                  
         </div>
         <div id="puzzles-deslizantes-educativos-tabla-seleccionar"
              class="seleccionar-imagen-sprite"
              style="width:100%; height:60%; overflow:hidden; position:relative">
-            <!--
-            <img src="../img/vistas/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
-                 width="100%" height="170%"
-                 style="position:absolute; top: -20%; left: 0;" />-->
+
             <a class="area-sprite" 
                style="display:block; width:100%; height:100%; position:absolute; left: 0; top: 10%;"
                onclick="seleccionarImagen(1)"></a>
             
-            <!--
-            
-            <img src="../img/vistas/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
-                 width="100%" height="170%"
-                 style="position:absolute; top: -20%; left: 0;" />
-            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 0; top: 10%;"
-                        onclick="seleccionarImagen(1)"></a>
-            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 0; top: 60%;"
-                        onclick="seleccionarImagen(2)"></a>
-            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 50%; top: 10%;"
-                        onclick="seleccionarImagen(3)"></a>
-            <a class="area-sprite" style="display:block; width:50%; height:50%; position:absolute; left: 50%; top: 60%;"
-                        onclick="seleccionarImagen(4)"></a> 
-                        
-            -->
         </div>
         <div id="puzzles-deslizantes-educativos-mensaje-seleccionar"
              class="seleccionar-imagen-sprite"
@@ -194,7 +218,6 @@
                  
         </div>
         
-        
     </div>
     
     <!-- Fin Vista Menú -->
@@ -203,13 +226,14 @@
     
     <div id="vista-dimensiones" class="vista" style="width:100%;height:100%;">
         
+        
         <div id="puzzles-deslizantes-educativos-header-dimension"
              style="width:100%; height:10%; overflow:hidden; position:relative">
             <!-- set width/height proportionally, to scale the sprite image -->
             <img src="../img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
                  width="100%" height="1000%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a href="#" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
+            <a onclick="abrirMenuEmergente();" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
                  
         </div>
         <div id="puzzles-deslizantes-educativos-tabla-dimension"
@@ -231,7 +255,7 @@
         </div>
         <div id="puzzles-deslizantes-educativos-mensaje-dimension"
              style="width:100%; height:20%; overflow:hidden; position:relative">
-            <!-- set width/height proportionally, to scale the sprite image -->
+            
             <img src="../img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
                  width="100%" height="800%"
                  style="position:absolute; top: -625%; left: 0;" />
@@ -239,7 +263,7 @@
         </div>
         <div id="puzzles-deslizantes-educativos-footer-dimension"
              style="width:100%; height:10%; overflow:hidden; position:relative">
-            <!-- set width/height proportionally, to scale the sprite image -->
+            
             <img src="../img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
                  width="100%" height="1000%"
                  style="position:absolute; top: -900%; left: 0;"
@@ -250,6 +274,10 @@
                onclick="mostrarMenu();"></a>
         </div>
         
+            <a class="area-sprite"
+               style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
+               onclick="abrirMenuEmergente();"></a>
+        
     </div>
     
     <!-- Fin Vista Dimensiones -->
@@ -257,10 +285,17 @@
     <!-- Vista Imagen Seleccionada -->
 
     <div id="vista-imagen-seleccionada-info" class="vista" style="width:100%;height:100%;">
+            
+            
             <a style="display:block; width:30%; height:6%; position:absolute; left: 70%; top: 94%;"
                onclick="jugarYa();"></a>
             <a style="display:block; width:30%; height:6%; position:absolute; left: 0; top: 94%;"
                onclick="mostrarDimensiones();"></a>
+               
+            <a class="area-sprite"
+               style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
+               onclick="abrirMenuEmergente();"> </a>
+               
     </div>
     
     <!-- Fin Vista Imagen Seleccionada -->
@@ -268,13 +303,14 @@
     <!-- Vista Juego -->
     <div id="vista-juego" class="vista" style="width:100%;height:100%;">
 
+
         <div id="puzzles-deslizantes-educativos-header-juego"
              style="width:100%; height:10%; overflow:hidden; position:relative">
             <!-- set width/height proportionally, to scale the sprite image -->
             <img src="../img/header.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a href="#" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
+            <a onclick="abrirMenuEmergente()" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
                  
         </div>
         
@@ -404,18 +440,22 @@
         
         <!--FIN DE TABLERO-->
     
+  
+    
     </div>
 
 
     
-    <div id="vista-menu-emergente" clase="vista">
+    <div id="vista-menu-emergente" >
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
-        <a id="vista-menu-emergente-presentacion">Presentación</a>
-        <a id="vista-menu-emergente-instrucciones">Instrucciones</a>
+        <a id="vista-menu-emergente-presentacion" onclick="verPresentacion()">Presentación</a>
+        <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
     </div>
         
         
-        
+
+    
+
     
 </body>
 
