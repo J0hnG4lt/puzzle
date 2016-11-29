@@ -78,6 +78,7 @@ function jugarYa(){
     comenzarPartida();
     
     mostrarJuego();
+    desbloquearCeldas();
 }
 
 function seleccionarImagen(numeroImagen){
