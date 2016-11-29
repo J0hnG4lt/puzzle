@@ -37,9 +37,11 @@ function mostrarMenu(){
 function mostrarTipoRepresentacion(){
     ocultarVistas();
     $("#vista-seleccionar-tipo-manifestacion").css("display","block");
+    seleccionarTipoRepresentacion("2"); //Caso por defecto
 }
 
 function mostrarDimensiones(){
+    seleccionarImagen("1");
     ocultarVistas();
     $("#vista-dimensiones").css("display","block");
 }
@@ -241,8 +243,8 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
             diccionario_imagen_info = diccionario_imagen_info_micropetroglifo;
             break;
         default:
-            diccionario_imagenes = diccionario_imagenes_petroglifos;
-            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
+            diccionario_imagenes = diccionario_imagenes_pinturas_rupestres;
+            diccionario_imagen_info = diccionario_imagen_info_pintura_rupestre;
     }
 }
 
