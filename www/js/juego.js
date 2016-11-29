@@ -547,10 +547,16 @@ function pausarToggle(){
             'pointer-events' : 'none'
         });
         intervaloDeTiempoDetener();
+        $("#pausar_reiniciar").attr("src","../img/iconos/play.svg");
+        $("#reloj_arena_juego").attr("src", "../img/iconos/reloj.jpg");
+        $("#juego_resetear").css({
+            'pointer-events' : 'none'
+        });
     }
     else{
         desbloquearCeldas();
         tomarElTiempoEmpezar();
+
     }
     
 }
@@ -562,6 +568,11 @@ function desbloquearCeldas(){
     $(".celda").css({
         'pointer-events' : 'auto'
     });
+    $("#juego_resetear").css({
+        'pointer-events' : 'auto'
+    });
+    $("#pausar_reiniciar").attr("src","../img/iconos/icono-pausa.png");
+    $("#reloj_arena_juego").attr("src", "../img/iconos/reloj_animado.gif");
 }
 
 // /*

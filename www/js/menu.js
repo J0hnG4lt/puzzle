@@ -37,9 +37,12 @@ function mostrarMenu(){
 function mostrarTipoRepresentacion(){
     ocultarVistas();
     $("#vista-seleccionar-tipo-manifestacion").css("display","block");
+    seleccionarTipoRepresentacion("2"); //Caso por defecto
 }
 
 function mostrarDimensiones(){
+    seleccionarImagen("1"); // Accion por defecto
+    seleccionarDimension("3","3"); // Accion por defecto
     ocultarVistas();
     $("#vista-dimensiones").css("display","block");
 }
@@ -60,7 +63,7 @@ function jugarYa(){
                      position:relative;\
                      left:0%;\
                      top:0%;\
-                     margin: 2.5%;\
+                     margin: 0%;\
                      overflow:hidden;">\
                 <img src="#" alt="icon" id="imagen_seleccionada_tablero"\
                  width="100%" height="100%"\
@@ -75,6 +78,7 @@ function jugarYa(){
     comenzarPartida();
     
     mostrarJuego();
+    desbloquearCeldas();
 }
 
 function seleccionarImagen(numeroImagen){
@@ -241,8 +245,8 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
             diccionario_imagen_info = diccionario_imagen_info_micropetroglifo;
             break;
         default:
-            diccionario_imagenes = diccionario_imagenes_petroglifos;
-            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
+            diccionario_imagenes = diccionario_imagenes_pinturas_rupestres;
+            diccionario_imagen_info = diccionario_imagen_info_pintura_rupestre;
     }
 }
 
