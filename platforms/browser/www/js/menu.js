@@ -63,7 +63,7 @@ function jugarYa(){
                      position:relative;\
                      left:0%;\
                      top:0%;\
-                     margin: 2.5%;\
+                     margin: 0%;\
                      overflow:hidden;">\
                 <img src="#" alt="icon" id="imagen_seleccionada_tablero"\
                  width="100%" height="100%"\
