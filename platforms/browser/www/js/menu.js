@@ -41,7 +41,8 @@ function mostrarTipoRepresentacion(){
 }
 
 function mostrarDimensiones(){
-    seleccionarImagen("1");
+    seleccionarImagen("1"); // Accion por defecto
+    seleccionarDimension("3","3"); // Accion por defecto
     ocultarVistas();
     $("#vista-dimensiones").css("display","block");
 }

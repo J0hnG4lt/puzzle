@@ -547,10 +547,14 @@ function pausarToggle(){
             'pointer-events' : 'none'
         });
         intervaloDeTiempoDetener();
+        $("#pausar_reiniciar").attr("src","../img/iconos/play.svg");
+        $("#reloj_arena_juego").attr("src", "../img/iconos/reloj.jpg");
     }
     else{
         desbloquearCeldas();
         tomarElTiempoEmpezar();
+        $("#pausar_reiniciar").attr("src","../img/iconos/icono-pausa.png");
+        $("#reloj_arena_juego").attr("src", "../img/iconos/reloj_animado.gif");
     }
     
 }
