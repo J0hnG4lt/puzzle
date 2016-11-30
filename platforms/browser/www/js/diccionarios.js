@@ -72,7 +72,7 @@ var diccionario_imagen_info_petroglifos = {
                         };
 
 var diccionario_imagen_info_pintura_rupestre = {
-                        1 : "../img/vistas/info_representaciones/cueva_bolivar_info.jpg",
+                        1 : "../img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera.jpg",
                         2 : "../img/vistas/info_representaciones/pintaito_amazonas_info.jpg"
                         };
 
