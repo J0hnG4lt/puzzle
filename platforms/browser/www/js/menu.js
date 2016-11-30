@@ -273,8 +273,17 @@ function abrirMenuEmergente(){
     
 }
 
+function abrirMenuConfiguracion(){
+    $("#vista-menu-configuracion").css("width", "70%");
+    
+}
+
 function cerrarMenuEmergente(){
     $("#vista-menu-emergente").css("width", "0%");
+}
+
+function cerrarMenuConfiguracion(){
+    $("#vista-menu-configuracion").css("width", "0%");
 }
 
 function verPresentacion(){
