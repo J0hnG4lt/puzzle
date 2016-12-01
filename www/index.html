@@ -31,7 +31,7 @@
     
 </head>
 
-<body>
+<body onLoad="onLoad();">
     
     <div id="vista-presentacion" class="vista" onclick="cerrarPresentacion()">
             <img src="../img/vistas/Presentacion.png" alt="icon"
@@ -485,14 +485,24 @@
         <a id="vista-menu-configuracion-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
         -->
     </div>
-    
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/diccionarios.js"></script>
     <script type="text/javascript" src="js/aux.js"></script>
     <script type="text/javascript" src="js/juego.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
-
+    
+    <script type="text/javascript">
+        
+        function onLoad(){
+          document.addEventListener("deviceready", onDeviceReady, false);
+        }
+        
+        function onDeviceReady(){
+          // Now safe to use the PhoneGap API
+        }
+    </script>
 
 </body>
 
