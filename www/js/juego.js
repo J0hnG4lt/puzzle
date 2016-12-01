@@ -24,7 +24,7 @@
 
 
 $(document).ready(function(){
-    generarCeldas(); // Se insertan los elementos div que representan a las celdas
+   // generarCeldas(); // Se insertan los elementos div que representan a las celdas
                      // en el tablero
 });
 
