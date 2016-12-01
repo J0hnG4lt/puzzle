@@ -254,8 +254,8 @@ function verMapaDeTipoRepresentacion(){
     var url_mapa = diccionario_tipo_representacion_mapa[tipoRepresentacion];
     
     $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
-                            width='100%' height='100%'\
-                            style='position:absolute; top: 0; left: 0;'\
+                            width='100%' height='auto'\
+                            style='position:absolute; top: 60%; left: 0;'\
                             >");
     
     ocultarVistas();
