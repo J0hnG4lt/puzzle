@@ -36,8 +36,7 @@ $(document).ready(function(){
 // */
 function resetear(){
     
-    tomarElTiempoResetear();
-    resetearContadorDeMovidas();
+
     
     // Se usa la propiedad "order" asociada a flexbox de css
     // El orden lo determina un valor numérico de manera ascendente
@@ -62,9 +61,13 @@ function resetear(){
     }
     
     desordenar(); // Se desordenan las celdas
+    resetear();
+    tomarElTiempoResetear();
+    resetearContadorDeMovidas();
     tomarElTiempoEmpezar() // Se resetea el reloj
     desbloquearCeldas(); // Si el usuario había pulsado pause, se vuelve a
                          // activar el tablero
+    
 }
 
 // /*
@@ -274,7 +277,8 @@ function inicializarTablero(){
                 'height':''+(tamanoCelda)+"%",
                 'width' : ''+(tamanoCelda)+"%",
                 'left' : ""+posicionCeldaX+"%",
-                'top':""+posicionCeldaY+"%"
+                'top':""+posicionCeldaY+"%",
+                'font-size' : 'opx'
             });
             
             var tuplaPosicionBlanca = posicionBlanca();
