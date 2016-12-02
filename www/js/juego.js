@@ -83,13 +83,15 @@ function ayudar(){
     $(".celda").css({
         "font-size":""+Math.floor(0.2*anchoDeCelda)+"px"
     });
-    
+    $(".texto-ayuda").css("display", "inline");
     // Se establece el intervalo de tiempo en el que se muestra la ayuda
     setTimeout(function(){
                     $(".celda").css({
                         "font-size":"0px"
                     });
+                    $(".texto-ayuda").css("display", "none");
                 },250);
+                
 }
 
 // /*
@@ -110,7 +112,7 @@ function generarCeldas(){
                                     // En este caso se guarda en un atributo "data"
                                     // Esto ayudará a encontrarlos más fácilmente
                                     // al desordenar las celdas más adelante.
-            var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' >"+orden+"</div>";
+            var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' ><span class='texto-ayuda'>"+orden+"</span></div>";
             tablero.append(contenido);
         }
     }
@@ -278,9 +280,9 @@ function inicializarTablero(){
                 'width' : ''+(tamanoCelda)+"%",
                 'left' : ""+posicionCeldaX+"%",
                 'top':""+posicionCeldaY+"%",
-                'font-size' : 'opx'
+                'font-size' : '0px'
             });
-            
+            $(".texto-ayuda").css("display", "none");
             var tuplaPosicionBlanca = posicionBlanca();
             
             //No se muestra la celda de la blanca
