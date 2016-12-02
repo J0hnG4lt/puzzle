@@ -36,7 +36,8 @@ $(document).ready(function(){
 // */
 function resetear(){
     
-
+    tomarElTiempoResetear();
+    resetearContadorDeMovidas();
     
     // Se usa la propiedad "order" asociada a flexbox de css
     // El orden lo determina un valor numérico de manera ascendente
@@ -61,9 +62,6 @@ function resetear(){
     }
     
     desordenar(); // Se desordenan las celdas
-    resetear();
-    tomarElTiempoResetear();
-    resetearContadorDeMovidas();
     tomarElTiempoEmpezar() // Se resetea el reloj
     desbloquearCeldas(); // Si el usuario había pulsado pause, se vuelve a
                          // activar el tablero
@@ -144,12 +142,14 @@ function prepararResponsive(){
 // */
 function comenzarPartida(){
     
+    
+        generarCeldas();
         prepararResponsive(); // Asegura responsiveness
         inicializarTablero(); // Se colocan las imagenes en las celdas
-        desordenar();         // Se desordenan las celdas
+        resetear();
         tomarElTiempoEmpezar();       // Inicializa el reloj
         resetearContadorDeMovidas();  // Inicializa el contador de movidas
-    
+
 }
 
 // /*
@@ -167,7 +167,7 @@ function desordenar(){
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
-            var indice = i*dimY + j;
+            var indice = j*dimY + i;
             permutacion[indice] = indice;
         }
     }
@@ -187,7 +187,7 @@ function desordenar(){
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
-            var order1 = i*dimY + j;
+            var order1 = j*dimY + i;
             var order2 = permutacion[order1];
             
             intercambiarElementos(order1,order2);

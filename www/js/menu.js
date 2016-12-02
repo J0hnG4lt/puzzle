@@ -73,11 +73,11 @@ function jugarYa(){
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;
     
-    generarCeldas();
-    prepararResponsive();
+    //generarCeldas();
+    //prepararResponsive();
+    mostrarJuego();
     comenzarPartida();
     
-    mostrarJuego();
     desbloquearCeldas();
 }
 
