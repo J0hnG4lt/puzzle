@@ -1,4 +1,4 @@
-# Puzzle Educativo sobre Representaciones de Arte Rupestre en Venezuela
+# Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
 
 Proyecto iniciado con el fin de completar mi Servicio Comunitario
 
