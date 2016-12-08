@@ -255,7 +255,7 @@ function verMapaDeTipoRepresentacion(){
     
     $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
                             width='100%' height='auto'\
-                            style='position:absolute; top: 60%; left: 0;'\
+                            style='position:absolute; top: 25%; left: 0;'\
                             >");
     
     ocultarVistas();
