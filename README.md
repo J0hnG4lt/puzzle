@@ -4,8 +4,8 @@ Proyecto iniciado con el fin de completar mi Servicio Comunitario en la
 Universidad Simón Bolívar
 
 #### Desarrollador: Georvic Tur 12-11402
-     Tutora Comunitaria y Diseñadora: Ruby de Valencia
-     Tutora Académica: Angela Di Serio
+#### Tutora Comunitaria y Diseñadora: Ruby de Valencia
+#### Tutora Académica: Angela Di Serio
 
 #### Estado: En Desarrollo
 
