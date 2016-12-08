@@ -43,7 +43,7 @@ function resetear(){
     // El orden lo determina un valor numérico de manera ascendente
     // Antes de desordenar están ordenadas de esta manera
     
-    var tamanoCelda = Math.floor(100/(dimY));
+    var tamanoCelda = 100/(dimY);
     
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
@@ -65,7 +65,7 @@ function resetear(){
     tomarElTiempoEmpezar() // Se resetea el reloj
     desbloquearCeldas(); // Si el usuario había pulsado pause, se vuelve a
                          // activar el tablero
-    
+    resetearContadorDeMovidas();
 }
 
 // /*
@@ -129,8 +129,10 @@ function prepararResponsive(){
     // Esto determina cuántas celdas aparecen por fila
     // Notar arriba la propiedad "flex-direction"
     $(".celda").css({
-        "width":(""+Math.floor((100/dimY))+"%"),
-        "height" : (""+Math.floor((100/dimY))+"%")
+        "width":(""+(100/dimY)+"%"),
+        "height" : (""+(100/dimY)+"%"),
+        "margin" : "0%",
+        "padding" : "0%"
     });
     
 
@@ -257,15 +259,15 @@ function inicializarTablero(){
     //referencia a la imagen y a su contenedor.
     // X% de la imagen queda sobre X% del contenedor.
     // Por eso 50% centra la imagen en el contenedor
-    var alturaCeldas = Math.floor(100/(dimX-1));
-    var anchoCeldas = Math.floor(100/(dimY-1));
+    var alturaCeldas = 100/(dimX-1);
+    var anchoCeldas = 100/(dimY-1);
     
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
             var celdaImagen = $("#celda-"+i+"-"+j);
             var orderCeldaActual = celdaImagen.attr("data-order");
-            var tamanoCelda = Math.floor(100/(dimY));
+            var tamanoCelda = 100/(dimY);
             var posicionCeldaX = tamanoCelda*i;
             var posicionCeldaY = tamanoCelda*j;
             //Se posiciona correctamente la parte correspondiente de la imagen
@@ -659,15 +661,15 @@ function tomarElTiempoSiguienteValor(){
 // */
 function resetearContadorDeMovidas(){
     
-    document.getElementById("juego-contador-movidas").innerHTML = "0";
+    document.getElementById("juego-contador-movidass").innerHTML = "0";
 }
 
 // /*
 // * Actualiza el número de movidas en la vista
 // */
 function aumentarCantidadMovidas(){
-    var movidas = parseInt($("#juego-contador-movidas").text(),10);
+    var movidas = parseInt(document.getElementById("juego-contador-movidass").innerHTML,10);
     movidas++;
-    $("#juego-contador-movidas").text(movidas.toString(10));
+    document.getElementById("juego-contador-movidass").innerHTML = movidas.toString(10);
     
 }
