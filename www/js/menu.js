@@ -3,8 +3,14 @@ $(document).ready(function(){
     
     $(".area-sprite").on("click", resaltarAreasSprite);
     $(".opcion-sprite").on("click", resaltarOpcionSprite);
+    
     mostrarTipoRepresentacion();
     
+    verPresentacion();
+    setTimeout(function(){
+                cerrarPresentacion();
+                },20000);
+
 });
 
 
