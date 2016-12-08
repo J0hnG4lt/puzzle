@@ -1,20 +1,53 @@
 # Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
 
-Proyecto iniciado con el fin de completar mi Servicio Comunitario
+Proyecto iniciado con el fin de completar mi Servicio Comunitario en la 
+Universidad Simón Bolívar
 
-#### Autor: Georvic Tur 12-11402
+#### Desarrollador: Georvic Tur 12-11402
+     Tutora Comunitaria y Diseñadora: Ruby de Valencia
+     Tutora Académica: Angela Di Serio
 
 #### Estado: En Desarrollo
 
 #### Requerimientos de Uso
 
-A partir de Android 4.4, pues es a partir de esta versión que [flexbox se puede usar en su totalidad](http://caniuse.com/#feat=flexbox).
-
-Se probó la aplicación en un smartphone con Android 2.3.6 y lo único que falló fue la vista del tablero
-por esa razón. Dicho aparato contaba con una memoria RAM de 555MB de los cuales sólo 270MB estaban disponibles.
+Se probó la aplicación en un smartphone con Android 2.3.6. Dicho aparato contaba con una memoria RAM de 555MB de los cuales sólo 270MB estaban disponibles.
 Su procesador es Dual-core de 1.0 GHz.
 
 #### Requerimientos de Desarrollo
 
-Se debe usar [cordova](https://cordova.apache.org/) o [phonegap](http://phonegap.com/) para construir la aplicación.
+Se debe usar [Cordova](https://cordova.apache.org/) o [Phonegap](http://phonegap.com/) para construir la aplicación.
 
+### Instrucciones Para construir la Aplicación
+
+Se debe clonar el repositorio y construir la aplicación con las siguientes
+ordenes:
+
+1- git clone https://github.com/J0hnG4lt/puzzle.git
+
+2- cd puzzle
+
+3- cordova platform add android
+
+4- cordova build android
+
+5- cd platforms/android/build/outputs/apk
+
+Los paquetes generados se encuentran en ese directorio.
+
+#Instrucciones para instalar la aplicación
+
+Se puede conectar el teléfono a la computadora y copiar el paquete a cualquier
+directorio del mismo. Luego en el teléfono se puede ir a dicho directorio
+e instalar la aplicación.
+
+También se pueden usar las siguientes órdenes en la carpeta donde esté el paquete:
+
+ Para confirmar que el teléfono esté bien conectado:
+ adb devices
+ 
+ Para instalar:
+ adb install <nombre-del-paquete>
+ 
+ En este caso es importante tener instaladas las herramientas de terminal de
+ Android Studio.
