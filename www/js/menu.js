@@ -3,8 +3,14 @@ $(document).ready(function(){
     
     $(".area-sprite").on("click", resaltarAreasSprite);
     $(".opcion-sprite").on("click", resaltarOpcionSprite);
+    
     mostrarTipoRepresentacion();
     
+    verPresentacion();
+    setTimeout(function(){
+                cerrarPresentacion();
+                },20000);
+
 });
 
 
@@ -73,11 +79,11 @@ function jugarYa(){
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;
     
-    generarCeldas();
-    prepararResponsive();
+    //generarCeldas();
+    //prepararResponsive();
+    mostrarJuego();
     comenzarPartida();
     
-    mostrarJuego();
     desbloquearCeldas();
 }
 
@@ -255,7 +261,7 @@ function verMapaDeTipoRepresentacion(){
     
     $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
                             width='100%' height='auto'\
-                            style='position:absolute; top: 60%; left: 0;'\
+                            style='position:absolute; top: 25%; left: 0;'\
                             >");
     
     ocultarVistas();

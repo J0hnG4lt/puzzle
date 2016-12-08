@@ -42,13 +42,22 @@ function resetear(){
     // Se usa la propiedad "order" asociada a flexbox de css
     // El orden lo determina un valor numérico de manera ascendente
     // Antes de desordenar están ordenadas de esta manera
+    
+    var tamanoCelda = 100/(dimY);
+    
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
             var elemento = $("#celda-"+i+"-"+j)
-            var order = (i*dimY+j).toString(10);
-            elemento.css("order", order);
+            var order = (j*dimY+i).toString(10);
+            //elemento.css("order", order);
             elemento.attr("data-order", order);
+            
+            var posicionCeldaX = tamanoCelda*i;
+            var posicionCeldaY = tamanoCelda*j;
+            elemento.css({
+                'left' : ""+posicionCeldaX+"%",
+                'top':""+posicionCeldaY+"%"});
         }
     }
     
@@ -56,6 +65,7 @@ function resetear(){
     tomarElTiempoEmpezar() // Se resetea el reloj
     desbloquearCeldas(); // Si el usuario había pulsado pause, se vuelve a
                          // activar el tablero
+    resetearContadorDeMovidas();
 }
 
 // /*
@@ -73,13 +83,15 @@ function ayudar(){
     $(".celda").css({
         "font-size":""+Math.floor(0.2*anchoDeCelda)+"px"
     });
-    
+    $(".texto-ayuda").css("display", "inline");
     // Se establece el intervalo de tiempo en el que se muestra la ayuda
     setTimeout(function(){
                     $(".celda").css({
                         "font-size":"0px"
                     });
+                    $(".texto-ayuda").css("display", "none");
                 },250);
+                
 }
 
 // /*
@@ -96,11 +108,11 @@ function generarCeldas(){
     for(var i = 0 ; i < dimX ; i++){
         for(var j = 0 ; j < dimY ; j++){
             
-            var orden = (i*dimY+j); // Se usa la propiedad "order" de flexbox
+            var orden = (j*dimY+i); // Se usa la propiedad "order" de flexbox
                                     // En este caso se guarda en un atributo "data"
                                     // Esto ayudará a encontrarlos más fácilmente
                                     // al desordenar las celdas más adelante.
-            var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' >"+orden+"</div>";
+            var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' ><span class='texto-ayuda'>"+orden+"</span></div>";
             tablero.append(contenido);
         }
     }
@@ -114,20 +126,13 @@ function generarCeldas(){
 // */
 function prepararResponsive(){
     
-    
-    var tablero = $("#tablero");
-    
-    tablero.css({
-        "display": "flex",
-        "flex-direction": "row",
-        "flex-wrap":"wrap"
-    });
-    
     // Esto determina cuántas celdas aparecen por fila
     // Notar arriba la propiedad "flex-direction"
     $(".celda").css({
-        "flex-basis":(""+Math.floor((100/dimY))+"%"),
-        "height" : (""+Math.floor((100/dimY))+"%")
+        "width":(""+(100/dimY)+"%"),
+        "height" : (""+(100/dimY)+"%"),
+        "margin" : "0%",
+        "padding" : "0%"
     });
     
 
@@ -141,12 +146,14 @@ function prepararResponsive(){
 // */
 function comenzarPartida(){
     
+    
+        generarCeldas();
         prepararResponsive(); // Asegura responsiveness
         inicializarTablero(); // Se colocan las imagenes en las celdas
-        desordenar();         // Se desordenan las celdas
+        resetear();
         tomarElTiempoEmpezar();       // Inicializa el reloj
         resetearContadorDeMovidas();  // Inicializa el contador de movidas
-    
+
 }
 
 // /*
@@ -164,7 +171,7 @@ function desordenar(){
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
-            var indice = i*dimY + j;
+            var indice = j*dimY + i;
             permutacion[indice] = indice;
         }
     }
@@ -184,7 +191,7 @@ function desordenar(){
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
-            var order1 = i*dimY + j;
+            var order1 = j*dimY + i;
             var order2 = permutacion[order1];
             
             intercambiarElementos(order1,order2);
@@ -208,8 +215,17 @@ function intercambiarElementos(order1, order2){
         var elemento2 = $(".celda[data-order="+order2+"]");
         
         // Se intercambian
-        elemento1.css("order", order2.toString(10));
-        elemento2.css("order", order1.toString(10));
+        //elemento1.css("order", order2.toString(10));
+        var elemento1Left = elemento1.css("left");
+        var elemento1Top = elemento1.css("top");
+        
+        elemento1.css("left", elemento2.css("left"));
+        elemento1.css("top", elemento2.css("top"));
+        
+        elemento2.css("left", elemento1Left);
+        elemento2.css("top", elemento1Top);
+        
+        //elemento2.css("order", order1.toString(10));
         
         // Se actualizan los atributos de data
         elemento1.attr("data-order", order2.toString(10));
@@ -243,14 +259,17 @@ function inicializarTablero(){
     //referencia a la imagen y a su contenedor.
     // X% de la imagen queda sobre X% del contenedor.
     // Por eso 50% centra la imagen en el contenedor
-    var alturaCeldas = Math.floor(100/(dimX-1));
-    var anchoCeldas = Math.floor(100/(dimY-1));
+    var alturaCeldas = 100/(dimX-1);
+    var anchoCeldas = 100/(dimY-1);
     
     for(var i = 0; i < dimX; i++){
         for(var j = 0; j < dimY; j++){
             
             var celdaImagen = $("#celda-"+i+"-"+j);
-            
+            var orderCeldaActual = celdaImagen.attr("data-order");
+            var tamanoCelda = 100/(dimY);
+            var posicionCeldaX = tamanoCelda*i;
+            var posicionCeldaY = tamanoCelda*j;
             //Se posiciona correctamente la parte correspondiente de la imagen
             celdaImagen.css({
                 'background-repeat': 'no-repeat',
@@ -258,9 +277,14 @@ function inicializarTablero(){
                 'background-size': porcentaje1+" "+porcentaje2,
                 'background-position-x': ""+(anchoCeldas*i)+"%", 
                 'background-position-y': ""+(alturaCeldas*j)+"%",
-                'order': ""+(i*dimY+j)+""
+                'position':'absolute',
+                'height':''+(tamanoCelda)+"%",
+                'width' : ''+(tamanoCelda)+"%",
+                'left' : ""+posicionCeldaX+"%",
+                'top':""+posicionCeldaY+"%",
+                'font-size' : '0px'
             });
-            
+            $(".texto-ayuda").css("display", "none");
             var tuplaPosicionBlanca = posicionBlanca();
             
             //No se muestra la celda de la blanca
@@ -375,7 +399,7 @@ document.addEventListener('touchend', function(event){
 function moverArriba(){
     
     //Encuentro el orden del elemento con el que se intercambia
-    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderCeldaTocada = parseInt(elemTocado.attr("data-order"),10);
     var orderVecino = orderCeldaTocada - dimY;
     
     //Determino si puedo moverlo hacia arriba
@@ -412,7 +436,7 @@ function moverArriba(){
 function moverAbajo(){
     
     //Encuentro el orden del elemento con el que se intercambia
-    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderCeldaTocada = parseInt(elemTocado.attr("data-order"),10);
     var orderVecino = orderCeldaTocada + dimY;
     
     //Determino si puedo moverlo hacia abajo
@@ -449,7 +473,7 @@ function moverAbajo(){
 function moverDerecha(){
 
     //Encuentro el orden del elemento con el que se intercambia
-    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderCeldaTocada = parseInt(elemTocado.attr("data-order"),10);
     var orderVecino = orderCeldaTocada + 1;
     
     //Determino si puedo moverlo hacia la derecha
@@ -486,7 +510,7 @@ function moverDerecha(){
 function moverIzquierda(){
     
     //Encuentro el orden del elemento con el que se intercambia
-    var orderCeldaTocada = parseInt(elemTocado.css("order"),10);
+    var orderCeldaTocada = parseInt(elemTocado.attr("data-order"),10);
     var orderVecino = orderCeldaTocada - 1;
     
     //Determino si puedo moverlo hacia la izquierda
@@ -637,15 +661,15 @@ function tomarElTiempoSiguienteValor(){
 // */
 function resetearContadorDeMovidas(){
     
-    document.getElementById("juego-contador-movidas").innerHTML = "0";
+    document.getElementById("juego-contador-movidass").innerHTML = "0";
 }
 
 // /*
 // * Actualiza el número de movidas en la vista
 // */
 function aumentarCantidadMovidas(){
-    var movidas = parseInt($("#juego-contador-movidas").text(),10);
+    var movidas = parseInt(document.getElementById("juego-contador-movidass").innerHTML,10);
     movidas++;
-    $("#juego-contador-movidas").text(movidas.toString(10));
+    document.getElementById("juego-contador-movidass").innerHTML = movidas.toString(10);
     
 }
