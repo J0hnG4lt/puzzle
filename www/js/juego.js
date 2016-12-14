@@ -165,7 +165,7 @@ function comenzarPartida(){
 function desordenar(){
     
     var permutacion = [];
-    var posicion_blanca = diccionario_posicion_blanca[imagenSeleccionadaIndex];
+    var posicion_blanca = diccionario_posicion_blanca_juego[imagenSeleccionadaIndex];
     
     //Se colocan los demás valores de order
     for(var i = 0; i < dimX; i++){
@@ -308,7 +308,7 @@ function inicializarTablero(){
 //  */
 function posicionBlanca(){
     
-    var posBlanca = diccionario_posicion_blanca[imagenSeleccionadaIndex];
+    var posBlanca = diccionario_posicion_blanca_juego[imagenSeleccionadaIndex];
     var x_pos = Math.floor(posBlanca/dimY);
     var y_pos = Math.floor(posBlanca%dimY);
     return {x_pos : x_pos, y_pos : y_pos}

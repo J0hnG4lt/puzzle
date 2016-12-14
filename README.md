@@ -21,7 +21,7 @@ Se debe usar [Cordova](https://cordova.apache.org/) o [Phonegap](http://phonegap
 ### Instrucciones Para construir la Aplicación
 
 Se debe clonar el repositorio y construir la aplicación con las siguientes
-ordenes:
+órdenes:
 
 1- git clone https://github.com/J0hnG4lt/puzzle.git
 

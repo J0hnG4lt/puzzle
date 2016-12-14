@@ -28,6 +28,7 @@ var diccionario_imagenes = {};
 var diccionario_imagen_info = {};
 var diccionario_posicion_blanca = {};
 
+var diccionario_posicion_blanca_juego;
 
 
 

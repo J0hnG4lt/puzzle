@@ -79,7 +79,7 @@ function jugarYa(){
     dimX = dimension_x;
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;
-    
+    diccionario_posicion_blanca_juego = diccionario_posicion_blanca; 
     //generarCeldas();
     //prepararResponsive();
     mostrarJuego();
@@ -144,8 +144,11 @@ function resaltarOpcionSprite(event){
 
 function mostrarImagenInfo(){
     
-    seleccionarImagen("1"); // Accion por defecto
-    seleccionarDimension("3","3"); // Accion por defecto
+    if (imagenSeleccionadaIndex == 0) {
+       seleccionarImagen("1");
+       seleccionarDimension("3","3"); // Accion por defecto
+    }
+    
     if ($.isEmptyObject(diccionario_imagen_info)){
         
         jugarYa();
@@ -311,8 +314,3 @@ function cerrarInstrucciones(){
 }
 
 
-function seleccionarDificultad(nivelDificultad) {
-    
-    
-    
-}
