@@ -571,7 +571,7 @@ function pausarToggle(){
             'pointer-events' : 'none'
         });
         intervaloDeTiempoDetener();
-        $("#pausar_reiniciar").attr("src","img/iconos/play.svg");
+        $("#pausar_reiniciar").attr("src","img/iconos/play.png");
         $("#reloj_arena_juego").attr("src", "img/iconos/reloj.jpg");
         $("#juego_resetear").css({
             'pointer-events' : 'none'
