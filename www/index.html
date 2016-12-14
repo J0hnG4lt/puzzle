@@ -125,8 +125,12 @@
                onclick="seleccionarTipoRepresentacion(14);"></a>
                
             
+            <!--
             <a style="display:block; width:30%; height:6%; position:absolute; left: 70%; top: 92%;"
                onclick="mostrarDimensiones();"></a>
+            -->
+            <a style="display:block; width:30%; height:6%; position:absolute; left: 70%; top: 92%;"
+               onclick="mostrarImagenInfo();"></a>
     </div>
     <!-- Fin Vista Seleccionar Tipo de Representación -->
     
@@ -293,7 +297,7 @@
                       background-size : 32% 60%;
                       background-position : 70% 50%;
                       "
-               onclick="mostrarDimensiones();"></a>
+               onclick="mostrarTipoRepresentacion();"></a>
                
             <a class="area-sprite"
                style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
@@ -481,6 +485,10 @@
     <div id="vista-menu-configuracion" >
         <a><b>Configuración</b></a>
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuConfiguracion()">&times;</a>
+        <a><b>Dificultad</b></a>
+        <a href="javascript:seleccionarDimension(3,3);">3 x 3</a>
+        <a href="javascript:seleccionarDimension(4,4);">4 x 4</a>
+        <a href="javascript:seleccionarDimension(6,6);">6 x 6</a>
         <!--
         <a id="vista-menu-configuracion-presentacion" onclick="verPresentacion()">Presentación</a>
         <a id="vista-menu-configuracion-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
