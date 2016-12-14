@@ -44,6 +44,7 @@ function mostrarTipoRepresentacion(){
     ocultarVistas();
     $("#vista-seleccionar-tipo-manifestacion").css("display","block");
     seleccionarTipoRepresentacion("2"); //Caso por defecto
+
 }
 
 function mostrarDimensiones(){
@@ -143,7 +144,8 @@ function resaltarOpcionSprite(event){
 
 function mostrarImagenInfo(){
     
-    
+    seleccionarImagen("1"); // Accion por defecto
+    seleccionarDimension("3","3"); // Accion por defecto
     if ($.isEmptyObject(diccionario_imagen_info)){
         
         jugarYa();
@@ -306,4 +308,11 @@ function verInstrucciones(){
 
 function cerrarInstrucciones(){
     $("#vista-instrucciones").css("display", "none");
+}
+
+
+function seleccionarDificultad(nivelDificultad) {
+    
+    
+    
 }
