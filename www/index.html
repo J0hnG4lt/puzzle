@@ -479,6 +479,8 @@
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
         <a id="vista-menu-emergente-presentacion" onclick="verPresentacion()">Presentación</a>
         <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
+        <a id="vista-menu-emergente-salir" onclick="salirDeLaAplicacion()">Salir</a>
+        
     </div>
         
         
@@ -524,6 +526,11 @@
             // Se puede manejar el boton de ir atras
             e.preventDefault();
         }
+        
+        function salirDeLaAplicacion()
+             {
+                navigator.app.exitApp();
+             }
         
     </script>
 
