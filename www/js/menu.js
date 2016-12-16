@@ -44,6 +44,7 @@ function mostrarTipoRepresentacion(){
     ocultarVistas();
     $("#vista-seleccionar-tipo-manifestacion").css("display","block");
     seleccionarTipoRepresentacion("2"); //Caso por defecto
+    vistaActual = "vista-seleccionar-tipo-manifestacion";
 
 }
 
@@ -57,6 +58,7 @@ function mostrarDimensiones(){
 function mostrarJuego(){
     ocultarVistas();
     $("#vista-juego").css("display","block");
+    vistaActual = "vista-juego";
 }
 
 
@@ -164,6 +166,7 @@ function mostrarImagenInfo(){
     
     ocultarVistas();
     $("#vista-imagen-seleccionada-info").css("display","block");
+    vistaActual = "vista-imagen-seleccionada-info";
 }
 
 

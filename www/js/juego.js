@@ -673,3 +673,4 @@ function aumentarCantidadMovidas(){
     document.getElementById("juego-contador-movidass").innerHTML = movidas.toString(10);
     
 }
+
