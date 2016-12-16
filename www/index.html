@@ -509,8 +509,22 @@
         }
         
         function onDeviceReady(){
-          // Now safe to use the PhoneGap API
+          // Se puede usar el API de phonegap de manera segura
         }
+        
+        document.addEventListener("pause", onPause, false);
+        
+        function onPause() {
+            // Se puede guardar el estado de la aplicacion
+        }
+        
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        
+        function onBackKeyDown(e) {
+            // Se puede manejar el boton de ir atras
+            e.preventDefault();
+        }
+        
     </script>
 
 </body>
