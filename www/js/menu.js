@@ -146,10 +146,11 @@ function resaltarOpcionSprite(event){
 
 function mostrarImagenInfo(){
     
-    if (imagenSeleccionadaIndex == 0) {
-       seleccionarImagen("1");
-       seleccionarDimension("3","3"); // Accion por defecto
-    }
+    
+    seleccionarImagen("1");
+    seleccionarDimension(dimension_x.toString(10),dimension_y.toString(10)); // Accion por defecto
+    
+    
     
     if ($.isEmptyObject(diccionario_imagen_info)){
         

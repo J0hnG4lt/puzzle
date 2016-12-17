@@ -479,11 +479,11 @@
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
         <a id="vista-menu-emergente-presentacion" onclick="verPresentacion()">Presentación</a>
         <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
-        <a id="vista-menu-emergente-salir" onclick="salirDeLaAplicacion()">Salir</a>
+        
         <a id="vista-menu-emergente-guardar" onclick="guardarEstadoAplicacion()">Guardar</a>
         <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion()">Borrar Datos</a>
         <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado()">Cargar Última Partida</a>
-        
+        <a id="vista-menu-emergente-salir" onclick="salirDeLaAplicacion()">Salir</a>
     </div>
         
         
@@ -491,9 +491,9 @@
         <a><b>Configuración</b></a>
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuConfiguracion()">&times;</a>
         <a><b>Dificultad</b></a>
-        <a class="area-sprite" href="javascript:seleccionarDimension(3,3);">3 x 3</a>
-        <a class="area-sprite" href="javascript:seleccionarDimension(4,4);">4 x 4</a>
-        <a class="area-sprite" href="javascript:seleccionarDimension(6,6);">6 x 6</a>
+        <a class="area-sprite" href="javascript:seleccionarDimension('3','3');">3 x 3</a>
+        <a class="area-sprite" href="javascript:seleccionarDimension('4','4');">4 x 4</a>
+        <a class="area-sprite" href="javascript:seleccionarDimension('6','6');">6 x 6</a>
         <!--
         <a id="vista-menu-configuracion-presentacion" onclick="verPresentacion()">Presentación</a>
         <a id="vista-menu-configuracion-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
@@ -506,6 +506,7 @@
     <script type="text/javascript" src="js/aux.js"></script>
     <script type="text/javascript" src="js/juego.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/almacen.js"></script>
     
     <script type="text/javascript">
         
