@@ -9,11 +9,11 @@
 */
 
 
-
+// Muestra la Presentación y luego de cierto tiempo la primera vista
 $(document).ready(function(){
     
+    // Registra evento para resaltar selecciones
     $(".area-sprite").on("click", resaltarAreasSprite);
-    $(".opcion-sprite").on("click", resaltarOpcionSprite);
     
     mostrarTipoRepresentacion();
     
@@ -25,32 +25,22 @@ $(document).ready(function(){
 });
 
 
-
 var url_imagen_elegida = "";
 var dimension_x=3;
 var dimension_y=3;
 
+
+// /*
+// * Oculta todas las vistas de la aplicación
+// */
 function ocultarVistas(){
     $(".vista").css("display","none");
 }
 
-function mostrarMenu(){
-    ocultarVistas();
-    $("#vista-menu").css("display","block");
-    var url_de_representacion_seleccionada = diccionario_imagenes[1];
-    if ($("#tabla-seleccionar-representacion-imagen").length !== 0){
-        $("#tabla-seleccionar-representacion-imagen").remove();
-    }
-    $("#puzzles-deslizantes-educativos-tabla-seleccionar").prepend(
-        '<img src='+url_de_representacion_seleccionada+' \
-              id=tabla-seleccionar-representacion-imagen \
-              alt="icon" \
-              width="100%" \
-              height="170%" \
-              style="position:absolute; top: -20%; left: 0;" />'
-                                                                 );
-}
 
+// /*
+// * Sólo muestra la primera vista. Allí se selecciona el tipo de representación
+// */
 function mostrarTipoRepresentacion(){
     ocultarVistas();
     $("#vista-seleccionar-tipo-manifestacion").css("display","block");
@@ -59,20 +49,18 @@ function mostrarTipoRepresentacion(){
 
 }
 
-function mostrarDimensiones(){
-    seleccionarImagen("1"); // Accion por defecto
-    seleccionarDimension("3","3"); // Accion por defecto
-    ocultarVistas();
-    $("#vista-dimensiones").css("display","block");
-}
-
+// /*
+// * Sólo muestra la última vista. Allí se juega.
+// */
 function mostrarJuego(){
     ocultarVistas();
     $("#vista-juego").css("display","block");
     vistaActual = "vista-juego";
 }
 
-
+// /*
+// * Crea el nuevo tablero con los parámetros introducidos por el usuario
+// */
 function jugarYa(){
     
     $("#tablero").remove();
@@ -90,20 +78,25 @@ function jugarYa(){
     dimY = dimension_y;
     url_imagen = url_imagen_elegida;
     diccionario_posicion_blanca_juego = diccionario_posicion_blanca; 
-    //generarCeldas();
-    //prepararResponsive();
     mostrarJuego();
     comenzarPartida();
     
-    desbloquearCeldas();
+    desbloquearCeldas(); //Esto evita que el tablero quede bloqueado si el usuario
+                         //había terminado el juego y quiera volver a empezar
 }
 
+// /*
+// * Obtiene el path de la imagen seleccionada
+// */
 function seleccionarImagen(numeroImagen){
     
     imagenSeleccionadaIndex = numeroImagen;
     url_imagen_elegida = diccionario_imagenes[numeroImagen];
 }
 
+// /*
+// * Obtiene la posición de la blanca para la imagen seleccionada dadas sus dimensiones
+// */
 function seleccionarDimension(x,y){
     dimension_x = parseInt(x,10);
     dimension_y = parseInt(y,10);
@@ -119,6 +112,10 @@ function seleccionarDimension(x,y){
     
 }
 
+
+// /*
+// * Resalta las áreas interactivas seleccionadas por el usuario
+// */
 function resaltarAreasSprite(event){
     
     $(".area-sprite").css({
@@ -135,37 +132,23 @@ function resaltarAreasSprite(event){
     
 }
 
-function resaltarOpcionSprite(event){
-    
-    $(".opcion-sprite").css({
-        "background-color":"initial",
-        "opacity": "initial",
-        "filter": "initial"
-    });
-    var areaTocada = $(event.target);
-    areaTocada.css({
-        "background-color":"white",
-        "opacity": "0.5",
-        "filter": "alpha(opacity=50)"
-    });
-}
 
-
-
+// /*
+// * Muestra la vista educativa de la representación seleccionada
+// */
 function mostrarImagenInfo(){
     
+    seleccionarImagen("1"); // Accion por defecto
+    seleccionarDimension(dimension_x.toString(10),dimension_y.toString(10)); 
     
-    seleccionarImagen("1");
-    seleccionarDimension(dimension_x.toString(10),dimension_y.toString(10)); // Accion por defecto
-    
-    
-    
+    // Si no existe contenido educativo, entonces proceder con el juego
     if ($.isEmptyObject(diccionario_imagen_info)){
         
         jugarYa();
         return;
     }
     
+    // Se obtiene el path de la vista de información
     var url_imagen_info = diccionario_imagen_info[imagenSeleccionadaIndex];
     $("#vista-imagen-seleccionada-info").css({
         'background-repeat': 'no-repeat',
@@ -179,6 +162,12 @@ function mostrarImagenInfo(){
 }
 
 
+// /*
+// * Obtiene el diccionario de imágenes y su respectivo diccionario de información.
+// * Se usan diccionarios de esta manera porque es posible que se agreguen más imagenes
+// * para un tipo dado de representación. Actualmente sólo hay uno por cada tipo.
+// * Estos diccionarios sólo guardan los paths.
+// */
 function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     
     tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
@@ -273,6 +262,10 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     }
 }
 
+
+// /*
+// * Muestra la vista del mapa para un tipo dado de representación
+// */
 function verMapaDeTipoRepresentacion(){
     var url_mapa = diccionario_tipo_representacion_mapa[tipoRepresentacion];
     
@@ -286,25 +279,41 @@ function verMapaDeTipoRepresentacion(){
     
 }
 
+// /*
+// * Borra de memoria el mapa del tipo de representación después de salir de
+// * su vista
+// */
 function quitarMapa(){
     $("#imagen_mapa").remove();
 }
 
 
+// /*
+// * Muestra el menú principal
+// */
 function abrirMenuEmergente(){
     $("#vista-menu-emergente").css("width", "70%");
     
 }
 
+// /*
+// * Muestra el menú de configuración
+// */
 function abrirMenuConfiguracion(){
     $("#vista-menu-configuracion").css("width", "70%");
     
 }
 
+// /*
+// * Cierra el menú principal
+// */
 function cerrarMenuEmergente(){
     $("#vista-menu-emergente").css("width", "0%");
 }
 
+// /*
+// * Cierra el menú de configuración
+// */
 function cerrarMenuConfiguracion(){
     $("#vista-menu-configuracion").css("width", "0%");
 }
