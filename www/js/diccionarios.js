@@ -1,3 +1,21 @@
+/*
+ *    Universidad Simón Bolívar
+ *    Tutora Académica: Angela Di Serio
+ *    Representante de la Comunidad y diseñadora: Ruby de Valencia
+ *    Programador: Georvic Tur (12-11402)
+ *    
+ *    Proyecto de Servicio Comunitario
+ *        Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
+*/
+
+/*  
+ *
+ *  Estas variables guardan los paths de las representaciones. También guarda
+ *  las variaciones para la posición de la blanca dado un tipo  de representación
+ *  y sus dimensiones.
+ *
+*/
+
 var diccionario_imagenes_petroglifos = {
                         1 : "img/representaciones/petroglifos/petroglifo.png",
                         2 : "img/representaciones/petroglifos/amazonas.jpg",

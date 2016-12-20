@@ -8,6 +8,13 @@
  *        Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
 */
 
+/*  
+ *
+ *  Estas variables definen el estado de la aplicación
+ *
+*/
+
+
 var dimX = 3; //Dimensiones del tablero
 var dimY = 3;
 
@@ -43,15 +50,5 @@ var diccionario_posicion_blanca_juego;
 var vistaActual = "";
 
 
-//Estas funciones calculan la posicion relativo al padre para colocar la parte
-//de la imagen que le corresponde a la celda (i,j)
-
-function getPosTop(i, j){
-    return Math.floor((anchoDeTablero/dimX))*i;
-}
-
-function getPosLeft(i, j){
-    return Math.floor((anchoDeTablero/dimY))*j;
-}
 
 
