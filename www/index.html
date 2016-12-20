@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+    Universidad Simón Bolívar
+    Tutora Académica: Angela Di Serio
+    Representante de la Comunidad y diseñadora: Ruby de Valencia
+    Programador: Georvic Tur (12-11402)
+    
+    Proyecto de Servicio Comunitario
+        Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
 -->
 <html>
 
@@ -64,23 +53,6 @@
                style="display:block; width:20%; height:10%; position:absolute; left: 80%; top: 0%;"
                onclick="abrirMenuConfiguracion();"></a>
             
-            <!--
-            
-            <a class="area-sprite" id="tipo-representacion-mapa"
-               style="display:block; width:20%; height:10%; position:absolute; left: 40%; top: 20%;"
-               onclick="verMapaDeTipoRepresentacion();">
-                
-                
-                
-                <img src="img/iconos/mapita.png" alt="icon"
-                 width="100%" height="100%"
-                 style="position:absolute; top: 0%; left: 0%;"
-                 />
-                
-                
-                
-            </a>
-            -->
             <a class="area-sprite" id="tipo-representacion-petroglifo"
                style="display:block; width:56%; height:4%; position:absolute; left: 23%; top: 30%;"
                onclick="seleccionarTipoRepresentacion(1);"></a>
@@ -125,10 +97,6 @@
                onclick="seleccionarTipoRepresentacion(14);"></a>
                
             
-            <!--
-            <a style="display:block; width:30%; height:6%; position:absolute; left: 70%; top: 92%;"
-               onclick="mostrarDimensiones();"></a>
-            -->
             <a style="display:block; width:30%; height:6%; position:absolute; left: 70%; top: 92%;"
                onclick="mostrarImagenInfo();"></a>
     </div>
@@ -141,145 +109,12 @@
          style="width:100%;
                 height:100%;"
          onclick="quitarMapa();mostrarImagenInfo();">
-        <!--
-        <img height="20%" 
-             width="auto"
-             src="img/Logo-FUNDABITAT.png"
-             style="position:absolute;
-                    top:5%;
-                    left:31%;">
-        <img height="20%" 
-             width="auto"
-             src="img/logo-ANAR.png"
-             style="position:absolute;
-                    top:30%;
-                    left:18%;">
-        -->
     </div>
     
     <!-- Fin Vista Mapa -->
     
-    <!-- Vista Menú -->
     
-    <div id="vista-menu" class="vista" style="width:100%;height:100%;">
-        
-
-        
-        <div id="puzzles-deslizantes-educativos-header-seleccionar"
-             class="seleccionar-imagen-sprite"
-             style="width:100%; height:10%; overflow:hidden; position:relative;">
-            
-            <img src="img/vistas/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
-                 width="100%" height="1000%"
-                 style="position:absolute; top: 0; left: 0;" />
-            <a onclick="abrirMenuEmergente();" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
-                 
-        </div>
-        <div id="puzzles-deslizantes-educativos-tabla-seleccionar"
-             class="seleccionar-imagen-sprite"
-             style="width:100%; height:60%; overflow:hidden; position:relative">
-
-            <a class="area-sprite" 
-               style="display:block; width:100%; height:100%; position:absolute; left: 0; top: 10%;"
-               onclick="seleccionarImagen(1)"></a>
-            
-        </div>
-        <div id="puzzles-deslizantes-educativos-mensaje-seleccionar"
-             class="seleccionar-imagen-sprite"
-             style="width:100%; height:20%; overflow:hidden; position:relative">
-            
-            <img src="img/vistas/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
-                 width="100%" height="800%"
-                 style="position:absolute; top: -625%; left: 0;" />
-                 
-        </div>
-        <div id="puzzles-deslizantes-educativos-footer-seleccionar"
-             class="seleccionar-imagen-sprite"
-             style="width:100%; height:10%; overflow:hidden; position:relative">
-            
-            <img src="img/vistas/Pantalla_Escoge_la_Manifestacion_Rupestre.jpg" alt="icon"
-                 width="100%" height="1000%"
-                 style="position:absolute; top: -900%; left: 0;"
-                 />
-            <a style="display:block; width:30%; height:100%; position:absolute; left: 70%; top: 0;"
-               onclick="mostrarDimensiones();"></a>
-            <a style="display:block; width:30%; height:100%; position:absolute; left: 0%; top: 0%;"
-               onclick="mostrarTipoRepresentacion();">
-                <img src="img/iconos/Dedito-a-la-izquierda.png" alt="icon"
-                    width="35%" height="35%"
-                    style="position:absolute; top: 40%; left: 40%;"
-                 />
-            </a>
-                 
-        </div>
-        
-    </div>
-    
-    <!-- Fin Vista Menú -->
-    
-    <!-- Vista Dimensiones -->
-    
-    <div id="vista-dimensiones" class="vista" style="width:100%;height:100%;">
-        
-        
-        <div id="puzzles-deslizantes-educativos-header-dimension"
-             style="width:100%; height:10%; overflow:hidden; position:relative">
-            <!-- set width/height proportionally, to scale the sprite image -->
-            <img src="img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
-                 width="100%" height="1000%"
-                 style="position:absolute; top: 0; left: 0;" />
-            <a onclick="abrirMenuEmergente();" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
-            <a class="area-sprite"
-               style="display:block; width:20%; height:100%; position:absolute; left: 80%; top: 0%;"
-               onclick="abrirMenuConfiguracion();"></a>
-        </div>
-        <div id="puzzles-deslizantes-educativos-tabla-dimension"
-             style="width:100%; height:60%; overflow:hidden; position:relative">
-            <!-- set width/height proportionally, to scale the sprite image -->
-            <img src="img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
-                 width="100%" height="170%"
-                 style="position:absolute; top: -20%; left: 0;" />
-            
-            <a class="opcion-sprite dim" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 34%;"
-               onclick="seleccionarDimension(3,3);"></a>
-            <a class="opcion-sprite dim" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 41%;"
-               onclick="seleccionarDimension(4,4);"></a>
-            <a class="opcion-sprite dim" style="display:block; width:64%; height:6%; position:absolute; left: 19%; top: 50%;"
-               onclick="seleccionarDimension(6,6);"></a>
-            <a class="opcion-sprite" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 60%;"></a>
-            <a class="opcion-sprite" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 72%;"></a>
-            <a class="opcion-sprite" style="display:block; width:64%; height:12%; position:absolute; left: 19%; top: 84%;"></a>
-        </div>
-        <div id="puzzles-deslizantes-educativos-mensaje-dimension"
-             style="width:100%; height:20%; overflow:hidden; position:relative">
-            
-            <img src="img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
-                 width="100%" height="800%"
-                 style="position:absolute; top: -625%; left: 0;" />
-                 
-        </div>
-        <div id="puzzles-deslizantes-educativos-footer-dimension"
-             style="width:100%; height:10%; overflow:hidden; position:relative">
-            
-            <img src="img/vistas/Pantalla_Niveles_3x3_4x4_6x6.jpg" alt="icon"
-                 width="100%" height="1000%"
-                 style="position:absolute; top: -900%; left: 0;"
-                 />
-            <a style="display:block; width:30%; height:100%; position:absolute; left: 70%; top: 0;"
-               onclick="mostrarImagenInfo();"></a>
-            <a style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"
-               onclick="mostrarTipoRepresentacion();"></a>
-        </div>
-        
-            <a class="area-sprite"
-               style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
-               onclick="abrirMenuEmergente();"></a>
-        
-    </div>
-    
-    <!-- Fin Vista Dimensiones -->
-    
-    <!-- Vista Imagen Seleccionada -->
+    <!-- Vista Imagen Seleccionada Info -->
 
     <div id="vista-imagen-seleccionada-info" class="vista" style="width:100%;height:100%;">
             
@@ -318,7 +153,7 @@
                
     </div>
     
-    <!-- Fin Vista Imagen Seleccionada -->
+    <!-- Fin Vista Imagen Seleccionada Info -->
     
     <!-- Vista Juego -->
     <div id="vista-juego" class="vista" style="width:100%;height:100%;">
@@ -404,9 +239,6 @@
                         left:0%;
                         top:0%;
                         ">
-                <img src="#" alt="icon" id="imagen_seleccionada_tablero"
-                 width="100%" height="100%"
-                 style="position:absolute; top: 0; left: 0;" />
             </div>
             
         </div>
@@ -472,7 +304,7 @@
     
     </div>
 
-
+    <!-- Vista Menu Emergente -->
     
     <div id="vista-menu-emergente" >
         <a><b>Menú Principal</b></a>
@@ -485,8 +317,11 @@
         <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado()">Cargar Última Partida</a>
         <a id="vista-menu-emergente-salir" onclick="salirDeLaAplicacion()">Salir</a>
     </div>
-        
-        
+    
+    <!-- Fin Vista Menu Emergente -->
+    
+    <!-- Vista Menu Configuracion -->
+    
     <div id="vista-menu-configuracion" >
         <a><b>Configuración</b></a>
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuConfiguracion()">&times;</a>
@@ -494,11 +329,11 @@
         <a class="area-sprite" href="javascript:seleccionarDimension('3','3');">3 x 3</a>
         <a class="area-sprite" href="javascript:seleccionarDimension('4','4');">4 x 4</a>
         <a class="area-sprite" href="javascript:seleccionarDimension('6','6');">6 x 6</a>
-        <!--
-        <a id="vista-menu-configuracion-presentacion" onclick="verPresentacion()">Presentación</a>
-        <a id="vista-menu-configuracion-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
-        -->
     </div>
+    
+    <!-- Fin Vista Menu Configuracion -->
+    
+    
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>

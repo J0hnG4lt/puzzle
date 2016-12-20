@@ -1,12 +1,23 @@
+/*
+ *    Universidad Simón Bolívar
+ *    Tutora Académica: Angela Di Serio
+ *    Representante de la Comunidad y diseñadora: Ruby de Valencia
+ *    Programador: Georvic Tur (12-11402)
+ *    
+ *    Proyecto de Servicio Comunitario
+ *        Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
+*/
+
 // /* El juego que se está implementando es una versión de éste:
 // *    en.wikipedia.org/wiki/15_puzzle
 // *  
 // *  Se van a usar imágenes de arte rupestre y se va a añadir contenido educativo
 // *  adicional.
 // *
-// *  Para comenzar este PROTOTIPO se usó como base una implementación del juego 2048
+// *  Para comenzar esta aplicación se usó como base una implementación del juego 2048
 // *  que se puede conseguir aquí: https://github.com/coolfishstudio/game-2048
-// * 
+// *  Luego la aplicación cambió de manera drástica a medida que se implementaron
+// *  los requerimientos de la representante de la comunidad.
 // *
 // *   Secuencia de Actividades del Juego
 // *   
@@ -23,10 +34,6 @@
 // */
 
 
-$(document).ready(function(){
-   // generarCeldas(); // Se insertan los elementos div que representan a las celdas
-                     // en el tablero
-});
 
 
 // /*
@@ -39,9 +46,11 @@ function resetear(){
     tomarElTiempoResetear();
     resetearContadorDeMovidas();
     
-    // Se usa la propiedad "order" asociada a flexbox de css
-    // El orden lo determina un valor numérico de manera ascendente
-    // Antes de desordenar están ordenadas de esta manera
+    // Cada celda tiene un atributo data-order que indica la posición
+    // actual de la celda en el tablero usando una enumeración desde 
+    // 0 hasta dimX*dimY - 1. Esta es una invariante, pues siempre debe mantenerse
+    // ordenada de manera ascendente empezando a contar desde la esquina superior
+    // izquierda. La posición de la celda se actualiza usando porcentajes.
     
     var tamanoCelda = 100/(dimY);
     
@@ -50,7 +59,7 @@ function resetear(){
             
             var elemento = $("#celda-"+i+"-"+j)
             var order = (j*dimY+i).toString(10);
-            //elemento.css("order", order);
+            
             elemento.attr("data-order", order);
             
             var posicionCeldaX = tamanoCelda*i;
@@ -108,10 +117,10 @@ function generarCeldas(){
     for(var i = 0 ; i < dimX ; i++){
         for(var j = 0 ; j < dimY ; j++){
             
-            var orden = (j*dimY+i); // Se usa la propiedad "order" de flexbox
-                                    // En este caso se guarda en un atributo "data"
-                                    // Esto ayudará a encontrarlos más fácilmente
-                                    // al desordenar las celdas más adelante.
+            var orden = (j*dimY+i); // Este atributo data-order debe ser una invariante
+                                    // del tablero. Siempre debe estar ordenado de manera
+                                    // ascendente empezando desde la esquina superior 
+                                    // izquierda
             var contenido = "<div id='celda-"+i+"-"+j+"' class='celda' data-order='"+orden+"' ><span class='texto-ayuda'>"+orden+"</span></div>";
             tablero.append(contenido);
         }
@@ -120,14 +129,12 @@ function generarCeldas(){
 
 // /*
 // * 
-// * Prepara el juego para adaptarse al tamaño de la pantalla.
-// * También inicializa las propiedades asociadas a flexbox de css.
-// *
+// * Prepara las celdas para que se adapten al tamaño de la pantalla usando
+// * porcentajes.
 // */
 function prepararResponsive(){
     
-    // Esto determina cuántas celdas aparecen por fila
-    // Notar arriba la propiedad "flex-direction"
+    // dimY determina cuántas celdas aparecen por fila. Debe ser una cuadrícula.
     $(".celda").css({
         "width":(""+(100/dimY)+"%"),
         "height" : (""+(100/dimY)+"%"),
@@ -141,18 +148,18 @@ function prepararResponsive(){
 
 // /*
 // * 
-// * Añade las celdas con imágenes y las desordena.
-// *
+// * Añade las celdas con imágenes y las desordena. Inicializa los contadores
+// * de movidas y de tiempo.
 // */
 function comenzarPartida(){
     
     
         generarCeldas();
-        prepararResponsive(); // Asegura responsiveness
-        inicializarTablero(); // Se colocan las imagenes en las celdas
-        resetear();
-        tomarElTiempoEmpezar();       // Inicializa el reloj
-        resetearContadorDeMovidas();  // Inicializa el contador de movidas
+        prepararResponsive();           // Asegura responsiveness
+        inicializarTablero();           // Se colocan las imagenes en las celdas
+        resetear();                     // Se desordenan las celda
+        tomarElTiempoEmpezar();         // Inicializa el reloj
+        resetearContadorDeMovidas();    // Inicializa el contador de movidas
 
 }
 
@@ -203,9 +210,9 @@ function desordenar(){
 
 // /*
 // * 
-// * Dados los valores únicos de los atributos 'order' de css pertenecientes
+// * Dados los valores únicos de los atributos 'data-order' pertenecientes
 // * a dos celdas, se intercambian sus posiciones en el tablero usando
-// * dichos valores.
+// * dichos valores. Data-order debe mantener una invariante del tablero.
 // *
 // */
 function intercambiarElementos(order1, order2){
@@ -215,7 +222,6 @@ function intercambiarElementos(order1, order2){
         var elemento2 = $(".celda[data-order="+order2+"]");
         
         // Se intercambian
-        //elemento1.css("order", order2.toString(10));
         var elemento1Left = elemento1.css("left");
         var elemento1Top = elemento1.css("top");
         
@@ -224,8 +230,6 @@ function intercambiarElementos(order1, order2){
         
         elemento2.css("left", elemento1Left);
         elemento2.css("top", elemento1Top);
-        
-        //elemento2.css("order", order1.toString(10));
         
         // Se actualizan los atributos de data
         elemento1.attr("data-order", order2.toString(10));
@@ -237,17 +241,12 @@ function intercambiarElementos(order1, order2){
 
 // /*
 // * 
-// * Ya creadas las celdas y asignados los valores de 'order', se colocan
+// * Ya creadas las celdas y asignados los valores de 'data-order', se colocan
 // * las partes correspondientes de la imagen de fondo.
 // *
 // */
 function inicializarTablero(){
     
-    // Se oculta la imagen ordenada
-    // Dejarla en la vista de esta manera ayuda a calcular las dimensiones
-    // pero aquí se debe ocultar
-    $("#imagen_seleccionada_tablero").attr("src", url_imagen);
-    $("#imagen_seleccionada_tablero").css("display", "none");
     
     //Se incrementa el tamaño de la imagen para que cada celda muestre una parte
     //distinta de la misma
@@ -356,32 +355,24 @@ document.addEventListener('touchend', function(event){
         if(deltaX > 0){
             
             if(moverDerecha()){
-                setTimeout(function(){
-                     haTerminadoLaPartida();
-                },250);
+                haTerminadoLaPartida();
             }
         }else{
             
             if(moverIzquierda()){
-                setTimeout(function(){
-                     haTerminadoLaPartida();
-                },250);
+                haTerminadoLaPartida();
             }
         }
     }else{
         if(deltaY > 0){
             
             if(moverAbajo()){
-                setTimeout(function(){
-                     haTerminadoLaPartida();
-                },250);
+                haTerminadoLaPartida();
             }
         }else{
             
             if(moverArriba()){
-                setTimeout(function(){
-                     haTerminadoLaPartida();
-                },250);
+                haTerminadoLaPartida();
             }
         }
     }
@@ -551,7 +542,7 @@ function haTerminadoLaPartida(){
             
             var order = $("#celda-"+i+"-"+j).attr("data-order");
             
-            if ((i*dimY + j) !== parseInt(order,10)) { return false; }
+            if ((j*dimY + i) !== parseInt(order,10)) { return false; }
         }
     }
     

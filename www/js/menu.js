@@ -1,3 +1,14 @@
+/*
+ *    Universidad Simón Bolívar
+ *    Tutora Académica: Angela Di Serio
+ *    Representante de la Comunidad y diseñadora: Ruby de Valencia
+ *    Programador: Georvic Tur (12-11402)
+ *    
+ *    Proyecto de Servicio Comunitario
+ *        Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
+*/
+
+
 
 $(document).ready(function(){
     
@@ -74,9 +85,6 @@ function jugarYa(){
                      top:0%;\
                      margin: 0%;\
                      overflow:hidden;">\
-                <img src="#" alt="icon" id="imagen_seleccionada_tablero"\
-                 width="100%" height="100%"\
-                 style="position:absolute; top: 0; left: 0;" />\
          </div>');
     dimX = dimension_x;
     dimY = dimension_y;
