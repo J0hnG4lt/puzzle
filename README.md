@@ -1,4 +1,4 @@
-# Puzzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
+# Puzles Deslizantes Educativos: Manifestaciones Rupestres Venezolanas
 
 Proyecto iniciado con el fin de completar mi Servicio Comunitario en la 
 Universidad Simón Bolívar
@@ -6,6 +6,14 @@ Universidad Simón Bolívar
 #### Desarrollador: Georvic Tur 12-11402
 #### Tutora Comunitaria y Diseñadora: Ruby de Valencia
 #### Tutora Académica: Angela Di Serio
+
+#### Instituciones: Universidad Simón Bolívar y el Archivo Nacional de Arte Rupestre.
+
+#### El Archivo Nacional de Arte Rupestre se reserva todos los derechos sobre
+#### las imágenes de manifestaciones de arte rupestre usadas en esta aplicación, 
+#### pues son el producto de un extenso trabajo de campo realizado a lo largo del
+#### territorio de Venezuela. El Archivo Nacional de Arte Rupestre no permite el
+#### uso con fines de lucro de dicho material.
 
 #### Estado: En Desarrollo
 
