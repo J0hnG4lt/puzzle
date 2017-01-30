@@ -9,11 +9,13 @@ Universidad Simón Bolívar
 
 #### Instituciones: Universidad Simón Bolívar y el Archivo Nacional de Arte Rupestre.
 
+
 #### El Archivo Nacional de Arte Rupestre se reserva todos los derechos sobre
 #### las imágenes de manifestaciones de arte rupestre usadas en esta aplicación, 
 #### pues son el producto de un extenso trabajo de campo realizado a lo largo del
 #### territorio de Venezuela. El Archivo Nacional de Arte Rupestre no permite el
 #### uso con fines de lucro de dicho material.
+
 
 #### Estado: En Desarrollo
 
