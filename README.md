@@ -8,17 +8,7 @@ Universidad Simón Bolívar
 #### Tutora Académica: Angela Di Serio
 
 #### Instituciones: Universidad Simón Bolívar y el Archivo Nacional de Arte Rupestre.
-
-
-#### El Archivo Nacional de Arte Rupestre se reserva todos los derechos sobre
-#### las imágenes de manifestaciones de arte rupestre usadas en esta aplicación, 
-#### pues son el producto de un extenso trabajo de campo realizado a lo largo del
-#### territorio de Venezuela. El Archivo Nacional de Arte Rupestre no permite el
-#### uso con fines de lucro de dicho material.
-
-
 #### Estado: En Desarrollo
-
 #### Requerimientos de Uso
 
 Se probó la aplicación en un smartphone con Android 2.3.6. Dicho aparato contaba con una memoria RAM de 555MB de los cuales sólo 270MB estaban disponibles.
@@ -61,3 +51,12 @@ También se pueden usar las siguientes órdenes en la carpeta donde esté el paq
  
  En este caso es importante tener instaladas las herramientas de terminal de
  Android Studio.
+
+ 
+
+#### El Archivo Nacional de Arte Rupestre se reserva todos los derechos sobre
+#### las imágenes de manifestaciones de arte rupestre usadas en esta aplicación, 
+#### pues son el producto de un extenso trabajo de campo realizado a lo largo del
+#### territorio de Venezuela. El Archivo Nacional de Arte Rupestre no permite el
+#### uso con fines de lucro de dicho material.
+
