@@ -32,8 +32,8 @@ function guardarEstadoAplicacion(){
     almacen.setItem("vistaActual", vistaActual);
     
     var numeroMovidas = document.getElementById("juego-contador-movidass").innerHTML;
-    var tiempoSegundos = $("#juego-segundos").text();
-    var tiempoMinutos = $("#juego-minutos").text();
+    var tiempoSegundos = segundos;
+    var tiempoMinutos = minutos;
     
     almacen.setItem("numeroMovidas", numeroMovidas);
     almacen.setItem("tiempoSegundos", tiempoSegundos);
@@ -120,12 +120,12 @@ function cargarUltimoJuegoGuardado(){
     
     
     // Reconstruir los datos de la partida cargada
-    var numeroMovidas = almacen.getItem("numeroMovidas");
-    var tiempoSegundos = almacen.getItem("tiempoSegundos");
-    var tiempoMinutos = almacen.getItem("tiempoMinutos");
+    numeroMovidas = almacen.getItem("numeroMovidas");
+    segundos = almacen.getItem("tiempoSegundos");
+    minutos = almacen.getItem("tiempoMinutos");
     document.getElementById("juego-contador-movidass").innerHTML = numeroMovidas;
-    $("#juego-segundos").text(tiempoSegundos);
-    $("#juego-minutos").text(tiempoMinutos);
+    $("#juego-segundos").text(pasarAUnicode(tiempoSegundos));
+    $("#juego-minutos").text(pasarAUnicode(tiempoMinutos));
     
     // Recuperar las posiciones de las celdas de la partida cargada
     for (var i = 0; i < dimX; i++){

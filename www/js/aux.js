@@ -39,6 +39,8 @@ var elemTocado; //Elemento que recibe el touch event
 var intervaloDeTiempoID = null;
 
 var numMovidas = 0;
+var segundos = 0;
+var minutos = 0;
 
 var tipoRepresentacion = 0;
 

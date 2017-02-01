@@ -603,8 +603,10 @@ function tomarElTiempoEmpezar(){
 // * Resetea el reloj de juego
 // */
 function tomarElTiempoResetear(){
-    $("#juego-segundos").text("00");
-    $("#juego-minutos").text("00");
+    $("#juego-segundos").text(""+diccionario_unicode[0]+diccionario_unicode[0]);
+    $("#juego-minutos").text(""+diccionario_unicode[0]+diccionario_unicode[0]);
+    segundos = 0;
+    minutos = 0;
 }
 
 // /*
@@ -621,9 +623,9 @@ function intervaloDeTiempoDetener(){
 // * Actualiza los valores del reloj en la vista
 // */
 function tomarElTiempoSiguienteValor(){
-    var segundos = parseInt($("#juego-segundos").text(),10);
-    var minutos = parseInt($("#juego-minutos").text(),10);
-    if (segundos < 60) {
+    //var segundos = parseInt($("#juego-segundos").text(),10);
+    //var minutos = parseInt($("#juego-minutos").text(),10);
+    if (segundos < 59) {
         segundos++;
     }
     else {
@@ -634,34 +636,65 @@ function tomarElTiempoSiguienteValor(){
         }
         
     }
-    var segString = segundos.toString(10);
-    var minString = minutos.toString(10);
-    if (segString.length < 2){
-        segString = '0'+segString; 
+    var segUnicode = pasarAUnicode(segundos);
+    var minUnicode = pasarAUnicode(minutos);
+    //var segString = segundos.toString(10);
+    //var minString = minutos.toString(10);
+    if (segUnicode.length < 2){
+        segUnicode = ""+diccionario_unicode[0]+""+segUnicode; 
     }
-    if (minString.length < 2){
-        minString = '0'+minString;
+    if (minUnicode.length < 2){
+        minUnicode = ""+diccionario_unicode[0]+""+minUnicode;
     }
     
-    $("#juego-segundos").text(segString);
-    $("#juego-minutos").text(minString);
+    $("#juego-segundos").text(segUnicode);
+    $("#juego-minutos").text(minUnicode);
 }
 
 // /*
 // * Vuelve cero el número de movidas en la vista
 // */
 function resetearContadorDeMovidas(){
-    
-    document.getElementById("juego-contador-movidass").innerHTML = "0";
+    numMovidas = 0;
+    document.getElementById("juego-contador-movidass").innerHTML = 0;
 }
+
 
 // /*
 // * Actualiza el número de movidas en la vista
 // */
 function aumentarCantidadMovidas(){
-    var movidas = parseInt(document.getElementById("juego-contador-movidass").innerHTML,10);
-    movidas++;
-    document.getElementById("juego-contador-movidass").innerHTML = movidas.toString(10);
+    //var movidas = parseInt(document.getElementById("juego-contador-movidass").innerHTML,10);
+    numMovidas++;
+    document.getElementById("juego-contador-movidass").innerHTML = pasarAUnicode(numMovidas);
     
 }
 
+diccionario_unicode = {0:"\uF030",
+                       1:"\uF031",
+                       2:"\uF032",
+                       3:"\uF033",
+                       4:"\uF034",
+                       5:"\uF035",
+                       6:"\uF036",
+                       7:"\uF037",
+                       8:"\uF038",
+                       9:"\uF039"};
+                       
+
+function pasarAUnicode(numero){
+    
+    if (numero <= 9){
+        return diccionario_unicode[numero];
+    }
+    
+    var div = Math.floor(numero/10);
+    var rem = numero % 10;
+    
+    var digito_unicode = diccionario_unicode[rem];
+    var resto_del_numero_en_unicode = pasarAUnicode(div);
+    
+    return resto_del_numero_en_unicode.concat(digito_unicode);
+    
+    
+}
