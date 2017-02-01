@@ -32,6 +32,8 @@ var anchoDeTablero = parseInt($("#imagen_seleccionada_tablero").css("background-
 var anchoDeCelda = 0.32 * anchoDePantalla;
 var espacioDeCelda = 0.01 * anchoDePantalla;
 
+var ultimaVista = "";
+
 var elemTocado; //Elemento que recibe el touch event
 
 var intervaloDeTiempoID = null;
@@ -47,7 +49,7 @@ var diccionario_posicion_blanca = {};
 
 var diccionario_posicion_blanca_juego;
 
-var vistaActual = "";
+var vistaActual = "vista-seleccionar-tipo-manifestacion";
 
 
 

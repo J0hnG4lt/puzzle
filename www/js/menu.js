@@ -15,12 +15,11 @@ $(document).ready(function(){
     // Registra evento para resaltar selecciones
     $(".area-sprite").on("click", resaltarAreasSprite);
     
-    mostrarTipoRepresentacion();
     
-    verPresentacion();
-    setTimeout(function(){
-                cerrarPresentacion();
-                },20000);
+    verPortada();
+    //setTimeout(function(){
+    //            cerrarPortada();
+    //            },20000);
 
 });
 
@@ -34,7 +33,12 @@ var dimension_y=3;
 // * Oculta todas las vistas de la aplicación
 // */
 function ocultarVistas(){
+    ultimaVista = vistaActual;
     $(".vista").css("display","none");
+}
+
+function mostrarVistaAnterior(){
+    $("#"+ultimaVista).css("display","block");
 }
 
 
@@ -276,7 +280,7 @@ function verMapaDeTipoRepresentacion(){
     
     ocultarVistas();
     $("#vista-mapa").css("display","block");
-    
+    vistaActual = "vista-mapa";
 }
 
 // /*
@@ -318,8 +322,20 @@ function cerrarMenuConfiguracion(){
     $("#vista-menu-configuracion").css("width", "0%");
 }
 
+function verPortada(){
+    ocultarVistas();
+    $("#vista-portada").css("display", "block");
+    //vistaActual = "vista-portada";
+}
+
+function cerrarPortada(){
+    $("#vista-portada").css("display", "none");
+}
+
 function verPresentacion(){
+    ocultarVistas();
     $("#vista-presentacion").css("display", "block");
+    //vistaActual = "vista-presentacion";
 }
 
 function cerrarPresentacion(){
@@ -327,11 +343,23 @@ function cerrarPresentacion(){
 }
 
 function verInstrucciones(){
+    ocultarVistas();
     $("#vista-instrucciones").css("display", "block");
+    //vistaActual = "vista-instrucciones";
 }
 
 function cerrarInstrucciones(){
     $("#vista-instrucciones").css("display", "none");
 }
 
+function verPantallaSalir(){
+    cerrarMenuEmergente();
+    ocultarVistas();
+    $("#vista-salir").css("display", "block");
+    vistaActual = "vista-salir";
+    
+}
 
+function cerrarPantallaSalir(){
+    $("#vista-salir").css("display", "none");
+}

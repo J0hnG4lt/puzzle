@@ -21,15 +21,20 @@
 </head>
 
 <body onLoad="onLoad();">
-    
-    <div id="vista-presentacion" class="vista" onclick="cerrarPresentacion()">
-            <img src="img/vistas/Presentacion.png" alt="icon"
+
+    <div id="vista-portada" class="vista" onclick="cerrarPortada();verPresentacion();">
+            <img src="img/vistas/pantalla_portada.jpg" alt="icon"
+                 width="100%" height="100%"
+                 style="position:absolute; top: 0; left: 0;" />
+    </div>
+    <div id="vista-presentacion" class="vista" onclick="cerrarPresentacion();verInstrucciones();">
+            <img src="img/vistas/Presentacion.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
     </div>
     
-    <div id="vista-instrucciones" class="vista" onclick="cerrarInstrucciones()">
-            <img src="img/vistas/Instrucciones.png" alt="icon"
+    <div id="vista-instrucciones" class="vista" onclick="cerrarInstrucciones();mostrarVistaAnterior();">
+            <img src="img/vistas/Instrucciones.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
     </div>
@@ -309,13 +314,13 @@
     <div id="vista-menu-emergente" >
         <a><b>Menú Principal</b></a>
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
-        <a id="vista-menu-emergente-presentacion" onclick="verPresentacion()">Presentación</a>
+        <a id="vista-menu-emergente-presentacion" onclick="verPortada()">Presentación</a>
         <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
         
         <a id="vista-menu-emergente-guardar" onclick="guardarEstadoAplicacion()">Guardar</a>
         <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion()">Borrar Datos</a>
         <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado()">Cargar Última Partida</a>
-        <a id="vista-menu-emergente-salir" onclick="salirDeLaAplicacion()">Salir</a>
+        <a id="vista-menu-emergente-salir" onclick="verPantallaSalir()">Salir</a>
     </div>
     
     <!-- Fin Vista Menu Emergente -->
@@ -333,6 +338,19 @@
     
     <!-- Fin Vista Menu Configuracion -->
     
+    <div id="vista-salir" class="vista" 
+        style="width:100%;
+               height:100%;
+               background-repeat: no-repeat;
+               background-image:url('img/vistas/pantalla_salir.jpg');
+               background-size: 100% 100%">
+            
+            <a style="display:block; width:20%; height:20%; position:absolute; left: 25%; top: 40%;"
+               onclick="cerrarPantallaSalir();mostrarVistaAnterior();"></a> 
+            <a style="display:block; width:20%; height:20%; position:absolute; left: 55%; top: 40%;"
+               onclick="salirDeLaAplicacion();"></a> 
+        
+    </div>
     
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
