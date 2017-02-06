@@ -76,6 +76,15 @@ header p{
     transition: 0.5s;
 }
 
+#vista-menu-emergente a {
+    padding: 0px;
+    width: 100%;
+    height: 5%;
+    display:block;
+    position:absolute;
+    z-index: 2;
+}
+
 #vista-salir {
     z-index: 2;
 }

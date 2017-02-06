@@ -318,16 +318,36 @@
 
     <!-- Vista Menu Emergente -->
     
-    <div id="vista-menu-emergente" >
-        <a><b>Menú Principal</b></a>
-        <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
-        <a id="vista-menu-emergente-presentacion" onclick="verPortada()">Presentación</a>
-        <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()">Instrucciones</a>
+    <div id="vista-menu-emergente">
         
-        <a id="vista-menu-emergente-tipo" onclick="mostrarTipoRepresentacion();tomarElTiempoResetear();resetearContadorDeMovidas();">Seleccionar Representación</a>
-        <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion()">Borrar Datos</a>
-        <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado()">Cargar Última Partida</a>
-        <a id="vista-menu-emergente-salir" onclick="verPantallaSalir()">Salir</a>
+        <img src="img/vistas/vista_menu_principal.jpg" alt="icon"
+             width="130%" height="95%"
+             style="position:absolute; top: -2%; left: 0;" />
+        
+        <!--<a><b>Menú Principal</b></a>-->
+        <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
+        <a id="vista-menu-emergente-presentacion" onclick="verPortada()"
+           style="top:39%;
+                  left:0%;">Inicio</a>
+        <a id="vista-menu-emergente-presentacion" onclick="verPortada()"
+           style="top:45%;
+                  left:0%;">Presentación</a>
+        <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()"
+           style="top:52%;
+                  left:0%;">Instrucciones</a>
+        
+        <a id="vista-menu-emergente-tipo" onclick="mostrarTipoRepresentacion();tomarElTiempoResetear();resetearContadorDeMovidas();"
+           style="top:58%;
+                  left:0%;">Manifestaciones</a>
+        <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado()"
+           style="top:64%;
+                  left:0%;">Cargar Última Partida</a>
+        <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion()"
+           style="top:71%;
+                  left:0%;">Borrar Datos</a>
+        <a id="vista-menu-emergente-salir" onclick="verPantallaSalir()"
+           style="top:78%;
+                  left:0%;">Salir</a>
     </div>
     
     <!-- Fin Vista Menu Emergente -->
@@ -362,6 +382,7 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/modernizr-custom.js"></script>
     <script type="text/javascript" src="js/diccionarios.js"></script>
     <script type="text/javascript" src="js/aux.js"></script>
     <script type="text/javascript" src="js/juego.js"></script>
