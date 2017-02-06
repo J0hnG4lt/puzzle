@@ -22,21 +22,54 @@
 
 <body onLoad="onLoad();">
 
-    <div id="vista-portada" class="vista" onclick="cerrarPortada();verPresentacion();">
+    <div id="vista-portada" class="vista" >
             <img src="img/vistas/pantalla_portada.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
+            <a onclick="cerrarPortada();verPresentacion();" 
+               style="display:block; 
+                      width:20%; 
+                      height:20%; 
+                      position:absolute; 
+                      left: 75%; 
+                      top: 75%;"></a>
+            <a onclick="abrirMenuEmergente()" style="display:block; width:30%; height:20%; position:absolute; left: 0; top: 0;"></a>
+            <a class="area-sprite"
+               style="display:block; width:20%; height:20%; position:absolute; left: 80%; top: 0%;"
+               onclick="abrirMenuConfiguracion();"></a>
     </div>
-    <div id="vista-presentacion" class="vista" onclick="cerrarPresentacion();verInstrucciones();">
+    <div id="vista-presentacion" class="vista" >
             <img src="img/vistas/Presentacion.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
+            <a onclick="cerrarPresentacion();verInstrucciones();"
+               style="display:block; 
+                      width:20%; 
+                      height:20%; 
+                      position:absolute; 
+                      left: 75%; 
+                      top: 80%;"></a>
+            <a onclick="abrirMenuEmergente()" style="display:block; width:30%; height:20%; position:absolute; left: 0; top: 0;"></a>
+            <a class="area-sprite"
+               style="display:block; width:20%; height:20%; position:absolute; left: 80%; top: 0%;"
+               onclick="abrirMenuConfiguracion();"></a>
     </div>
     
-    <div id="vista-instrucciones" class="vista" onclick="cerrarInstrucciones();mostrarVistaAnterior();">
+    <div id="vista-instrucciones" class="vista" >
             <img src="img/vistas/Instrucciones.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
+            <a onclick="cerrarInstrucciones();mostrarVistaAnterior();"
+               style="display:block; 
+                      width:20%; 
+                      height:20%; 
+                      position:absolute; 
+                      left: 75%; 
+                      top: 80%;"></a>
+            <a onclick="abrirMenuEmergente()" style="display:block; width:30%; height:20%; position:absolute; left: 0; top: 0;"></a>
+            <a class="area-sprite"
+               style="display:block; width:20%; height:20%; position:absolute; left: 80%; top: 0%;"
+               onclick="abrirMenuConfiguracion();"></a>
     </div>
     
     
@@ -327,26 +360,26 @@
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente()">&times;</a>
         <a id="vista-menu-emergente-presentacion" onclick="verPortada()"
            style="top:39%;
-                  left:0%;">Inicio</a>
-        <a id="vista-menu-emergente-presentacion" onclick="verPortada()"
+                  left:0%;"></a>
+        <a id="vista-menu-emergente-presentacion" onclick="verPresentacion()"
            style="top:45%;
-                  left:0%;">Presentación</a>
+                  left:0%;"></a>
         <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones()"
            style="top:52%;
-                  left:0%;">Instrucciones</a>
+                  left:0%;"></a>
         
         <a id="vista-menu-emergente-tipo" onclick="mostrarTipoRepresentacion();tomarElTiempoResetear();resetearContadorDeMovidas();"
            style="top:58%;
-                  left:0%;">Manifestaciones</a>
+                  left:0%;"></a>
         <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado()"
            style="top:64%;
-                  left:0%;">Cargar Última Partida</a>
+                  left:0%;"></a>
         <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion()"
            style="top:71%;
-                  left:0%;">Borrar Datos</a>
+                  left:0%;"></a>
         <a id="vista-menu-emergente-salir" onclick="verPantallaSalir()"
            style="top:78%;
-                  left:0%;">Salir</a>
+                  left:0%;"></a>
     </div>
     
     <!-- Fin Vista Menu Emergente -->
