@@ -111,6 +111,15 @@ header p{
 }
 
 #vista-menu-configuracion a {
+    padding: 0px;
+    width: 100%;
+    height: 5%;
+    display:block;
+    position:absolute;
+    z-index: 2;
+}
+
+#vista-menu-configuracion a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
