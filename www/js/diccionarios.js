@@ -85,7 +85,7 @@ var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
 
 
 var diccionario_imagen_info_petroglifos = {
-                        1 : "img/vistas/info_representaciones/petroglifo_zulia_info.jpg",
+                        1 : "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero.jpg",
                         2 : "img/vistas/info_representaciones/chipaque_falcon_info.jpg"
                         };
 
