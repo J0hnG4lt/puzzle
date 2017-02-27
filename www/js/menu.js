@@ -363,3 +363,18 @@ function verPantallaSalir(){
 function cerrarPantallaSalir(){
     $("#vista-salir").css("display", "none");
 }
+
+function mostrarInfoZoom(){
+    
+    // Se obtiene el path de la vista de información
+    var url_imagen_info_zoom = diccionario_info_zoom[tipoRepresentacion];
+    $("#vista-imagen-seleccionada-info-zoom").css({
+        'background-repeat': 'no-repeat',
+        "background-image": "url("+url_imagen_info_zoom+")",
+        'background-size':"100% 100%"
+    });
+    
+    ocultarVistas();
+    $("#vista-imagen-seleccionada-info-zoom").css("display","block");
+    vistaActual = "vista-imagen-seleccionada-info-zoom";
+}

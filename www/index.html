@@ -173,6 +173,19 @@
                       "
                onclick="mostrarTipoRepresentacion();"></a>
                
+            <a style="display:block; 
+                      width:20%; 
+                      height:6%; 
+                      position:absolute; 
+                      left: 36%; 
+                      top: 93%;
+                      background-image:url('img/iconos/lupa.png');
+                      background-repeat:no-repeat;
+                      background-size : 32% 60%;
+                      background-position : 70% 50%;
+                      "
+               onclick="mostrarInfoZoom();"></a>
+               
             <a class="area-sprite"
                style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
                onclick="abrirMenuEmergente();cerrarMenuConfiguracion();"> </a>
@@ -191,6 +204,27 @@
                onclick="verMapaDeTipoRepresentacion();"></a>
                
     </div>
+    
+    <div id="vista-imagen-seleccionada-info-zoom" class="vista" style="width:100%;height:100%;">
+            
+            <a style="display:block; width:100%; height:100%; position:absolute; left: 0%; top: 0%;"
+               onclick="mostrarImagenInfo();"></a>
+            <!--<a style="display:block; 
+                      width:30%; 
+                      height:6%; 
+                      position:absolute; 
+                      left: 0; 
+                      top: 93%;
+                      background-image:url('img/iconos/Dedito-a-la-izquierda.png');
+                      background-repeat:no-repeat;
+                      background-size : 32% 60%;
+                      background-position : 70% 50%;
+                      "
+               onclick="mostrarTipoRepresentacion();"></a>-->
+               
+               
+    </div>
+    
     
     <!-- Fin Vista Imagen Seleccionada Info -->
     
@@ -360,26 +394,26 @@
         <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente();"></a>
         <a id="vista-menu-emergente-presentacion" onclick="verPortada();cerrarMenuEmergente();"
            style="top:39%;
-                  left:0%;">Inicio</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Inicio</a>
         <a id="vista-menu-emergente-presentacion" onclick="verPresentacion();cerrarMenuEmergente();"
            style="top:45%;
-                  left:0%;">Presentación</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Presentación</a>
         <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones();cerrarMenuEmergente();"
            style="top:52%;
-                  left:0%;">Instrucciones</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Instrucciones</a>
         
         <a id="vista-menu-emergente-tipo" onclick="mostrarTipoRepresentacion();tomarElTiempoResetear();resetearContadorDeMovidas();;cerrarMenuEmergente();"
            style="top:58%;
-                  left:0%;">Manifestaciones</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Manifestaciones</a>
         <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado();cerrarMenuEmergente();"
            style="top:64%;
-                  left:0%;">Cargar Partida</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Cargar Partida</a>
         <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion();cerrarMenuEmergente();"
            style="top:71%;
-                  left:0%;">Créditos</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Créditos</a>
         <a id="vista-menu-emergente-salir" onclick="verPantallaSalir();cerrarMenuEmergente();"
            style="top:78%;
-                  left:0%;">Salir</a>
+                  left:0%;padding-top:0px;margin-top:0px;">Salir</a>
     </div>
     
     <!-- Fin Vista Menu Emergente -->

@@ -162,6 +162,23 @@ var diccionario_tipo_representacion_mapa = {
                         14 : "img/mapas/8-Mapa-ampliado-con-estados-MICROPETROGLIFOS.png"
                         };
 
+var diccionario_info_zoom = {
+    1 : "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero_zoom.jpg",
+    2 : "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera_zoom.jpg",
+    3 : "img/vistas/info_representaciones/3-MM-DOLMEN_zoom.jpg",
+    4 : "img/vistas/info_representaciones/3-MM-MENHIRES_zoom.jpg",
+    5 : "img/vistas/info_representaciones/3-MM-MONOLITOS_zoom.jpg",
+    6 : "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas_zoom.jpg",
+    7 : "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo_zoom.jpg",
+    8 : "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas_zoom.jpg",
+    9 : "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas_zoom.jpg",
+    10 : "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas_zoom.jpg",
+    11 : "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas_zoom.jpg",
+    12 : "img/vistas/info_representaciones/6-ESFERAS-LITICAS_zoom.jpg",
+    13 : "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo_zoom.jpg",
+    14 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo_zoom.jpg"
+}
+
 /*
 Posiciones sugeridas para la blanca
 0 1 2
