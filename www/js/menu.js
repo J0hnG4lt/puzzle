@@ -378,3 +378,76 @@ function mostrarInfoZoom(){
     $("#vista-imagen-seleccionada-info-zoom").css("display","block");
     vistaActual = "vista-imagen-seleccionada-info-zoom";
 }
+
+
+function seleccionarIngles(idiomaSeleccionado){
+    idiomaSeleccionado = parseInt(idiomaSeleccionado,10);
+    if (idiomaSeleccionado !== idioma) {
+        var temp;
+        temp = diccionario_imagen_info_micropetroglifo[1];
+        diccionario_imagen_info_micropetroglifo[1] = diccionario_imagen_info_micropetroglifo[2];
+        diccionario_imagen_info_micropetroglifo[2] = temp;
+
+        temp = diccionario_imagen_info_petroglifos[1];
+        diccionario_imagen_info_petroglifos[1] = diccionario_imagen_info_petroglifos[2];
+        diccionario_imagen_info_petroglifos[2] = temp;
+
+        temp = diccionario_imagen_info_esfera_litica[1];
+        diccionario_imagen_info_esfera_litica[1] = diccionario_imagen_info_esfera_litica[2];
+        diccionario_imagen_info_esfera_litica[2] = temp;
+
+        temp = diccionario_imagen_info_pintura_rupestre[1];
+        diccionario_imagen_info_pintura_rupestre[1] = diccionario_imagen_info_pintura_rupestre[2];
+        diccionario_imagen_info_pintura_rupestre[2] = temp;
+
+        temp = diccionario_imagen_info_cerro_mitico[1];
+        diccionario_imagen_info_cerro_mitico[1] = diccionario_imagen_info_cerro_mitico[2];
+        diccionario_imagen_info_cerro_mitico[2] = temp;
+
+        temp = diccionario_imagen_info_amolador[1];
+        diccionario_imagen_info_amolador[1] = diccionario_imagen_info_amolador[2];
+        diccionario_imagen_info_amolador[2] = temp;
+
+        temp = diccionario_imagen_info_puntos_acoplados[1];
+        diccionario_imagen_info_puntos_acoplados[1] = diccionario_imagen_info_puntos_acoplados[2];
+        diccionario_imagen_info_puntos_acoplados[2] = temp;
+
+        temp = diccionario_imagen_info_cupula[1];
+        diccionario_imagen_info_cupula[1] = diccionario_imagen_info_cupula[2];
+        diccionario_imagen_info_cupula[2] = temp;
+
+        temp = diccionario_imagen_info_batea[1];
+        diccionario_imagen_info_batea[1] = diccionario_imagen_info_batea[2];
+        diccionario_imagen_info_batea[2] = temp;
+
+        temp = diccionario_imagen_info_dolmen[1];
+        diccionario_imagen_info_dolmen[1] = diccionario_imagen_info_dolmen[2];
+        diccionario_imagen_info_dolmen[2] = temp;
+        
+        temp = diccionario_imagen_info_monolitos[1];
+        diccionario_imagen_info_monolitos[1] = diccionario_imagen_info_monolitos[2];
+        diccionario_imagen_info_monolitos[2] = temp;
+
+        temp = diccionario_imagen_info_menhires[1];
+        diccionario_imagen_info_menhires[1] = diccionario_imagen_info_menhires[2];
+        diccionario_imagen_info_menhires[2] = temp;
+
+        temp = diccionario_imagen_info_geoglifos[1];
+        diccionario_imagen_info_geoglifos[1] = diccionario_imagen_info_geoglifos[2];
+        diccionario_imagen_info_geoglifos[2] = temp;
+
+        temp = diccionario_imagen_info_piedras_miticas[1];
+        diccionario_imagen_info_piedras_miticas[1] = diccionario_imagen_info_piedras_miticas[2];
+        diccionario_imagen_info_piedras_miticas[2] = temp;
+
+        temp = menu_configuracion[1];
+        menu_configuracion[1] = menu_configuracion[2];
+        menu_configuracion[2] = temp;
+
+        $("#vista-menu-configuracion img").attr("src",menu_configuracion[1]);
+        $("#vista-menu-emergente img").attr("src",menu_configuracion[1]);
+
+        idioma = idiomaSeleccionado;
+    }
+
+}

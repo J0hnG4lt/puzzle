@@ -86,64 +86,96 @@ var diccionario_tamanos = {1 : {x:"348px",y:"303px"},
 
 var diccionario_imagen_info_petroglifos = {
                         1 : "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero.jpg",
-                        2 : "img/vistas/info_representaciones/chipaque_falcon_info.jpg"
+                        2 : "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero_e.jpg"
                         };
 
 var diccionario_imagen_info_pintura_rupestre = {
                         1 : "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera.jpg",
-                        2 : "img/vistas/info_representaciones/pintaito_amazonas_info.jpg"
+                        2 : "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera_e.jpg"
                         };
 
 var diccionario_imagen_info_amolador = {
-    1 : "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas.jpg"
+    1 : "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas.jpg",
+    2 : "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas_e.jpg"
 };
 
 var diccionario_imagen_info_batea = {
-    1 : "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas.jpg"
+    1 : "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas.jpg",
+    2 : "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas_e.jpg"
 };
 
 var diccionario_imagen_info_cupula = {
-    1 : "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo.jpg"
+    1 : "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo.jpg",
+    2 : "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo_e.jpg"
 };
 
 var diccionario_imagen_info_puntos_acoplados = {
-    1 : "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas.jpg"
+    1 : "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas.jpg",
+    2 : "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas_e.jpg"
 };
 
 var diccionario_imagen_info_cerro_mitico = {
-    1 : "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas.jpg"
+    1 : "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas.jpg",
+    2 : "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas_e.jpg"
 };
 
 var diccionario_imagen_info_piedras_miticas = {
-    1 : "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg"
+    1 : "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg",
+    2 : "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas_e.jpg"
 };
 
 var diccionario_imagen_info_dolmen = {
-    1 : "img/vistas/info_representaciones/3-MM-DOLMEN.jpg"
+    1 : "img/vistas/info_representaciones/3-MM-DOLMEN.jpg",
+    2 : "img/vistas/info_representaciones/3-MM-DOLMEN_e.jpg"
 };
 
 
 var diccionario_imagen_info_menhires = {
-    1 : "img/vistas/info_representaciones/3-MM-MENHIRES.jpg"
+    1 : "img/vistas/info_representaciones/3-MM-MENHIRES.jpg",
+    2 : "img/vistas/info_representaciones/3-MM-MENHIRES_e.jpg"
 };
 
 
 var diccionario_imagen_info_monolitos = {
-    1 : "img/vistas/info_representaciones/3-MM-MONOLITOS.jpg"
+    1 : "img/vistas/info_representaciones/3-MM-MONOLITOS.jpg",
+    2 : "img/vistas/info_representaciones/3-MM-MONOLITOS_e.jpg"
 };
 
 var diccionario_imagen_info_esfera_litica = {
-    1 : "img/vistas/info_representaciones/6-ESFERAS-LITICAS.jpg"
+    1 : "img/vistas/info_representaciones/6-ESFERAS-LITICAS.jpg",
+    2 : "img/vistas/info_representaciones/6-ESFERAS-LITICAS_e.jpg"
 };
 
 
 var diccionario_imagen_info_geoglifos = {
-    1 : "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo.jpg"
+    1 : "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo.jpg",
+    2 : "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo_e.jpg"
 };
 
 var diccionario_imagen_info_micropetroglifo = {
-    1 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo.jpg"
+    1 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo.jpg",
+    2 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo_e.jpg"
 };
+
+var menu_configuracion = {
+    1 : "img/vistas/menu_configuracion.png",
+    2 : "img/vistas/menu_configuracion_e.png"
+}
+
+var vista_instrucciones = {
+    1 : "img/vistas/Instrucciones.jpg",
+    2 : "img/vistas/Instrucciones_e.jpg"
+}
+
+var vista_portada = {
+    1 : "img/vistas/pantalla_portada.jpg",
+    2 : "img/vistas/pantalla_portada_e.jpg"
+}
+
+var vista_presentacion = {
+    1 : "img/vistas/Presentacion.jpg",
+    2 : "img/vistas/Presentacion_e.jpg"
+}
 
 var diccionario_tipo_representacion_mapa = {
                         1 : "img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS.png",

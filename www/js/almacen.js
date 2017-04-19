@@ -28,7 +28,8 @@ function guardarEstadoAplicacion(){
     almacen.setItem("numMovidas", numMovidas);
     almacen.setItem("tipoRepresentacion", tipoRepresentacion);
     almacen.setItem("imagenSeleccionadaIndex", imagenSeleccionadaIndex);
-    
+    almacen.setItem("idioma", idioma);
+
     almacen.setItem("vistaActual", vistaActual);
     
     var numeroMovidas = document.getElementById("juego-contador-movidass").innerHTML;
@@ -73,6 +74,8 @@ function borrarEstadoAplicacion(){
     almacen.removeItem("numeroMovidas");
     almacen.removeItem("tiempoSegundos");
     almacen.removeItem("tiempoMinutos");
+
+    almacen.removeItem("idioma");
     
     for (var i = 0; i < dimX; i++){
         for (var j = 0; j < dimY; j++){
@@ -138,6 +141,8 @@ function cargarUltimoJuegoGuardado(){
         }
         
     }
+
+    idioma = almacen.getItem("idioma");
     
 }
 
