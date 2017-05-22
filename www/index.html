@@ -26,18 +26,30 @@
             <img src="img/vistas/pantalla_portada.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a onclick="cerrarPortada();verPresentacion();" 
+            <a onclick="cerrarPortada();verIndice();" 
                style="display:block; 
                       width:20%; 
                       height:20%; 
                       position:absolute; 
                       left: 75%; 
                       top: 75%;"></a>
-            <a onclick="abrirMenuEmergente();cerrarMenuConfiguracion();" style="display:block; width:30%; height:20%; position:absolute; left: 0; top: 0;"></a>
-            <a class="area-sprite"
-               style="display:block; width:20%; height:20%; position:absolute; left: 80%; top: 0%;"
-               onclick="abrirMenuConfiguracion();cerrarMenuEmergente();"></a>
     </div>
+
+
+    <div id="vista-indice" class="vista" >
+            <img src="img/vistas/2--INDICE---espanol.png" alt="icon"
+                 width="100%" height="100%"
+                 style="position:absolute; top: 0; left: 0;" />
+            <a onclick="cerrarIndice();verPresentacion();" 
+               style="display:block; 
+                      width:20%; 
+                      height:9%; 
+                      position:absolute; 
+                      left: 79%; 
+                      top: 0%;"></a>
+    </div>
+
+
     <div id="vista-presentacion" class="vista" >
             <img src="img/vistas/Presentacion.jpg" alt="icon"
                  width="100%" height="100%"
@@ -49,27 +61,33 @@
                       position:absolute; 
                       left: 75%; 
                       top: 80%;"></a>
-            <a onclick="abrirMenuEmergente();cerrarMenuConfiguracion();" style="display:block; width:30%; height:20%; position:absolute; left: 0; top: 0;"></a>
-            <a class="area-sprite"
-               style="display:block; width:20%; height:20%; position:absolute; left: 80%; top: 0%;"
-               onclick="abrirMenuConfiguracion();cerrarMenuEmergente();"></a>
+            <a onclick="cerrarPresentacion();verIndice();" 
+               style="display:block; 
+                      width:20%; 
+                      height:9%; 
+                      position:absolute; 
+                      left: 0%; 
+                      top: 0%;"></a>
     </div>
     
     <div id="vista-instrucciones" class="vista" >
             <img src="img/vistas/Instrucciones.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a onclick="cerrarInstrucciones();mostrarVistaAnterior();"
+            <a onclick="cerrarInstrucciones();mostrarTipoRepresentacion();"
                style="display:block; 
                       width:20%; 
                       height:20%; 
                       position:absolute; 
                       left: 75%; 
                       top: 80%;"></a>
-            <a onclick="abrirMenuEmergente();cerrarMenuConfiguracion();" style="display:block; width:30%; height:20%; position:absolute; left: 0; top: 0;"></a>
-            <a class="area-sprite"
-               style="display:block; width:20%; height:20%; position:absolute; left: 80%; top: 0%;"
-               onclick="abrirMenuConfiguracion();cerrarMenuEmergente();"></a>
+            <a onclick="cerrarPresentacion();verIndice();" 
+               style="display:block; 
+                      width:20%; 
+                      height:9%; 
+                      position:absolute; 
+                      left: 0%; 
+                      top: 0%;"></a>
     </div>
     
     
@@ -81,15 +99,6 @@
                background-repeat: no-repeat;
                background-image:url('img/vistas/pantalla_tipo_manifestacion.jpg');
                background-size: 100% 100%">
-            
-            
-            <a class="area-sprite"
-               style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
-               onclick="abrirMenuEmergente();cerrarMenuConfiguracion();"></a>
-            
-            <a class="area-sprite"
-               style="display:block; width:20%; height:10%; position:absolute; left: 80%; top: 0%;"
-               onclick="abrirMenuConfiguracion();cerrarMenuEmergente();"></a>
             
             <a class="area-sprite" id="tipo-representacion-petroglifo"
                style="display:block; width:56%; height:4%; position:absolute; left: 23%; top: 30%;"
@@ -134,10 +143,13 @@
                style="display:block; width:56%; height:4%; position:absolute; left: 23%; top: 82%;"
                onclick="seleccionarTipoRepresentacion(14);mostrarImagenInfo();"></a>
                
-            <!--
-            <a style="display:block; width:30%; height:6%; position:absolute; left: 70%; top: 92%;"
-               onclick="mostrarImagenInfo();"></a>
-               -->
+            <a onclick="cerrarPresentacion();verIndice();" 
+               style="display:block; 
+                      width:20%; 
+                      height:9%; 
+                      position:absolute; 
+                      left: 0%; 
+                      top: 0%;"></a>
     </div>
     <!-- Fin Vista Seleccionar Tipo de Representación -->
     
@@ -186,22 +198,18 @@
                       "
                onclick="mostrarInfoZoom();"></a>
                
-            <a class="area-sprite"
-               style="display:block; width:20%; height:10%; position:absolute; left: 0%; top: 0%;"
-               onclick="abrirMenuEmergente();cerrarMenuConfiguracion();"> </a>
-               
-            <a class="area-sprite"
-               style="display:block; 
-                      width:20%; 
-                      height:10%; 
-                      position:absolute; 
-                      left: 80%; 
-                      top: 0%;"
-               onclick="abrirMenuConfiguracion();cerrarMenuEmergente();"></a>
                
             <a class="area-sprite" id="info-mapa-ampliado"
                style="display:block; width:25%; height:10%; position:absolute; left: 5%; top: 9%;"
                onclick="verMapaDeTipoRepresentacion();"></a>
+
+            <a onclick="cerrarPresentacion();verIndice();" 
+               style="display:block; 
+                      width:20%; 
+                      height:9%; 
+                      position:absolute; 
+                      left: 0%; 
+                      top: 0%;"></a>
                
     </div>
     
@@ -234,14 +242,19 @@
 
         <div id="puzzles-deslizantes-educativos-header-juego"
              style="width:100%; height:10%; overflow:hidden; position:relative">
+
+            <a onclick="verIndice();" 
+               style="display:block; 
+                      width:20%; 
+                      height:100%; 
+                      position:absolute; 
+                      left: 0%; 
+                      top: 0%;z-index:2;"></a>
+
             <!-- set width/height proportionally, to scale the sprite image -->
             <img src="img/header.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a onclick="abrirMenuEmergente();cerrarMenuConfiguracion();" style="display:block; width:30%; height:100%; position:absolute; left: 0; top: 0;"></a>
-            <a class="area-sprite"
-               style="display:block; width:20%; height:100%; position:absolute; left: 80%; top: 0%;"
-               onclick="abrirMenuConfiguracion();cerrarMenuEmergente();"></a>
                  
         </div>
         
@@ -382,72 +395,7 @@
     
     </div>
 
-    <!-- Vista Menu Emergente -->
-    
-    <div id="vista-menu-emergente">
-        
-        <img src="img/vistas/menu_configuracion.png" alt="icon"
-             width="100%" height="100%"
-             style="position:absolute; top: 0%; left: 0%;" />
-        
-        <!--<a><b>Menú Principal</b></a>-->
-        <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuEmergente();"></a>
-        <a id="vista-menu-emergente-presentacion" onclick="verPortada();cerrarMenuEmergente();"
-           style="top:39%;
-                  left:0%;padding-top:0px;margin-top:0px;">Inicio</a>
-        <a id="vista-menu-emergente-presentacion" onclick="verPresentacion();cerrarMenuEmergente();"
-           style="top:45%;
-                  left:0%;padding-top:0px;margin-top:0px;">Presentación</a>
-        <a id="vista-menu-emergente-instrucciones" onclick="verInstrucciones();cerrarMenuEmergente();"
-           style="top:52%;
-                  left:0%;padding-top:0px;margin-top:0px;">Instrucciones</a>
-        
-        <a id="vista-menu-emergente-tipo" onclick="mostrarTipoRepresentacion();tomarElTiempoResetear();resetearContadorDeMovidas();;cerrarMenuEmergente();"
-           style="top:58%;
-                  left:0%;padding-top:0px;margin-top:0px;">Manifestaciones</a>
-        <a id="vista-menu-emergente-cargar-partida" onclick="cargarUltimoJuegoGuardado();cerrarMenuEmergente();"
-           style="top:64%;
-                  left:0%;padding-top:0px;margin-top:0px;">Cargar Partida</a>
-        <a id="vista-menu-emergente-borrar-datos" onclick="borrarEstadoAplicacion();cerrarMenuEmergente();"
-           style="top:71%;
-                  left:0%;padding-top:0px;margin-top:0px;">Créditos</a>
-        <a id="vista-menu-emergente-salir" onclick="verPantallaSalir();cerrarMenuEmergente();"
-           style="top:78%;
-                  left:0%;padding-top:0px;margin-top:0px;">Salir</a>
-    </div>
-    
-    <!-- Fin Vista Menu Emergente -->
-    
-    <!-- Vista Menu Configuracion -->
-    
-    <div id="vista-menu-configuracion" >
-        <img src="img/vistas/menu_configuracion.png" alt="icon"
-             width="100%" height="100%"
-             style="position:absolute; top: 0%; left: 0%;" />
-        <a href="javascript:void(0)" class="closebtn" onclick="cerrarMenuConfiguracion();"></a>
-        <a class="area-sprite" href="javascript:seleccionarDimension('3','3');cerrarMenuConfiguracion();"
-           style="top:37%;
-                  left:0%;"
-        >Dificultad: 3x3</a>
-        <a class="area-sprite" href="javascript:seleccionarDimension('4','4');cerrarMenuConfiguracion();"
-           style="top:42%;
-                  left:0%;"
-        >Dificultad: 4x4</a>
-        <a class="area-sprite" href="javascript:seleccionarDimension('6','6');cerrarMenuConfiguracion();"
-           style="top:47%;
-                  left:0%;"
-        >Dificultad: 6x6</a>
-        <a class="area-sprite" href="javascript:seleccionarIngles(2);cerrarMenuConfiguracion();"
-           style="top:53%;
-                  left:0%;"
-        >English</a>
-        <a class="area-sprite" href="javascript:seleccionarIngles(1);cerrarMenuConfiguracion();"
-           style="top:58%;
-                  left:0%;"
-        >Español</a>
-    </div>
-    
-    <!-- Fin Vista Menu Configuracion -->
+
     
     <div id="vista-salir" class="vista" 
         style="width:100%;

@@ -51,95 +51,10 @@ header p{
 
 
 
-/*Inicio: Código tomado de http://www.w3schools.com/howto/howto_js_sidenav.asp*/
-
-/*Vista del Menu Principal*/
-#vista-menu-emergente {
-    height: 100%; 
-    width: 0; 
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #961907;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-}
-
-#vista-menu-emergente a {
-    padding: 0px;
-    width: 100%;
-    height: 5%;
-    display:block;
-    position:absolute;
-    z-index: 2;
-}
-
 #vista-salir {
     z-index: 2;
 }
-#vista-menu-emergente a {
-    margin-left: 25%; 
-    margin-top: 5%;
-    text-decoration: none;
-    font-size:14px;
-    color: #111111;
-    display: block;
-    transition: 0.3s
-}
 
-#vista-menu-emergente .closebtn {
-    margin:0%;
-    padding:0%;
-    position: absolute;
-    top: 0;
-    font-size: 36px;
-}
-
-/*Vista del Menu de Configuracion*/
-
-#vista-menu-configuracion {
-    height: 100%; 
-    width: 0; 
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #961907;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-}
-
-#vista-menu-configuracion a {
-    width: 100%;
-    height: 5%;
-    display:block;
-    position:absolute;
-    z-index: 2;
-}
-
-#vista-menu-configuracion a {
-    margin-left: 25%; 
-    margin-top: 15%;
-    text-decoration: none;
-    font-size:14px;
-    color: #111111;
-    display: block;
-    transition: 0.3s
-}
-
-#vista-menu-configuracion .closebtn {
-    position: absolute;
-    margin:0%;
-    padding:0%;
-    top: 0;
-    font-size: 36px;
-    width: 100%;
-}
-
-/*Fin: Código tomado de http://www.w3schools.com/howto/howto_js_sidenav.asp*/
 
 
 #vista-presentacion {

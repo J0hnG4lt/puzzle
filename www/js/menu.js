@@ -451,3 +451,14 @@ function seleccionarIngles(idiomaSeleccionado){
     }
 
 }
+
+
+function verIndice(){
+    ocultarVistas();
+    $("#vista-indice").css("display", "block");
+}
+
+function cerrarIndice(){
+    $("#vista-indice").css("display", "none");
+}
+
