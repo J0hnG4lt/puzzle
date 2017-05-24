@@ -38,8 +38,44 @@
 
     <div id="vista-indice" class="vista" >
             <img src="img/vistas/2--INDICE---espanol.png" alt="icon"
-                 width="100%" height="100%"
-                 style="position:absolute; top: 0; left: 0;" />
+                 
+                 style="position:absolute; top: 0; left: 0;" 
+                 usemap="#fondo_indice"
+                 id="my_image"/>
+            <map name="fondo_indice">
+            
+              <!--
+              <area coords="0,320,380,335" onclick="cerrarIndice();verPortada();">                    
+              <area coords="0,340,380,355" onclick="cerrarIndice();verPresentacion();">               
+              <area coords="0,360,380,375" onclick="cerrarIndice();verInstrucciones();">             
+              <area coords="0,380,380,395" onclick="cerrarIndice();mostrarTipoRepresentacion();">   
+              <area shape="rect" coords="0,400,380,415" onclick="seleccionarDimension(3,3);">      
+              <area coords="0,420,380,435" onclick="seleccionarDimension(4,4);">                     
+              <area coords="0,440,380,455" onclick="seleccionarDimension(6,6);">                     
+              <area coords="0,460,380,475" onclick="cerrarIndice();cargarUltimoJuegoGuardado();">     
+              <area coords="0,480,380,495" onclick="cerrarIndice();verCreditos();">                   
+              <area coords="0,500,380,515" onclick="cerrarIndice();verPantallaSalir();">              
+
+              <area coords="150,720,180,760" onclick="cerrarIndice();mostrarTipoRepresentacion();">
+              <area coords="200,720,230,760" onclick="cerrarIndice();mostrarTipoRepresentacion();">
+              -->
+              
+              <area shape="rect" coords="92,383,290,406" onclick="cerrarIndice();verPortada();"/>
+              <area shape="rect" coords="92,408,290,435" onclick="cerrarIndice();verPresentacion();"/>
+              <area shape="rect" coords="93,436,290,458" onclick="cerrarIndice();verInstrucciones();"/>
+              <area shape="rect" coords="94,460,291,478" onclick="cerrarIndice();mostrarTipoRepresentacion();"/>
+              <area shape="rect" coords="92,481,291,502" onclick="seleccionarDimension(3,3);"/>
+              <area shape="rect" coords="93,505,291,527" onclick="seleccionarDimension(4,4);"/>
+              <area shape="rect" coords="94,530,291,556" onclick="seleccionarDimension(6,6);"/>
+              <area shape="rect" coords="94,560,291,580" onclick="cerrarIndice();cargarUltimoJuegoGuardado();"/>
+              <area shape="rect" coords="93,581,291,601" onclick="cerrarIndice();verCreditos();"/>
+              <area shape="rect" coords="94,604,291,629" onclick="cerrarIndice();verPantallaSalir();"/>
+              <area shape="rect" coords="145,722,190,766" onclick="cerrarIndice();mostrarTipoRepresentacion();"/>
+              <area shape="rect" coords="194,722,242,764" onclick="cerrarIndice();mostrarTipoRepresentacion();"/>
+              
+
+            </map>
+            
             <a onclick="cerrarIndice();verPresentacion();" 
                style="display:block; 
                       width:20%; 
@@ -47,6 +83,8 @@
                       position:absolute; 
                       left: 79%; 
                       top: 0%;"></a>
+
+            
     </div>
 
 
@@ -410,9 +448,25 @@
                onclick="salirDeLaAplicacion();"></a> 
         
     </div>
+
+    <div id="vista-creditos" class="vista"
+        style="width:100%;
+               height:100%;
+               background-repeat: no-repeat;
+               background-image:url('img/vistas/CREDITOS.png');
+               background-size: 100% 100%">
+            <a onclick="cerrarCreditos();verIndice();" 
+               style="display:block; 
+                      width:20%; 
+                      height:9%; 
+                      position:absolute; 
+                      left: 0%; 
+                      top: 0%;"></a>
+               </div>
     
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/imageMapResizer.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/modernizr-custom.js"></script>
     <script type="text/javascript" src="js/diccionarios.js"></script>

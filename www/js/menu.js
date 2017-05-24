@@ -20,6 +20,11 @@ $(document).ready(function(){
     //setTimeout(function(){
     //            cerrarPortada();
     //            },20000);
+    imageMapResize();
+    //$('map').imageMapResize();
+    $("#my_image").css({"width":"100%","height":"100%"});
+
+
 
 });
 
@@ -452,13 +457,37 @@ function seleccionarIngles(idiomaSeleccionado){
 
 }
 
-
+var imagenResize = false;
 function verIndice(){
     ocultarVistas();
     $("#vista-indice").css("display", "block");
+    if (!imagenResize){
+        $("map area").each(function(x){
+            var imagen = document.querySelector('img[usemap="#fondo_indice'+'"]');
+            var width  = imagen.width  / imagen.naturalWidth;
+            var height = imagen.height / imagen.naturalHeight;
+            var coordenadas = this.coords.split(",");
+            coordenadas[0] = Math.floor(Number(coordenadas[0]) * width);
+            coordenadas[1] = Math.floor(Number(coordenadas[0]) * height);
+            coordenadas[2] = Math.floor(Number(coordenadas[2]) * width);
+            coordenadas[3] = Math.floor(Number(coordenadas[3]) * height);
+            this.coords = coordenadas.join(",");
+        
+        });
+        imagenResize = true;
+        
+    }
 }
 
 function cerrarIndice(){
     $("#vista-indice").css("display", "none");
 }
 
+function verCreditos(){
+    ocultarVistas();
+    $("#vista-creditos").css("display", "block");
+}
+
+function cerrarCreditos(){
+    $("#vista-creditos").css("display", "none");
+}
