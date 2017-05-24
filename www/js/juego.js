@@ -99,7 +99,7 @@ function ayudar(){
                         "font-size":"0px"
                     });
                     $(".texto-ayuda").css("display", "none");
-                },250);
+                },1000);
                 
 }
 

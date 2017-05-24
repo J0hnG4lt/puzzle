@@ -51,6 +51,6 @@ var diccionario_posicion_blanca_juego;
 
 var vistaActual = "vista-seleccionar-tipo-manifestacion";
 
-var idioma = 1;
+var idioma = "es";
 
 

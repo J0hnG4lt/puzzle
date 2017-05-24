@@ -180,95 +180,9 @@ function mostrarImagenInfo(){
 function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
     
     tipoRepresentacion = parseInt(numeroTipoRepresentacionSeleccionada,10);
-    diccionario_imagen_info = {};
-    
-    switch(tipoRepresentacion) {
-        case 1:
-            
-            diccionario_imagenes = diccionario_imagenes_petroglifos;
-            diccionario_imagen_info = diccionario_imagen_info_petroglifos;
-            break;
-        case 2:
-            
-            diccionario_imagenes = diccionario_imagenes_pinturas_rupestres;
-            diccionario_imagen_info = diccionario_imagen_info_pintura_rupestre;
-            break;
-            
-        case 3:
-            
-            diccionario_imagenes = diccionario_imagenes_dolmen;
-            diccionario_imagen_info = diccionario_imagen_info_dolmen;
-            break;
-        
-        case 4:
-            
-            diccionario_imagenes = diccionario_imagenes_menhires;
-            diccionario_imagen_info = diccionario_imagen_info_menhires;
-            break;
-            
-        case 5:
-            
-            diccionario_imagenes = diccionario_imagenes_monolitos;
-            diccionario_imagen_info = diccionario_imagen_info_monolitos;
-            break;
-            
-        case 6:
-            
-            diccionario_imagenes = diccionario_imagenes_amolador;
-            diccionario_imagen_info = diccionario_imagen_info_amolador;
-            break;
-            
-        case 7:
-            
-            diccionario_imagenes = diccionario_imagenes_cupula;
-            diccionario_imagen_info = diccionario_imagen_info_cupula;
-            break;
-            
-        case 8:
-            
-            diccionario_imagenes = diccionario_imagenes_batea;
-            diccionario_imagen_info = diccionario_imagen_info_batea;
-            break;
-            
-        case 9:
-            
-            diccionario_imagenes = diccionario_imagenes_puntos_acoplados;
-            diccionario_imagen_info = diccionario_imagen_info_puntos_acoplados;
-            break;
-            
-        case 10:
-            
-            diccionario_imagenes = diccionario_imagenes_piedras_miticas;
-            diccionario_imagen_info = diccionario_imagen_info_piedras_miticas;
-            break;
-            
-        case 11:
-            
-            diccionario_imagenes = diccionario_imagenes_cerro_mitico;
-            diccionario_imagen_info = diccionario_imagen_info_cerro_mitico;
-            break;
-            
-        case 12:
-            
-            diccionario_imagenes = diccionario_imagenes_esfera_litica;
-            diccionario_imagen_info = diccionario_imagen_info_esfera_litica;
-            break;
-            
-        case 13:
-            
-            diccionario_imagenes = diccionario_imagenes_geoglifos;
-            diccionario_imagen_info = diccionario_imagen_info_geoglifos;
-            break;
-            
-        case 14:
-            
-            diccionario_imagenes = diccionario_imagenes_micropetroglifo;
-            diccionario_imagen_info = diccionario_imagen_info_micropetroglifo;
-            break;
-        default:
-            diccionario_imagenes = diccionario_imagenes_pinturas_rupestres;
-            diccionario_imagen_info = diccionario_imagen_info_pintura_rupestre;
-    }
+    diccionario_imagenes = {1:diccionario_vistas[idioma]["tablero"][numeroTipoRepresentacionSeleccionada]};
+    diccionario_imagen_info = {1:diccionario_vistas[idioma]["info"][numeroTipoRepresentacionSeleccionada]};
+
 }
 
 
@@ -276,12 +190,19 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
 // * Muestra la vista del mapa para un tipo dado de representación
 // */
 function verMapaDeTipoRepresentacion(){
-    var url_mapa = diccionario_tipo_representacion_mapa[tipoRepresentacion];
-    
-    $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
-                            width='100%' height='auto'\
-                            style='position:absolute; top: 25%; left: 0;'\
-                            >");
+    var url_mapa = diccionario_vistas[idioma]["mapa"][tipoRepresentacion];
+    if (idioma==="es"){
+        $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
+                                width='100%' height='auto'\
+                                style='position:absolute; top: 25%; left: 0;'\
+                                >");
+    }
+    else{
+        $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
+                                width='100%' height='auto'\
+                                style='position:absolute; top: 0%; left: 0;'\
+                                >");
+    }
     
     ocultarVistas();
     $("#vista-mapa").css("display","block");
@@ -372,7 +293,7 @@ function cerrarPantallaSalir(){
 function mostrarInfoZoom(){
     
     // Se obtiene el path de la vista de información
-    var url_imagen_info_zoom = diccionario_info_zoom[tipoRepresentacion];
+    var url_imagen_info_zoom = diccionario_vistas[idioma]["zoom"][tipoRepresentacion];
     $("#vista-imagen-seleccionada-info-zoom").css({
         'background-repeat': 'no-repeat',
         "background-image": "url("+url_imagen_info_zoom+")",
@@ -384,78 +305,6 @@ function mostrarInfoZoom(){
     vistaActual = "vista-imagen-seleccionada-info-zoom";
 }
 
-
-function seleccionarIngles(idiomaSeleccionado){
-    idiomaSeleccionado = parseInt(idiomaSeleccionado,10);
-    if (idiomaSeleccionado !== idioma) {
-        var temp;
-        temp = diccionario_imagen_info_micropetroglifo[1];
-        diccionario_imagen_info_micropetroglifo[1] = diccionario_imagen_info_micropetroglifo[2];
-        diccionario_imagen_info_micropetroglifo[2] = temp;
-
-        temp = diccionario_imagen_info_petroglifos[1];
-        diccionario_imagen_info_petroglifos[1] = diccionario_imagen_info_petroglifos[2];
-        diccionario_imagen_info_petroglifos[2] = temp;
-
-        temp = diccionario_imagen_info_esfera_litica[1];
-        diccionario_imagen_info_esfera_litica[1] = diccionario_imagen_info_esfera_litica[2];
-        diccionario_imagen_info_esfera_litica[2] = temp;
-
-        temp = diccionario_imagen_info_pintura_rupestre[1];
-        diccionario_imagen_info_pintura_rupestre[1] = diccionario_imagen_info_pintura_rupestre[2];
-        diccionario_imagen_info_pintura_rupestre[2] = temp;
-
-        temp = diccionario_imagen_info_cerro_mitico[1];
-        diccionario_imagen_info_cerro_mitico[1] = diccionario_imagen_info_cerro_mitico[2];
-        diccionario_imagen_info_cerro_mitico[2] = temp;
-
-        temp = diccionario_imagen_info_amolador[1];
-        diccionario_imagen_info_amolador[1] = diccionario_imagen_info_amolador[2];
-        diccionario_imagen_info_amolador[2] = temp;
-
-        temp = diccionario_imagen_info_puntos_acoplados[1];
-        diccionario_imagen_info_puntos_acoplados[1] = diccionario_imagen_info_puntos_acoplados[2];
-        diccionario_imagen_info_puntos_acoplados[2] = temp;
-
-        temp = diccionario_imagen_info_cupula[1];
-        diccionario_imagen_info_cupula[1] = diccionario_imagen_info_cupula[2];
-        diccionario_imagen_info_cupula[2] = temp;
-
-        temp = diccionario_imagen_info_batea[1];
-        diccionario_imagen_info_batea[1] = diccionario_imagen_info_batea[2];
-        diccionario_imagen_info_batea[2] = temp;
-
-        temp = diccionario_imagen_info_dolmen[1];
-        diccionario_imagen_info_dolmen[1] = diccionario_imagen_info_dolmen[2];
-        diccionario_imagen_info_dolmen[2] = temp;
-        
-        temp = diccionario_imagen_info_monolitos[1];
-        diccionario_imagen_info_monolitos[1] = diccionario_imagen_info_monolitos[2];
-        diccionario_imagen_info_monolitos[2] = temp;
-
-        temp = diccionario_imagen_info_menhires[1];
-        diccionario_imagen_info_menhires[1] = diccionario_imagen_info_menhires[2];
-        diccionario_imagen_info_menhires[2] = temp;
-
-        temp = diccionario_imagen_info_geoglifos[1];
-        diccionario_imagen_info_geoglifos[1] = diccionario_imagen_info_geoglifos[2];
-        diccionario_imagen_info_geoglifos[2] = temp;
-
-        temp = diccionario_imagen_info_piedras_miticas[1];
-        diccionario_imagen_info_piedras_miticas[1] = diccionario_imagen_info_piedras_miticas[2];
-        diccionario_imagen_info_piedras_miticas[2] = temp;
-
-        temp = menu_configuracion[1];
-        menu_configuracion[1] = menu_configuracion[2];
-        menu_configuracion[2] = temp;
-
-        $("#vista-menu-configuracion img").attr("src",menu_configuracion[1]);
-        $("#vista-menu-emergente img").attr("src",menu_configuracion[1]);
-
-        idioma = idiomaSeleccionado;
-    }
-
-}
 
 var imagenResize = false;
 function verIndice(){
@@ -490,4 +339,36 @@ function verCreditos(){
 
 function cerrarCreditos(){
     $("#vista-creditos").css("display", "none");
+}
+
+function cambiarIdiomaEspanyol(){
+    idioma = "es";
+
+    $("#vista-portada img")[0].src = diccionario_vistas["es"]["fondos"]["portada"];
+    $("#vista-indice img")[0].src = diccionario_vistas["es"]["fondos"]["indice"];
+    $("#vista-presentacion img")[0].src = diccionario_vistas["es"]["fondos"]["presentacion"];
+    $("#vista-instrucciones img")[0].src = diccionario_vistas["es"]["fondos"]["instrucciones"];
+    $("#vista-seleccionar-tipo-manifestacion").css("background-image","url("+diccionario_vistas["es"]["fondos"]["seleccionar"]+")");
+    $("#vista-salir").css("background-image","url("+diccionario_vistas["es"]["fondos"]["salir"]+")");
+    $("#vista-creditos").css("background-image","url("+diccionario_vistas["es"]["fondos"]["creditos"]+")");
+    $("#vista-juego").css("background-image","url("+diccionario_vistas["es"]["fondos"]["tablero"]+")");
+
+    $("#lupa").css("background-image","url('img/iconos/lupa.png')");
+    $("#dedoIzquierda").css("background-image","url('img/iconos/Dedito-a-la-izquierda.png')");
+}
+
+function cambiarIdiomaIngles(){
+    idioma = "en";
+    
+    $("#vista-portada img")[0].src = diccionario_vistas["en"]["fondos"]["portada"];
+    $("#vista-indice img")[0].src = diccionario_vistas["en"]["fondos"]["indice"];
+    $("#vista-presentacion img")[0].src = diccionario_vistas["en"]["fondos"]["presentacion"];
+    $("#vista-instrucciones img")[0].src = diccionario_vistas["en"]["fondos"]["instrucciones"];
+    $("#vista-seleccionar-tipo-manifestacion").css("background-image","url("+diccionario_vistas["en"]["fondos"]["seleccionar"]+")");
+    $("#vista-salir").css("background-image","url("+diccionario_vistas["en"]["fondos"]["salir"]+")");
+    $("#vista-creditos").css("background-image","url("+diccionario_vistas["en"]["fondos"]["creditos"]+")");
+    $("#vista-juego").css("background-image","url("+diccionario_vistas["en"]["fondos"]["tablero"]+")");
+    
+    $("#lupa").css("background-image","none");
+    $("#dedoIzquierda").css("background-image","none");
 }

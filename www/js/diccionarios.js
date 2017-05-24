@@ -211,6 +211,166 @@ var diccionario_info_zoom = {
     14 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo_zoom.jpg"
 }
 
+
+var diccionario_vistas = {
+    "es":{
+        "fondos":{
+            "portada" : "img/vistas/pantalla_portada.jpg",
+            "indice"  : "img/vistas/indice.png",
+            "presentacion" : "img/vistas/Presentacion.jpg",
+            "instrucciones" : "img/vistas/Instrucciones.jpg",
+            "seleccionar" : "img/vistas/pantalla_tipo_manifestacion.jpg",
+            "salir" : "img/vistas/pantalla_salir.jpg",
+            "creditos" : "img/vistas/CREDITOS.png",
+            "tablero" : "img/vistas/tablero_juego.jpg"
+        },
+        "info" : {
+            1: "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero.jpg",
+            2: "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera.jpg",
+            3: "img/vistas/info_representaciones/3-MM-DOLMEN.jpg",
+            4: "img/vistas/info_representaciones/3-MM-MENHIRES.jpg",
+            5: "img/vistas/info_representaciones/3-MM-MONOLITOS.jpg",
+            6: "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas.jpg",
+            7: "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo.jpg",
+            8: "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas.jpg",
+            9: "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas.jpg",
+            10: "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg",
+            11: "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas.jpg",
+            12: "img/vistas/info_representaciones/6-ESFERAS-LITICAS.jpg",
+            13: "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo.jpg",
+            14: "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo.jpg"
+        },
+        "mapa" : {
+            1 : "img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS.png",
+            2 : "img/mapas/4-Mapa-ampliado-con-estados-PR.png",
+            3 : "img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas.png",
+            4 : "img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas.png",
+            5 : "img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas.png",
+            6 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+            7 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+            8 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+            9 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS.png",
+            10 : "img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES.png",
+            11 : "img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES.png",
+            12 : "img/mapas/6-Mapa-ampliado-ESFERAS-LITICAS.png",
+            13 : "img/mapas/7-Mapa-ampliado-con-estado-GEOGLIFO.png",
+            14 : "img/mapas/8-Mapa-ampliado-con-estados-MICROPETROGLIFOS.png"
+        },
+        "tablero" : {
+            1: "img/representaciones/petroglifos/petroglifo.png",
+            2: "img/representaciones/pinturas_rupestres/PR-Cueva-del-Carmen-edo-Bolivar.jpg",
+            3: "img/representaciones/dolmen/DOLMEN-PINTAO-Edo-Amazonas.jpg",
+            4: "img/representaciones/menhires/MM-MENHIRES.jpg",
+            5: "img/representaciones/monolitos/MM-MONOLITOS-Rio-Vigirima-edo-Carabobo.jpg",
+            6: "img/representaciones/amolador/AMOLADORES-Sto-Rosario-de-Agua-Linda.jpg",
+            7: "img/representaciones/cupula/CUPULAS-Mariara-edo-Carabobo.jpg",
+            8: "img/representaciones/batea/BATEA-Laja-de-Tigre-Rio-Ocamo-edo-Amazonas.jpg",
+            9: "img/representaciones/puntos_acoplados/PUNTOS-ACOPLADOS.jpg",
+            10: "img/representaciones/piedras_miticas/PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg",
+            11: "img/representaciones/cerro_mitico/CERRO-MITICO-NATURAL-Cerro-AUTANA.jpg",
+            12: "img/representaciones/esfera_litica/Esfera-litica-edo-Anzoategui.jpg",
+            13: "img/representaciones/geoglifos/GEOGLIFO-edo-Carabobo.jpg",
+            14: "img/representaciones/micropetroglifo/MICROPETROGLIFOS-Sn-Pablo-edo-Carabobo.jpg"
+
+        },
+        "zoom" : {
+            1 : "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero_zoom.jpg",
+            2 : "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera_zoom.jpg",
+            3 : "img/vistas/info_representaciones/3-MM-DOLMEN_zoom.jpg",
+            4 : "img/vistas/info_representaciones/3-MM-MENHIRES_zoom.jpg",
+            5 : "img/vistas/info_representaciones/3-MM-MONOLITOS_zoom.jpg",
+            6 : "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas_zoom.jpg",
+            7 : "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo_zoom.jpg",
+            8 : "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas_zoom.jpg",
+            9 : "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas_zoom.jpg",
+            10 : "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas_zoom.jpg",
+            11 : "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas_zoom.jpg",
+            12 : "img/vistas/info_representaciones/6-ESFERAS-LITICAS_zoom.jpg",
+            13 : "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo_zoom.jpg",
+            14 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo_zoom.jpg"
+        }
+
+    },
+    "en":{
+        "fondos" :{
+            "portada" : "img/vistas/pantalla_portada_e.png",
+            "indice"  : "img/vistas/indice_e.png",
+            "presentacion" : "img/vistas/Presentacion_e.png",
+            "instrucciones" : "img/vistas/Instrucciones_e.png",
+            "seleccionar" : "img/vistas/pantalla_tipo_manifestacion_e.png",
+            "salir" : "img/vistas/pantalla_salir_e.jpg",
+            "creditos" : "img/vistas/CREDITOS_e.png",
+            "tablero" : "img/vistas/tablero_juego_e.jpg"
+        },
+        "info" : {
+            1: "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero_e.jpg",
+            2: "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera_e.jpg",
+            3: "img/vistas/info_representaciones/3-MM-DOLMEN_e.jpg",
+            4: "img/vistas/info_representaciones/3-MM-MENHIRES_e.jpg",
+            5: "img/vistas/info_representaciones/3-MM-MONOLITOS_e.jpg",
+            6: "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas_e.jpg",
+            7: "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo_e.jpg",
+            8: "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas_e.jpg",
+            9: "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas_e.jpg",
+            10: "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas_e.jpg",
+            11: "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas_e.jpg",
+            12: "img/vistas/info_representaciones/6-ESFERAS-LITICAS_e.jpg",
+            13: "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo_e.jpg",
+            14: "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo_e.jpg"
+        },
+        "mapa" : {
+            1 : "img/mapas/5-Mapa-ampliado-con-estados-PETROGLIFOS_e.png",
+            2 : "img/mapas/4-Mapa-ampliado-con-estados-PR_e.png",
+            3 : "img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas_e.png",
+            4 : "img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas_e.png",
+            5 : "img/mapas/3-Mapa ampliado-mONUMENTOS-MEGALITICOS-DOLMEN-MENHIRES-MONOLITOS-Pintao-edo-Amazonas_e.png",
+            6 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS_e.png",
+            7 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS_e.png",
+            8 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS_e.png",
+            9 : "img/mapas/1-Mapa-ampliado-con-estados-AMOLADORES-CUPULAS-PTOS-ACOPLADOS-BATEAS_e.png",
+            10 : "img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES_e.png",
+            11 : "img/mapas/2-Mapa-ampliado-con-estados-PIEDRAS-y-CERROS-MITICOS-NATURALES_e.png",
+            12 : "img/mapas/6-Mapa-ampliado-ESFERAS-LITICAS_e.png",
+            13 : "img/mapas/7-Mapa-ampliado-con-estado-GEOGLIFO_e.png",
+            14 : "img/mapas/8-Mapa-ampliado-con-estados-MICROPETROGLIFOS_e.png"
+        },
+        "tablero" : {
+            1: "img/representaciones/petroglifos/petroglifo.png",
+            2: "img/representaciones/pinturas_rupestres/PR-Cueva-del-Carmen-edo-Bolivar.jpg",
+            3: "img/representaciones/dolmen/DOLMEN-PINTAO-Edo-Amazonas.jpg",
+            4: "img/representaciones/menhires/MM-MENHIRES.jpg",
+            5: "img/representaciones/monolitos/MM-MONOLITOS-Rio-Vigirima-edo-Carabobo.jpg",
+            6: "img/representaciones/amolador/AMOLADORES-Sto-Rosario-de-Agua-Linda.jpg",
+            7: "img/representaciones/cupula/CUPULAS-Mariara-edo-Carabobo.jpg",
+            8: "img/representaciones/batea/BATEA-Laja-de-Tigre-Rio-Ocamo-edo-Amazonas.jpg",
+            9: "img/representaciones/puntos_acoplados/PUNTOS-ACOPLADOS.jpg",
+            10: "img/representaciones/piedras_miticas/PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas.jpg",
+            11: "img/representaciones/cerro_mitico/CERRO-MITICO-NATURAL-Cerro-AUTANA.jpg",
+            12: "img/representaciones/esfera_litica/Esfera-litica-edo-Anzoategui.jpg",
+            13: "img/representaciones/geoglifos/GEOGLIFO-edo-Carabobo.jpg",
+            14: "img/representaciones/micropetroglifo/MICROPETROGLIFOS-Sn-Pablo-edo-Carabobo.jpg"
+        },
+        "zoom" : {
+            1 : "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero_zoom_e.jpg",
+            2 : "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera_zoom_e.jpg",
+            3 : "img/vistas/info_representaciones/3-MM-DOLMEN_zoom_e.jpg",
+            4 : "img/vistas/info_representaciones/3-MM-MENHIRES_zoom_e.jpg",
+            5 : "img/vistas/info_representaciones/3-MM-MONOLITOS_zoom_e.jpg",
+            6 : "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas_zoom_e.jpg",
+            7 : "img/vistas/info_representaciones/1-CUPULAS-Mariara-edo-Carabobo_zoom_e.jpg",
+            8 : "img/vistas/info_representaciones/1-BATEA-Laja_de_Tigre-rio_Ocamo-Amazonas_zoom_e.jpg",
+            9 : "img/vistas/info_representaciones/1-PUNTOS_ACOPLADOS-Atures-Amazonas_zoom_e.jpg",
+            10 : "img/vistas/info_representaciones/2-PIEDRA-MITICA-NATURAL-Olla-de-Napiruli-edo-Amazonas_zoom_e.jpg",
+            11 : "img/vistas/info_representaciones/2-CERROS-MITICOS-NATURALES-Cerro-Autana-edo-Amazonas_zoom_e.jpg",
+            12 : "img/vistas/info_representaciones/6-ESFERAS-LITICAS_zoom_e.jpg",
+            13 : "img/vistas/info_representaciones/7-GEOGLIFO-Chirgua-estado-Carabobo_zoom_e.jpg",
+            14 : "img/vistas/info_representaciones/8-MICROPETRGLIFOS-San-Pablo-Carabobo_zoom_e.jpg"
+        }
+
+    }
+}
+
+
 /*
 Posiciones sugeridas para la blanca
 0 1 2
