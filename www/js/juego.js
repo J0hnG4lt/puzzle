@@ -315,7 +315,7 @@ function posicionBlanca(){
 
 //Cuando el usuario comienza a tocar la pantalla 
 document.addEventListener('touchstart', function(event){
-    
+    imageMapResize();
     //Se guardan las coordenadas de la posición tocada
     startX = event.touches[0].pageX;
     startY = event.touches[0].pageY;

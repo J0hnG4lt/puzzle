@@ -109,6 +109,8 @@ function seleccionarImagen(numeroImagen){
 function seleccionarDimension(x,y){
     dimension_x = parseInt(x,10);
     dimension_y = parseInt(y,10);
+    resaltarDimension(dimension_x);
+
     if ((dimension_x === 3) && (dimension_y === 3)){
         diccionario_posicion_blanca = diccionario_blancas_tipos_3x3[tipoRepresentacion];
     }
@@ -121,6 +123,16 @@ function seleccionarDimension(x,y){
     
 }
 
+function resaltarDimension(dim){
+        var dimen = "#di"+dim;
+        var coords = $(dimen).attr("coords");
+        var coordenadas = coords.split(",");
+        console.log(dim);
+        $("#area_inter").css("left", coordenadas[0]+"px");
+        $("#area_inter").css("top", coordenadas[1]+"px");
+        $("#area_inter").css("display", "block");
+
+}
 
 // /*
 // * Resalta las áreas interactivas seleccionadas por el usuario
@@ -191,18 +203,12 @@ function seleccionarTipoRepresentacion(numeroTipoRepresentacionSeleccionada){
 // */
 function verMapaDeTipoRepresentacion(){
     var url_mapa = diccionario_vistas[idioma]["mapa"][tipoRepresentacion];
-    if (idioma==="es"){
-        $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
-                                width='100%' height='auto'\
-                                style='position:absolute; top: 25%; left: 0;'\
-                                >");
-    }
-    else{
-        $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
-                                width='100%' height='auto'\
-                                style='position:absolute; top: 0%; left: 0;'\
-                                >");
-    }
+
+    $("#vista-mapa").append("<img id='imagen_mapa' src='"+url_mapa+"' \
+                            width='100%' height='auto'\
+                            style='position:absolute; top: 25%; left: 0;'\
+                            >");
+
     
     ocultarVistas();
     $("#vista-mapa").css("display","block");
@@ -326,10 +332,12 @@ function verIndice(){
         imagenResize = true;
         
     }
+    resaltarDimension(dimX);
 }
 
 function cerrarIndice(){
     $("#vista-indice").css("display", "none");
+
 }
 
 function verCreditos(){

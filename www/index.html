@@ -64,9 +64,9 @@
               <area shape="rect" coords="92,408,290,435" onclick="cerrarIndice();verPresentacion();"/>
               <area shape="rect" coords="93,436,290,458" onclick="cerrarIndice();verInstrucciones();"/>
               <area shape="rect" coords="94,460,291,478" onclick="cerrarIndice();mostrarTipoRepresentacion();"/>
-              <area shape="rect" coords="92,481,291,502" onclick="seleccionarDimension(3,3);"/>
-              <area shape="rect" coords="93,505,291,527" onclick="seleccionarDimension(4,4);"/>
-              <area shape="rect" coords="94,530,291,556" onclick="seleccionarDimension(6,6);"/>
+              <area id="di3" shape="rect" coords="92,481,291,502" onclick="seleccionarDimension(3,3);"/>
+              <area id="di4" shape="rect" coords="93,505,291,527" onclick="seleccionarDimension(4,4);"/>
+              <area id="di6" shape="rect" coords="94,530,291,556" onclick="seleccionarDimension(6,6);"/>
               <area shape="rect" coords="94,560,291,580" onclick="cargarUltimoJuegoGuardado();"/>
               <area shape="rect" coords="93,581,291,601" onclick="cerrarIndice();verCreditos();"/>
               <area shape="rect" coords="94,604,291,629" onclick="cerrarIndice();verPantallaSalir();"/>
@@ -84,7 +84,7 @@
                       left: 79%; 
                       top: 0%;"></a>
 
-            
+    <div id="area_inter"></div>
     </div>
 
 
@@ -289,7 +289,7 @@
         <div id="puzzles-deslizantes-educativos-header-juego"
              style="width:100%; height:10%; overflow:hidden; position:relative">
 
-            <a onclick="verIndice();" 
+            <a onclick="verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:100%; 

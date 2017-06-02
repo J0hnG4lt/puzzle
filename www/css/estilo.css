@@ -92,3 +92,15 @@ header p{
     font-size: 150%;
     
 }
+
+#area_inter {
+    display: none;
+    position: absolute;;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+    background-color: white;
+    opacity: 0.5;
+}
