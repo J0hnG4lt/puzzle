@@ -314,6 +314,7 @@ function mostrarInfoZoom(){
 
 var imagenResize = false;
 function verIndice(){
+    $('#area_inter').css('display', 'none');
     ocultarVistas();
     $("#vista-indice").css("display", "block");
     if (!imagenResize){

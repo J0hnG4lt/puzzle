@@ -26,7 +26,7 @@
             <img src="img/vistas/pantalla_portada.jpg" alt="icon"
                  width="100%" height="100%"
                  style="position:absolute; top: 0; left: 0;" />
-            <a onclick="cerrarPortada();verIndice();" 
+            <a onclick="cerrarPortada();verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:20%; 
@@ -99,7 +99,7 @@
                       position:absolute; 
                       left: 75%; 
                       top: 80%;"></a>
-            <a onclick="cerrarPresentacion();verIndice();" 
+            <a onclick="cerrarPresentacion();verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:9%; 
@@ -119,7 +119,7 @@
                       position:absolute; 
                       left: 75%; 
                       top: 80%;"></a>
-            <a onclick="cerrarPresentacion();verIndice();" 
+            <a onclick="cerrarPresentacion();verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:9%; 
@@ -181,7 +181,7 @@
                style="display:block; width:56%; height:4%; position:absolute; left: 23%; top: 82%;"
                onclick="seleccionarTipoRepresentacion(14);mostrarImagenInfo();"></a>
                
-            <a onclick="cerrarPresentacion();verIndice();" 
+            <a onclick="cerrarPresentacion();verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:9%; 
@@ -243,7 +243,7 @@
                style="display:block; width:25%; height:10%; position:absolute; left: 5%; top: 9%;"
                onclick="verMapaDeTipoRepresentacion();"></a>
 
-            <a onclick="cerrarPresentacion();verIndice();" 
+            <a onclick="cerrarPresentacion();verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:9%; 
@@ -413,9 +413,9 @@
                background-image:url('img/vistas/pantalla_salir.jpg');
                background-size: 100% 100%">
             
-            <a style="display:block; width:20%; height:20%; position:absolute; left: 25%; top: 40%;"
-               onclick="cerrarPantallaSalir();mostrarVistaAnterior();"></a> 
-            <a style="display:block; width:20%; height:20%; position:absolute; left: 55%; top: 40%;"
+            <a style="display:block; width:50%; height:40%; position:absolute; left: 0%; top: 40%;"
+               onclick="cerrarPantallaSalir();verIndice();$('#area_inter').css('display', 'none');"></a> 
+            <a style="display:block; width:50%; height:40%; position:absolute; left: 50%; top: 40%;"
                onclick="salirDeLaAplicacion();"></a> 
         
     </div>
@@ -426,7 +426,7 @@
                background-repeat: no-repeat;
                background-image:url('img/vistas/CREDITOS.png');
                background-size: 100% 100%">
-            <a onclick="cerrarCreditos();verIndice();" 
+            <a onclick="cerrarCreditos();verIndice();$('#area_inter').css('display', 'none');" 
                style="display:block; 
                       width:20%; 
                       height:9%; 
