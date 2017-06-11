@@ -104,3 +104,25 @@ header p{
     background-color: white;
     opacity: 0.5;
 }
+
+
+/*Vista del Menu Principal*/
+#vista-indice {
+    height: 100%; 
+    width: 80%; 
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#vista-indice a {
+    z-index: 2;
+}
+
+#vista-indice .closebtn {
+    position: absolute;
+    top: 0;
+}

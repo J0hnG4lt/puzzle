@@ -215,11 +215,11 @@ var diccionario_info_zoom = {
 var diccionario_vistas = {
     "es":{
         "fondos":{
-            "portada" : "img/vistas/pantalla_portada.jpg",
+            "portada" : "img/vistas/pantalla_portada.png",
             "indice"  : "img/vistas/indice.png",
-            "presentacion" : "img/vistas/Presentacion.jpg",
-            "instrucciones" : "img/vistas/Instrucciones.jpg",
-            "seleccionar" : "img/vistas/pantalla_tipo_manifestacion.jpg",
+            "presentacion" : "img/vistas/Presentacion.png",
+            "instrucciones" : "img/vistas/Instrucciones.png",
+            "seleccionar" : "img/vistas/pantalla_tipo_manifestacion.png",
             "salir" : "img/vistas/pantalla_salir.jpg",
             "creditos" : "img/vistas/CREDITOS.png",
             "tablero" : "img/vistas/tablero_juego.jpg"
@@ -227,7 +227,7 @@ var diccionario_vistas = {
         "info" : {
             1: "img/vistas/info_representaciones/5-Petroglifo-Rancho-505-estado-Zulia-entero.jpg",
             2: "img/vistas/info_representaciones/4-PR-Cueva-del-Carmen-Bolivar-Entera.jpg",
-            3: "img/vistas/info_representaciones/3-MM-DOLMEN.jpg",
+            3: "img/vistas/info_representaciones/3-MM-DOLMEN.png",
             4: "img/vistas/info_representaciones/3-MM-MENHIRES.jpg",
             5: "img/vistas/info_representaciones/3-MM-MONOLITOS.jpg",
             6: "img/vistas/info_representaciones/1-AMOLADORES---Salto-Paru--Amazonas.jpg",

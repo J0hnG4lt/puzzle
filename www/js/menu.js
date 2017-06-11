@@ -20,9 +20,9 @@ $(document).ready(function(){
     //setTimeout(function(){
     //            cerrarPortada();
     //            },20000);
-    imageMapResize();
+    //imageMapResize();
     //$('map').imageMapResize();
-    $("#my_image").css({"width":"100%","height":"100%"});
+    //$("#my_image").css({"width":"100%","height":"100%"});
 
 
 
@@ -124,12 +124,13 @@ function seleccionarDimension(x,y){
 }
 
 function resaltarDimension(dim){
-        var dimen = "#di"+dim;
-        var coords = $(dimen).attr("coords");
-        var coordenadas = coords.split(",");
+        var dimen = "#dim"+dim;
+        var top = $(dimen).css("top");
+        console.log(top);
+        var left = $(dimen).css("left");
         console.log(dim);
-        $("#area_inter").css("left", coordenadas[0]+"px");
-        $("#area_inter").css("top", coordenadas[1]+"px");
+        $("#area_inter").css("left", left);
+        $("#area_inter").css("top", top);
         $("#area_inter").css("display", "block");
 
 }
@@ -314,9 +315,12 @@ function mostrarInfoZoom(){
 
 var imagenResize = false;
 function verIndice(){
-    $('#area_inter').css('display', 'none');
-    ocultarVistas();
+    //
+    //$('#area_inter').css('display', 'none');
+    //ocultarVistas();
     $("#vista-indice").css("display", "block");
+    $("#vista-indice").animate({"width": "80%"},100);
+    /*
     if (!imagenResize){
         $("map area").each(function(x){
             var imagen = document.querySelector('img[usemap="#fondo_indice'+'"]');
@@ -333,12 +337,12 @@ function verIndice(){
         imagenResize = true;
         
     }
-    resaltarDimension(dimX);
+    */
+    //resaltarDimension(dimX);
 }
 
 function cerrarIndice(){
-    $("#vista-indice").css("display", "none");
-
+    $("#vista-indice").animate({"width": "0%","display":"none"},100);
 }
 
 function verCreditos(){
